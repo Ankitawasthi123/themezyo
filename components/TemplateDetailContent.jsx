@@ -141,6 +141,21 @@ export default function TemplateDetailContent({ template }) {
                     {t('common.requestPaidSupport')}
                   </Link>
 
+                  <div className="mt-6 rounded-xl border border-indigo-100 bg-indigo-50 p-5">
+                    <h3 className="text-lg font-bold text-gray-900">{t('detail.frameworkTitle')}</h3>
+                    <p className="mt-2 text-sm leading-6 text-gray-700">{t('detail.frameworkText')}</p>
+                    <div className="mt-4 grid grid-cols-3 gap-2">
+                      {['React', 'Angular', 'Vue.js'].map((framework) => (
+                        <div key={framework} className="rounded-lg bg-white px-3 py-2 text-center text-xs font-bold text-indigo-700 shadow-sm">
+                          {framework}
+                        </div>
+                      ))}
+                    </div>
+                    <Link href="/contact" className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-indigo-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-indigo-700">
+                      {t('detail.frameworkButton')}
+                    </Link>
+                  </div>
+
                   <div className="mt-6 rounded-xl border-2 border-amber-300 bg-amber-50 p-6 text-center shadow-sm">
                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-500 text-white shadow-md">
                       <svg className="h-9 w-9" viewBox="0 0 24 24" fill="none" aria-hidden="true">

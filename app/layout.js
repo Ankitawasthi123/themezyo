@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import { I18nProvider } from '../components/I18nProvider'
 
 export const metadata = {
-  title: 'Templix - AI-Based Ideas',
+  title: 'Themezyo - AI-Based Ideas',
   description: 'Discover AI-based business, content, product, and launch ideas for creators, founders, teams, and agencies.'
 }
 

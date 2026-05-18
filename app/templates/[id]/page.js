@@ -3,7 +3,7 @@ import TemplateDetailContent from '../../../components/TemplateDetailContent'
 import { getTemplateById, templates } from '../../../data/templates'
 
 export const metadata = {
-  title: 'AI Idea Details - Templix',
+  title: 'AI Idea Details - Themezyo',
   description: 'View AI idea details and preview'
 }
 

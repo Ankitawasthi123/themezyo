@@ -1,5 +1,60 @@
 export const templates = [
   {
+    id: 'nexora',
+    title: 'Nexora',
+    category: 'Social Media',
+    price: 'Free',
+    rating: 4.8,
+    reviews: 205,
+    color: '#0067b8',
+    layoutType: 'Social AI network HTML template',
+    hero: {
+      tagline: 'Social AI network',
+      headline: 'Launch a modern social platform experience',
+      subtext:
+        'A multi-page social network template with feeds, creator discovery, AI studio tools, shorts, messages, notifications, profile, auth, and settings screens.',
+    },
+    thumbnail: '/templates/nexora/screenshots/home.svg',
+    images: [
+      '/templates/nexora/screenshots/home.svg',
+      '/templates/nexora/screenshots/explore.svg',
+      '/templates/nexora/screenshots/studio.svg',
+    ],
+    summary:
+      'Nexora is a social AI network template for creator communities, content platforms, social dashboards, and AI-assisted posting products.',
+    sections: [
+      'Social feed homepage',
+      'Explore, shorts, and creator discovery pages',
+      'AI studio and create post screens',
+      'Messages, notifications, profile, and settings',
+      'Login and signup pages',
+      'Responsive Tailwind CDN layout',
+    ],
+    stats: [
+      { label: 'Pages', value: '11' },
+      { label: 'Screenshots', value: '3' },
+      { label: 'Format', value: 'HTML' },
+    ],
+    sourceText:
+      'Source files are included from A:\\templates\\social\\nexora\\html, with all Nexora HTML pages, shared CSS, preview screenshots, and downloadable zip.',
+    format: 'HTML, Tailwind CSS CDN',
+    updated: 'May 2026',
+    support: 'Paid, based on idea and work',
+    zipPath: '/templates/nexora.zip',
+    previewPath: '/templates/nexora/html/index.html',
+    description:
+      'A social AI network HTML template with feed, explore, create post, AI studio, shorts, messages, notifications, profile, settings, login, and signup pages.',
+    features: [
+      'Social feed homepage',
+      'Explore page',
+      'AI studio page',
+      'Shorts and messages',
+      'Profile and settings',
+      'Included screenshots',
+    ],
+    includes: ['HTML files', 'Shared CSS file', 'SVG preview screenshots', 'Zip download'],
+  },
+  {
     id: 'aiflow',
     title: 'AIFlow',
     category: 'SaaS',

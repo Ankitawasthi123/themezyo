@@ -10,7 +10,11 @@ export default function Footer(){
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start gap-6">
           <div>
-            <div className="text-2xl font-bold text-purple-600">Templix</div>
+            <img
+              src="/brand/themezyo-logo.png"
+              alt="Themezyo"
+              className="h-16 w-auto max-w-[220px] object-contain"
+            />
             <p className="mt-2 text-sm text-gray-600 max-w-md">{t('footer.tagline')}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -43,7 +47,7 @@ export default function Footer(){
         </div>
         <div className="mt-10 text-sm text-gray-500 border-t pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <div>&copy; 2026 Templix. {t('footer.rights')}</div>
+            <div>&copy; 2026 Themezyo. {t('footer.rights')}</div>
             <div className="flex gap-4">
               <Link href="/help" className="hover:text-indigo-600">{t('footer.privacy')}</Link>
               <Link href="/help" className="hover:text-indigo-600">{t('footer.terms')}</Link>

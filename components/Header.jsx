@@ -19,8 +19,11 @@ export default function Header() {
         <div className="flex justify-between items-center py-5 md:py-6">
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-500 via-pink-500 to-orange-400 flex items-center justify-center text-white font-bold text-sm">T</div>
-              <span className="hidden sm:inline text-xl font-semibold text-gray-900">Templix</span>
+              <img
+                src="/brand/themezyo-logo.png"
+                alt="Themezyo"
+                className="h-12 w-auto max-w-[180px] object-contain"
+              />
             </Link>
 
             <nav className="hidden lg:flex gap-6 text-sm text-gray-600">

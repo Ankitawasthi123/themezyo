@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="80" y="110" fill="#2b2f38" font-family="Arial, sans-serif" font-size="52" font-weight="900">Explore creators and trends</text>
+  <rect x="80" y="165" width="1040" height="58" rx="14" fill="#ffffff" stroke="#d8dde3"/>
+  <g fill="#eef5fb" stroke="#d7dce2">
+    <rect x="80" y="270" width="310" height="170" rx="24"/>
+    <rect x="445" y="270" width="310" height="170" rx="24"/>
+    <rect x="810" y="270" width="310" height="170" rx="24"/>
+    <rect x="80" y="485" width="310" height="170" rx="24"/>
+    <rect x="445" y="485" width="310" height="170" rx="24"/>
+    <rect x="810" y="485" width="310" height="170" rx="24"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-weight="900" font-size="28" fill="#0067b8">
+    <text x="120" y="350">AI Art</text>
+    <text x="485" y="350">Travel</text>
+    <text x="850" y="350">Future Tech</text>
+    <text x="120" y="565">Creator Tips</text>
+    <text x="485" y="565">Shorts</text>
+    <text x="850" y="565">Live Rooms</text>
+  </g>
+</svg>
