@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIFlow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0f1533',
+            muted: '#6f7690',
+            violet: '#6338f4',
+            violetDark: '#4a20dd'
+          },
+          boxShadow: {
+            soft: '0 20px 60px rgba(52, 42, 115, 0.10)',
+            card: '0 12px 35px rgba(35, 42, 92, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #0f1533;
+      background: #ffffff;
+    }
+    .grid-bg {
+      background-image:
+        radial-gradient(circle at top left, rgba(99, 56, 244, .13), transparent 32%),
+        linear-gradient(180deg, #fbfcff 0%, #ffffff 62%);
+    }
+    .sparkline {
+      background:
+        linear-gradient(135deg, rgba(99, 56, 244, .08), rgba(30, 188, 180, .10)),
+        url("data:image/svg+xml,%3Csvg width='170' height='50' viewBox='0 0 170 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 36 C20 30 23 28 36 34 S58 38 72 26 S91 31 106 22 S132 19 141 10 S156 20 168 6' fill='none' stroke='%236338f4' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-position: center bottom;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .bar-bg {
+      background-image: linear-gradient(180deg, rgba(99, 56, 244, .16), rgba(99, 56, 244, 0));
+    }
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-50 border-b border-slate-100/80 bg-white/90 backdrop-blur">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3 font-bold text-xl">
+        <span class="grid h-10 w-10 place-items-center rounded-full bg-violet text-white shadow-lg shadow-violet/30">✣</span>
+        AIFlow
+      </a>
+      <div class="hidden items-center gap-12 text-sm font-semibold text-ink lg:flex">
+        <a href="dashboard.html">Product ˅</a>
+        <a href="#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="docs.html">Docs</a>
+        <a href="blog.html">Resources ˅</a>
+      </div>
+      <div class="flex items-center gap-4 text-sm font-semibold">
+        <a href="login.html" class="hidden sm:block">Log in</a>
+        <a href="pricing.html" class="rounded-md bg-violet px-5 py-3 text-white shadow-lg shadow-violet/25 transition hover:bg-violetDark">Start Free Trial</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="grid-bg border-b border-slate-100">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-[.9fr_1.1fr] lg:px-8 lg:py-24">
+        <div>
+          <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-violet/10 bg-white px-4 py-2 text-sm font-semibold text-ink shadow-sm">
+            <span class="text-violet">✦ New</span>
+            <span>AIFlow 2.0 is now available</span>
+            <span>→</span>
+          </div>
+          <h1 class="max-w-2xl text-5xl font-extrabold leading-tight tracking-normal text-ink md:text-6xl">
+            Build AI-Powered Products <span class="text-violet">Faster</span>
+          </h1>
+          <p class="mt-7 max-w-xl text-lg leading-8 text-slate-700">
+            All-in-one platform to build, test and scale AI applications with powerful models, tools and analytics.
+          </p>
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="pricing.html" class="rounded-md bg-violet px-8 py-4 text-center font-bold text-white shadow-xl shadow-violet/25">Start Free Trial →</a>
+            <a href="contact.html" class="rounded-md border border-slate-300 bg-white px-8 py-4 text-center font-bold text-violet">Book a Demo</a>
+          </div>
+          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm font-medium text-slate-600">
+            <span>● No credit card required</span>
+            <span>● 7-day free trial</span>
+            <span>● Cancel anytime</span>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img
+            src="assets/hero-dashboard.png"
+            alt="AIFlow analytics dashboard preview"
+            class="w-full rounded-xl border border-slate-100 bg-white shadow-soft"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="border-b border-slate-100 bg-slate-50/70 py-6">
+      <p class="text-center text-sm font-extrabold uppercase tracking-[.18em]">Trusted by innovative companies</p>
+      <div class="mx-auto mt-6 grid max-w-6xl grid-cols-2 items-center gap-8 px-6 text-center text-2xl font-bold text-slate-700 md:grid-cols-6">
+        <span class="text-[#737373]">▦ Microsoft</span>
+        <span class="text-[#4285f4]">Google</span>
+        <span class="text-black">aws</span>
+        <span class="text-black">▲ Vercel</span>
+        <span class="text-black">▣ Notion</span>
+        <span class="text-[#635bff]">stripe</span>
+      </div>
+    </section>
+
+    <section id="features" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <div>
+          <p class="text-sm font-extrabold uppercase text-violet">Features</p>
+          <h2 class="mt-4 max-w-md text-4xl font-extrabold leading-tight">Everything you need to build with AI</h2>
+        </div>
+        <p class="max-w-md self-end text-slate-600 lg:justify-self-center">Powerful features to streamline your workflow from development to production.</p>
+      </div>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <article class="rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="mb-6 grid h-14 w-14 place-items-center rounded-md bg-violet/10 text-3xl text-violet">ϟ</div>
+          <h3 class="font-extrabold">AI Playground</h3>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Test prompts, compare models and fine-tune responses in real-time.</p>
+          <a class="mt-6 inline-block text-sm font-bold text-violet" href="playground.html">Learn more →</a>
+        </article>
+        <article class="rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="mb-6 grid h-14 w-14 place-items-center rounded-md bg-emerald-100 text-3xl text-emerald-500">◇</div>
+          <h3 class="font-extrabold">Pre-built Templates</h3>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Kickstart your project with production-ready AI templates.</p>
+          <a class="mt-6 inline-block text-sm font-bold text-violet" href="templates.html">Learn more →</a>
+        </article>
+        <article class="rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="mb-6 grid h-14 w-14 place-items-center rounded-md bg-blue-100 text-3xl text-blue-500">♢</div>
+          <h3 class="font-extrabold">Secure & Scalable</h3>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Enterprise-grade security with scalable infrastructure you can rely on.</p>
+          <a class="mt-6 inline-block text-sm font-bold text-violet" href="docs.html">Learn more →</a>
+        </article>
+        <article class="rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="mb-6 grid h-14 w-14 place-items-center rounded-md bg-amber-100 text-3xl text-amber-500">▥</div>
+          <h3 class="font-extrabold">Advanced Analytics</h3>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Track usage, latency, tokens and performance with detailed analytics.</p>
+          <a class="mt-6 inline-block text-sm font-bold text-violet" href="dashboard.html">Learn more →</a>
+        </article>
+        <article class="rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="mb-6 grid h-14 w-14 place-items-center rounded-md bg-pink-100 text-3xl text-pink-500">✣</div>
+          <h3 class="font-extrabold">Easy Integrations</h3>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Seamlessly integrate with your favorite tools and platforms.</p>
+          <a class="mt-6 inline-block text-sm font-bold text-violet" href="ai-tools.html">Learn more →</a>
+        </article>
+        <article class="rounded-lg border border-slate-200 p-6 shadow-sm">
+          <div class="mb-6 grid h-14 w-14 place-items-center rounded-md bg-cyan-100 text-3xl text-cyan-500">☊</div>
+          <h3 class="font-extrabold">24/7 Support</h3>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Our team is here to help you at every step of your AI journey.</p>
+          <a class="mt-6 inline-block text-sm font-bold text-violet" href="contact.html">Learn more →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="mx-auto grid max-w-7xl gap-10 px-6 py-8 lg:grid-cols-[.7fr_1.5fr] lg:px-8">
+      <div>
+        <p class="text-sm font-extrabold uppercase text-violet">How it works</p>
+        <h2 class="mt-4 text-4xl font-extrabold leading-tight">Get started in <span class="text-violet">3 simple steps</span></h2>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="rounded-lg bg-violet/5 p-8">
+          <div class="mb-5 grid h-16 w-16 place-items-center rounded-md bg-white text-3xl text-violet shadow-sm">♙</div>
+          <p class="text-violet font-extrabold">01</p>
+          <h3 class="mt-4 font-extrabold">Create Account</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-600">Sign up in seconds and get instant access to AIFlow.</p>
+        </div>
+        <div class="rounded-lg bg-emerald-50 p-8">
+          <div class="mb-5 grid h-16 w-16 place-items-center rounded-md bg-white text-3xl text-emerald-500 shadow-sm">▷</div>
+          <p class="text-violet font-extrabold">02</p>
+          <h3 class="mt-4 font-extrabold">Build & Test</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-600">Use our playground and tools to build and test your AI solution.</p>
+        </div>
+        <div class="rounded-lg bg-blue-50 p-8">
+          <div class="mb-5 grid h-16 w-16 place-items-center rounded-md bg-white text-3xl text-blue-500 shadow-sm">✈</div>
+          <p class="text-violet font-extrabold">03</p>
+          <h3 class="mt-4 font-extrabold">Deploy & Scale</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-600">Deploy your app to production and scale with confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div class="mb-8 grid items-end gap-6 lg:grid-cols-[1fr_auto_1fr]">
+        <div>
+          <p class="text-sm font-extrabold uppercase text-violet">Pricing</p>
+          <h2 class="mt-4 max-w-sm text-4xl font-extrabold leading-tight">Simple, transparent pricing</h2>
+        </div>
+        <div class="flex items-center justify-center gap-3 text-sm font-bold">
+          Monthly <span class="h-8 w-14 rounded-full bg-violet p-1"><span class="block h-6 w-6 translate-x-6 rounded-full bg-white"></span></span> Yearly
+          <span class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-600">Save 20%</span>
+        </div>
+      </div>
+      <div class="grid gap-5 lg:grid-cols-4">
+        <div class="rounded-lg border border-slate-200 p-8">
+          <h3 class="text-xl font-extrabold">Free</h3>
+          <p class="mt-2 text-sm text-slate-600">For hobby projects</p>
+          <p class="mt-8 text-4xl font-extrabold">$0</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-700">
+            <li>✓ 5,000 Tokens / month</li>
+            <li>✓ Access to GPT-3.5</li>
+            <li>✓ Basic Support</li>
+            <li>✓ Community Access</li>
+          </ul>
+          <a class="mt-8 block rounded-md border border-violet px-5 py-3 text-center font-bold text-violet" href="login.html">Get Started</a>
+        </div>
+        <div class="rounded-lg border border-slate-200 p-8">
+          <h3 class="text-xl font-extrabold">Starter</h3>
+          <p class="mt-2 text-sm text-slate-600">For individual developers</p>
+          <p class="mt-8 text-4xl font-extrabold">$19<span class="text-base font-medium text-slate-500"> /month</span></p>
+          <p class="text-sm text-slate-500">Billed yearly</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-700">
+            <li>✓ 50,000 Tokens / month</li>
+            <li>✓ Access to GPT-4o</li>
+            <li>✓ Advanced Playground</li>
+            <li>✓ Email Support</li>
+          </ul>
+          <a class="mt-8 block rounded-md border border-violet px-5 py-3 text-center font-bold text-violet" href="login.html">Start Free Trial</a>
+        </div>
+        <div class="relative rounded-lg border-2 border-violet p-8 shadow-soft">
+          <span class="absolute right-5 top-5 rounded-full bg-violet/10 px-4 py-1 text-sm font-bold text-violet">Most Popular</span>
+          <h3 class="text-xl font-extrabold">Pro</h3>
+          <p class="mt-2 text-sm text-slate-600">For growing teams</p>
+          <p class="mt-8 text-4xl font-extrabold">$49<span class="text-base font-medium text-slate-500"> /month</span></p>
+          <p class="text-sm text-slate-500">Billed yearly</p>
+          <ul class="mt-8 space-y-3 text-sm text-slate-700">
+            <li>✓ 200,000 Tokens / month</li>
+            <li>✓ Access to GPT-4o & Claude 3.5</li>
+            <li>✓ Advanced Analytics</li>
+            <li>✓ Priority Support</li>
+          </ul>
+          <a class="mt-8 block rounded-md bg-violet px-5 py-3 text-center font-bold text-white" href="login.html">Start Free Trial</a>
+        </div>
+        <div class="rounded-lg border border-slate-200 p-8">
+          <h3 class="text-xl font-extrabold">Enterprise</h3>
+          <p class="mt-2 text-sm text-slate-600">For large organizations</p>
+          <p class="mt-8 text-4xl font-extrabold">Custom</p>
+          <ul class="mt-12 space-y-3 text-sm text-slate-700">
+            <li>✓ Custom Token Limit</li>
+            <li>✓ Private Deployments</li>
+            <li>✓ SLA & Priority Support</li>
+            <li>✓ Dedicated Account Manager</li>
+          </ul>
+          <a class="mt-8 block rounded-md border border-violet px-5 py-3 text-center font-bold text-violet" href="contact.html">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 pb-10 lg:px-8">
+      <div class="flex flex-col gap-6 rounded-lg bg-violet px-8 py-8 text-white shadow-xl shadow-violet/25 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-6">
+          <span class="grid h-16 w-16 place-items-center rounded-full bg-white/15 text-3xl">✧</span>
+          <div>
+            <h2 class="text-2xl font-extrabold">Ready to build the future with AI?</h2>
+            <p class="mt-2 text-white/80">Join thousands of developers building next-generation AI products.</p>
+          </div>
+        </div>
+        <a href="pricing.html" class="rounded-md bg-white px-8 py-4 text-center font-bold text-violet">Start Free Trial →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.4fr] lg:px-8">
+    <div>
+      <div class="flex items-center gap-3 text-xl font-extrabold"><span class="grid h-10 w-10 place-items-center rounded-full bg-violet text-white">✣</span> AIFlow</div>
+      <p class="mt-5 max-w-xs leading-7 text-slate-600">The all-in-one platform for building AI-powered applications.</p>
+      <div class="mt-6 flex gap-3 text-slate-600">
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-slate-100">t</span>
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-slate-100">d</span>
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-slate-100">g</span>
+        <span class="grid h-9 w-9 place-items-center rounded-full bg-slate-100">in</span>
+      </div>
+    </div>
+    <div>
+      <h3 class="font-extrabold">Product</h3>
+      <div class="mt-5 space-y-3 text-slate-600"><p>Features</p><p>Playground</p><p>Templates</p><p>Pricing</p></div>
+    </div>
+    <div>
+      <h3 class="font-extrabold">Resources</h3>
+      <div class="mt-5 space-y-3 text-slate-600"><p>Documentation</p><p>API Reference</p><p>Blog</p><p>Changelog</p></div>
+    </div>
+    <div>
+      <h3 class="font-extrabold">Company</h3>
+      <div class="mt-5 space-y-3 text-slate-600"><p>About Us</p><p>Careers</p><p>Contact</p><p>Privacy Policy</p></div>
+    </div>
+    <div>
+      <h3 class="font-extrabold">Newsletter</h3>
+      <p class="mt-5 leading-7 text-slate-600">Stay updated with the latest news and product updates.</p>
+      <form class="mt-5 flex overflow-hidden rounded-md border border-slate-200">
+        <input class="min-w-0 flex-1 px-4 py-3 outline-none" type="email" placeholder="Enter your email" />
+        <button class="bg-violet px-5 font-bold text-white" type="button">→</button>
+      </form>
+    </div>
+    <p class="lg:col-span-5 text-center text-sm text-slate-500">© 2024 AIFlow. All rights reserved.</p>
+  </footer>
+</body>
+</html>

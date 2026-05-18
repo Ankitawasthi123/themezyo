@@ -1,182 +1,252 @@
 export const templates = [
   {
-    id: '1',
-    title: 'Agency Growth Ideas',
-    category: 'Business Ideas',
+    id: 'aiflow',
+    title: 'AIFlow',
+    category: 'SaaS',
     price: 'Free',
-    rating: 4.8,
-    reviews: 342,
-    color: '#667eea',
+    rating: 4.9,
+    reviews: 318,
+    color: '#6338f4',
+    layoutType: 'AI SaaS product HTML template',
+    hero: {
+      tagline: 'SaaS product website',
+      headline: 'Launch an AI product platform faster',
+      subtext:
+        'A complete SaaS website for AI tools, dashboards, pricing, docs, templates, authentication, and product pages.',
+    },
+    thumbnail: '/templates/aiflow/screenshots/home.png',
+    images: [
+      '/templates/aiflow/screenshots/home.png',
+      '/templates/aiflow/screenshots/dashboard.png',
+      '/templates/aiflow/screenshots/templates.png',
+      '/templates/aiflow/screenshots/playground.png',
+    ],
+    summary:
+      'AIFlow is a SaaS template for AI product platforms with landing, dashboard, tools, docs, pricing, and account pages.',
+    sections: [
+      'AI SaaS landing page',
+      'Dashboard and analytics pages',
+      'AI tools and playground screens',
+      'Pricing, docs, and blog pages',
+      'Login, profile, and template pages',
+    ],
+    stats: [
+      { label: 'Pages', value: '26' },
+      { label: 'Screenshots', value: '4' },
+      { label: 'Format', value: 'HTML' },
+    ],
+    sourceText:
+      'Source files are included from the AIFlow SaaS template folder, including dashboard imagery, HTML pages, screenshots, and zip download.',
+    format: 'HTML, Tailwind CSS CDN',
+    updated: 'May 2026',
+    support: 'Paid, based on idea and work',
+    zipPath: '/templates/aiflow.zip',
+    previewPath: '/templates/aiflow/index.html',
     description:
-      'An AI idea pack for service teams that need offers, case study angles, lead magnets, and growth campaigns.',
-    features: ['Offer prompts', 'Service angles', 'Case study ideas', 'Team positioning', 'Lead magnet concepts', 'SEO content ideas'],
-    includes: ['Idea brief', 'AI prompts', 'Execution steps', 'Validation notes'],
+      'An AI SaaS HTML template with product landing page, dashboard, tools, docs, pricing, blog, auth, and template detail screens.',
+    features: [
+      'SaaS homepage',
+      'Analytics dashboard',
+      'AI playground',
+      'Tools directory',
+      'Pricing and docs',
+      'Included screenshots',
+    ],
+    includes: ['HTML files', 'Dashboard asset', 'Preview screenshots', 'Zip download'],
   },
   {
-    id: '11',
+    id: 'pixelnovate',
     title: 'Pixelnovate',
-    category: 'Agency Ideas',
+    category: 'Digital Agency',
     price: 'Free',
     rating: 4.9,
     reviews: 412,
     color: '#5b35f5',
-    layoutType: 'AI-based digital agency idea blueprint',
+    layoutType: 'Responsive digital agency HTML template',
     hero: {
-      tagline: 'AI idea pack for digital agencies',
-      headline: 'Turn Agency Expertise Into Sellable Offers',
-      subtext: 'A practical idea pack with offer angles, service positioning, portfolio story prompts, and conversion-focused CTA ideas.',
+      tagline: 'Agency landing page',
+      headline: 'Launch a polished digital agency website',
+      subtext:
+        'A complete agency landing page with services, portfolio, testimonials, blog sections, and a template details page.',
     },
-    thumbnail: '/templates/pixelnovate/Pixelnovate-1.png',
+    thumbnail: '/templates/pixelnovate/screenshots/home.png',
     images: [
-      '/templates/pixelnovate/Pixelnovate-1.png',
-      '/templates/pixelnovate/Pixelnovate-2.png',
-      '/templates/pixelnovate/Pixelnovate-3.png',
+      '/templates/pixelnovate/screenshots/home.png',
+      '/templates/pixelnovate/screenshots/details.png',
+      '/templates/pixelnovate/thumb/Pixelnovate-1.png',
     ],
     summary:
-      'Pixelnovate is an AI-based idea pack created for digital agencies, marketing teams, and creative studios.',
+      'Pixelnovate is a clean digital agency template for studios, marketing teams, product teams, and web service businesses.',
     sections: [
-      'Offer positioning prompts for agency services',
-      'Campaign ideas for client acquisition',
-      'Portfolio storytelling angles',
-      'Trust-building testimonial prompts',
-      'Lead capture and follow-up ideas',
+      'Homepage hero and navigation',
+      'Services and portfolio sections',
+      'Client testimonials',
+      'Template details page',
+      'Responsive Tailwind CDN layout',
     ],
     stats: [
-      { label: 'Idea Angles', value: '120+' },
-      { label: 'Prompt Quality', value: '98%' },
-      { label: 'Launch Paths', value: '8+' },
+      { label: 'Pages', value: '2' },
+      { label: 'Screenshots', value: '3' },
+      { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'This idea pack gives you AI prompts, positioning angles, content hooks, and next steps for a digital agency concept.',
-    format: 'HTML, Tailwind CSS',
+      'Source files are included from the Pixelnovate HTML template folder, with image assets, thumbnail previews, and downloadable zip.',
+    format: 'HTML, Tailwind CSS CDN',
     updated: 'May 2026',
     support: 'Paid, based on idea and work',
     zipPath: '/templates/pixelnovate.zip',
     previewPath: '/templates/pixelnovate/index.html',
     description:
-      'A practical AI-powered idea pack for building and marketing a digital agency offer.',
-    features: ['AI prompt structure', 'Service positioning', 'Client proof ideas', 'Lead capture angles', 'Portfolio story ideas', 'Launch checklist'],
-    includes: ['Idea notes', 'Prompt set', 'Execution steps', 'Documentation'],
+      'A polished digital agency HTML template with landing page sections, project showcases, and conversion-focused CTAs.',
+    features: [
+      'Agency homepage',
+      'Services section',
+      'Portfolio gallery',
+      'Testimonials',
+      'Details page',
+      'Included screenshots',
+    ],
+    includes: ['HTML files', 'Image assets', 'Preview screenshots', 'Zip download'],
   },
   {
-    id: '2',
-    title: 'SaaS Idea Sprint',
-    category: 'SaaS Ideas',
-    price: 'Free',
-    rating: 4.9,
-    reviews: 286,
-    color: '#764ba2',
-    description:
-      'An AI idea sprint for SaaS founders who need product angles, positioning, proof points, and launch content.',
-    features: ['Product idea prompts', 'Feature angles', 'Customer proof ideas', 'FAQ prompts', 'Conversion CTAs', 'Launch plan'],
-    includes: ['Idea brief', 'AI prompts', 'Marketing angles', 'Validation notes'],
-  },
-  {
-    id: '3',
-    title: 'Fashion Brand Ideas',
-    category: 'E-commerce Ideas',
-    price: 'Free',
-    rating: 4.7,
-    reviews: 198,
-    color: '#f093fb',
-    description:
-      'An AI idea pack for fashion brands that need product concepts, campaign hooks, collection stories, and launch angles.',
-    features: ['Collection ideas', 'Product hooks', 'Promo angles', 'Shopping flow ideas', 'Newsletter prompts', 'Brand story'],
-    includes: ['Idea brief', 'Prompt set', 'Campaign notes', 'Documentation'],
-  },
-  {
-    id: '4',
-    title: 'Personal Brand Ideas',
-    category: 'Creator Ideas',
+    id: 'dressfit-ai',
+    title: 'DressFit AI',
+    category: 'E-commerce',
     price: 'Free',
     rating: 4.8,
-    reviews: 221,
-    color: '#4facfe',
+    reviews: 236,
+    color: '#ffc400',
+    layoutType: 'AI fashion e-commerce HTML template',
+    hero: {
+      tagline: 'Fashion storefront',
+      headline: 'Create an AI-powered outfit shopping flow',
+      subtext:
+        'A multi-page fashion shopping template with upload, product discovery, bag, checkout, tracking, and login screens.',
+    },
+    thumbnail: '/templates/dressfit-ai/screenshots/home.png',
+    images: [
+      '/templates/dressfit-ai/screenshots/home.png',
+      '/templates/dressfit-ai/screenshots/shop.png',
+      '/templates/dressfit-ai/screenshots/upload.png',
+    ],
+    summary:
+      'DressFit AI is an e-commerce template for fashion stores that want an AI stylist concept and a complete shopping journey.',
+    sections: [
+      'Homepage with AI outfit hero',
+      'Photo upload flow',
+      'Shop looks product grid',
+      'Bag, checkout, and order tracking',
+      'Login and signup screen',
+    ],
+    stats: [
+      { label: 'Pages', value: '7' },
+      { label: 'Screenshots', value: '3' },
+      { label: 'Format', value: 'HTML' },
+    ],
+    sourceText:
+      'Source files are included from the DressFit AI template folder, including product imagery, page HTML, screenshots, and zip download.',
+    format: 'HTML, Tailwind CSS CDN',
+    updated: 'May 2026',
+    support: 'Paid, based on idea and work',
+    zipPath: '/templates/dressfit-ai.zip',
+    previewPath: '/templates/dressfit-ai/html/index.html',
     description:
-      'An AI idea pack for creators who need profile angles, case study stories, proof points, and outreach hooks.',
-    features: ['Project story prompts', 'Case study ideas', 'About angles', 'Testimonial prompts', 'Contact CTA ideas', 'Positioning notes'],
-    includes: ['Idea brief', 'Prompt set', 'Story angles', 'Documentation'],
+      'A fashion e-commerce HTML template with AI outfit upload, product recommendations, cart, checkout, and tracking pages.',
+    features: [
+      'AI stylist landing page',
+      'Upload photo page',
+      'Shop looks page',
+      'Cart and checkout',
+      'Order tracking',
+      'Included screenshots',
+    ],
+    includes: ['HTML files', 'Product assets', 'Preview screenshots', 'Zip download'],
   },
   {
-    id: '5',
-    title: 'Content Engine Ideas',
-    category: 'Content Ideas',
-    price: 'Free',
-    rating: 4.6,
-    reviews: 154,
-    color: '#43e97b',
-    description:
-      'An AI idea pack for writers, creators, and teams that need content pillars, article angles, and newsletter concepts.',
-    features: ['Article ideas', 'Post outlines', 'Author positioning', 'Topic clusters', 'Newsletter prompts', 'Audience angles'],
-    includes: ['Idea brief', 'Prompt set', 'Content calendar notes', 'Documentation'],
-  },
-  {
-    id: '6',
-    title: 'Startup Launch Ideas',
-    category: 'Startup Ideas',
-    price: 'Free',
-    rating: 4.9,
-    reviews: 312,
-    color: '#fa709a',
-    description:
-      'A launch-ready AI idea pack with product storytelling, traction angles, and investor-friendly credibility ideas.',
-    features: ['Feature narrative', 'Metrics ideas', 'Team story', 'Hiring angles', 'CTA ideas', 'Launch checklist'],
-    includes: ['Idea brief', 'Prompt set', 'Pitch angles', 'Documentation'],
-  },
-  {
-    id: '7',
-    title: 'Real Estate Ideas',
-    category: 'Business Ideas',
-    price: 'Free',
-    rating: 4.7,
-    reviews: 176,
-    color: '#30cfd0',
-    description:
-      'An AI idea pack for property professionals who need listing hooks, neighborhood stories, and lead follow-up ideas.',
-    features: ['Listing hooks', 'Neighborhood angles', 'Agent positioning', 'Lead form ideas', 'Property details', 'Visual content prompts'],
-    includes: ['Idea brief', 'Prompt set', 'Lead ideas', 'Documentation'],
-  },
-  {
-    id: '8',
-    title: 'Restaurant Growth Ideas',
-    category: 'Local Business Ideas',
-    price: 'Free',
-    rating: 4.8,
-    reviews: 203,
-    color: '#a8edea',
-    description:
-      'An AI idea pack for restaurants that need menu campaigns, event hooks, reservation offers, and local content ideas.',
-    features: ['Menu campaign ideas', 'Reservation CTAs', 'Location angles', 'Gallery prompts', 'Event hooks', 'Mobile content ideas'],
-    includes: ['Idea brief', 'Prompt set', 'Local campaign notes', 'Documentation'],
-  },
-  {
-    id: '9',
-    title: 'Fitness Coach Ideas',
-    category: 'Creator Ideas',
-    price: 'Free',
-    rating: 4.7,
-    reviews: 139,
-    color: '#fed6e3',
-    description:
-      'An AI-powered idea pack for trainers and wellness pros with program concepts, proof angles, and signup hooks.',
-    features: ['Program ideas', 'Proof prompts', 'Coach positioning', 'Class content', 'Signup callouts', 'Offer structure'],
-    includes: ['Idea brief', 'Prompt set', 'Offer notes', 'Documentation'],
-  },
-  {
-    id: '10',
-    title: 'Education Product Ideas',
-    category: 'Education Ideas',
+    id: 'home-match',
+    title: 'HomeMatch AI',
+    category: 'Real Estate',
     price: 'Free',
     rating: 4.8,
-    reviews: 247,
-    color: '#ffecd2',
+    reviews: 189,
+    color: '#059447',
+    layoutType: 'AI real estate and home planning HTML template',
+    hero: {
+      tagline: 'Real estate platform',
+      headline: 'Match layouts, properties, and buyers with AI',
+      subtext:
+        'A multi-page real estate template with AI layout planning, property listings, requirements, pricing, dashboard, and auth pages.',
+    },
+    thumbnail: '/templates/home-match/screenshots/home.png',
+    images: [
+      '/templates/home-match/screenshots/home.png',
+      '/templates/home-match/screenshots/properties.png',
+      '/templates/home-match/screenshots/layout.png',
+    ],
+    summary:
+      'HomeMatch AI is a real estate template for property portals, home layout planners, and AI-assisted buyer journeys.',
+    sections: [
+      'AI home planning homepage',
+      'Requirement selection flow',
+      'Layout preview page',
+      'Property listing and detail pages',
+      'Dashboard, pricing, and auth pages',
+    ],
+    stats: [
+      { label: 'Pages', value: '9' },
+      { label: 'Screenshots', value: '3' },
+      { label: 'Format', value: 'HTML' },
+    ],
+    sourceText:
+      'Source files are included from the HomeMatch AI template folder, including property images, floor plan assets, screenshots, and zip download.',
+    format: 'HTML, Tailwind CSS CDN',
+    updated: 'May 2026',
+    support: 'Paid, based on idea and work',
+    zipPath: '/templates/home-match.zip',
+    previewPath: '/templates/home-match/html/index.html',
     description:
-      'An AI idea pack for schools, cohorts, and creators who want to package and sell learning experiences.',
-    features: ['Course concepts', 'Instructor positioning', 'Curriculum ideas', 'Student proof prompts', 'Enrollment CTAs', 'FAQ prompts'],
-    includes: ['Idea brief', 'Prompt set', 'Curriculum notes', 'Documentation'],
+      'A real estate HTML template with AI layout generation, property matching, listing pages, dashboard, pricing, and login flows.',
+    features: [
+      'AI planning homepage',
+      'Requirements flow',
+      'Layout page',
+      'Property listings',
+      'User dashboard',
+      'Included screenshots',
+    ],
+    includes: ['HTML files', 'Property assets', 'Preview screenshots', 'Zip download'],
   },
 ]
 
 export function getTemplateById(id) {
   return templates.find((template) => template.id === String(id))
+}
+
+export function getTemplatePageCount() {
+  return templates.reduce((total, template) => {
+    const pages = template.stats?.find((stat) => stat.label === 'Pages')
+    const pageCount = Number.parseInt(pages?.value, 10)
+
+    return Number.isFinite(pageCount) ? total + pageCount : total
+  }, 0)
+}
+
+export function getTemplateCategories() {
+  return templates.reduce((categories, template) => {
+    const existing = categories.find((category) => category.title === template.category)
+
+    if (existing) {
+      existing.count += 1
+      existing.templates.push(template)
+      return categories
+    }
+
+    categories.push({
+      title: template.category,
+      count: 1,
+      templates: [template],
+    })
+
+    return categories
+  }, [])
 }

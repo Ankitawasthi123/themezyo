@@ -2,11 +2,13 @@
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import { getTemplateCategories, templates } from '../../data/templates'
 import { useI18n } from '../../components/I18nProvider'
 
 export default function AboutPage(){
   const { t } = useI18n()
   const values = t('about.values')
+  const categoryCount = getTemplateCategories().length
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -28,16 +30,16 @@ export default function AboutPage(){
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl shadow-md p-8 text-center">
-                <div className="text-4xl font-bold text-indigo-600">2000+</div>
+                <div className="text-4xl font-bold text-indigo-600">{templates.length}</div>
                 <p className="mt-2 text-gray-700 font-semibold">{t('hero.templates')}</p>
               </div>
               <div className="bg-white rounded-xl shadow-md p-8 text-center">
-                <div className="text-4xl font-bold text-indigo-600">50,000+</div>
-                <p className="mt-2 text-gray-700 font-semibold">{t('about.users')}</p>
+                <div className="text-4xl font-bold text-indigo-600">{categoryCount}</div>
+                <p className="mt-2 text-gray-700 font-semibold">{t('nav.categories')}</p>
               </div>
               <div className="bg-white rounded-xl shadow-md p-8 text-center">
-                <div className="text-4xl font-bold text-indigo-600">100+</div>
-                <p className="mt-2 text-gray-700 font-semibold">{t('about.countries')}</p>
+                <div className="text-4xl font-bold text-indigo-600">Free</div>
+                <p className="mt-2 text-gray-700 font-semibold">{t('common.templates')}</p>
               </div>
             </div>
 

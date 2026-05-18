@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { templates } from '../../data/templates'
+import { getTemplateCategories, templates } from '../../data/templates'
 import { useI18n } from '../../components/I18nProvider'
 
 export default function TemplatesPage(){
   const { t } = useI18n()
+  const categories = getTemplateCategories()
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -27,11 +28,9 @@ export default function TemplatesPage(){
               />
               <select className="px-4 py-2 border rounded-lg" aria-label="Filter by category">
                 <option>{t('templatesPage.allCategories')}</option>
-                <option>{t('categories.names.business')}</option>
-                <option>{t('categories.names.ecommerce')}</option>
-                <option>{t('categories.names.saas')}</option>
-                <option>{t('categories.names.blog')}</option>
-                <option>{t('categories.names.portfolio')}</option>
+                {categories.map((category) => (
+                  <option key={category.title}>{category.title} ({category.count})</option>
+                ))}
               </select>
               <select className="px-4 py-2 border rounded-lg" aria-label="Sort ideas">
                 <option>{t('templatesPage.sortPopular')}</option>

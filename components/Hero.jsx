@@ -1,10 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import { getTemplatePageCount, templates } from '../data/templates'
 import { useI18n } from './I18nProvider'
 
 export default function Hero(){
   const { t } = useI18n()
+  const templateCount = templates.length
+  const pageCount = getTemplatePageCount()
+
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -21,31 +25,62 @@ export default function Hero(){
             </div>
 
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-gray-500">
-              <div className="flex items-center gap-3"><span className="font-semibold text-gray-900">2,000+</span> {t('hero.templates')}</div>
-              <div className="flex items-center gap-3"><span className="font-semibold text-gray-900">50,000+</span> {t('hero.customers')}</div>
+              <div className="flex items-center gap-3"><span className="font-semibold text-gray-900">{templateCount}</span> {t('hero.templates')}</div>
+              <div className="flex items-center gap-3"><span className="font-semibold text-gray-900">{pageCount}</span> HTML pages</div>
               <div className="flex items-center gap-3"><span className="font-semibold text-gray-900">{t('hero.paid')}</span> {t('hero.help')}</div>
             </div>
           </div>
 
           <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-xl">
-              <div className="absolute -left-10 -top-10 h-44 w-44 rounded-3xl bg-gradient-to-tr from-pink-300 to-purple-400 opacity-90 blur-2xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-2xl">
-                <img
-                  src="/templates/pixelnovate/Pixelnovate-1.png"
-                  alt="Pixelnovate AI idea preview"
-                  className="h-[26rem] w-full object-cover sm:h-[30rem]"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-5 text-white">
-                  <p className="text-sm font-semibold">{t('hero.preview')}</p>
-                </div>
-              </div>
-              <div className="absolute -bottom-8 right-0 grid w-full max-w-[360px] grid-cols-3 gap-3 px-3">
-                <img src="/templates/pixelnovate/Pixelnovate-2.png" alt="AI idea preview thumb" className="h-24 w-full rounded-2xl object-cover shadow-lg" />
-                <img src="/templates/pixelnovate/Pixelnovate-3.png" alt="AI idea preview thumb" className="h-24 w-full rounded-2xl object-cover shadow-lg" />
-                <div className="hidden sm:block rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-500 p-4 text-white shadow-lg">
-                  <p className="text-xs uppercase tracking-[0.2em]">{t('hero.moreShots')}</p>
-                  <p className="mt-2 text-sm font-bold">{t('hero.pixelnovate')}</p>
+            <div className="relative w-full max-w-md">
+              <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-slate-50 p-4 shadow-2xl">
+                <div className="absolute left-0 top-0 h-full w-2 bg-gradient-to-b from-indigo-500 via-fuchsia-500 to-amber-400" />
+
+                <div className="grid gap-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wide text-indigo-600">Featured template</p>
+                      <h2 className="mt-1 text-xl font-extrabold text-gray-950">AIFlow SaaS Kit</h2>
+                    </div>
+                    <Link href="/templates/aiflow" className="rounded-full bg-gray-950 px-4 py-2 text-xs font-bold text-white">
+                      View
+                    </Link>
+                  </div>
+
+                  <a href="/templates/aiflow/index.html" target="_blank" rel="noreferrer" className="group block">
+                    <div className="rounded-2xl bg-gray-950 p-2.5 shadow-xl">
+                      <div className="mb-2 flex items-center justify-between px-1">
+                        <div className="flex items-center gap-2">
+                          <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                        </div>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white/70">index.html</span>
+                      </div>
+                      <div className="overflow-hidden rounded-2xl bg-white">
+                        <img
+                          src="/templates/aiflow/screenshots/home.png"
+                          alt="AIFlow SaaS template screenshot"
+                          className="h-48 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02] sm:h-56"
+                        />
+                      </div>
+                    </div>
+                  </a>
+
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
+                      <p className="text-xl font-extrabold text-indigo-600">26</p>
+                      <p className="mt-1 text-[11px] font-semibold text-gray-500">HTML pages</p>
+                    </div>
+                    <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
+                      <p className="text-xl font-extrabold text-emerald-600">4</p>
+                      <p className="mt-1 text-[11px] font-semibold text-gray-500">Screenshots</p>
+                    </div>
+                    <div className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
+                      <p className="text-xl font-extrabold text-amber-500">Free</p>
+                      <p className="mt-1 text-[11px] font-semibold text-gray-500">Download</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
