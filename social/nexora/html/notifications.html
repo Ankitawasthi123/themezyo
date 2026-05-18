@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifications - Nexora</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="nexora.css" />
+</head>
+<body>
+  <div class="app-shell layout">
+    <aside class="hidden lg:block"><a href="index.html" class="flex items-center gap-3 text-xl font-black"><span class="brand-mark">N</span>Nexora</a><nav class="mt-8 space-y-2"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="explore.html">Explore</a><a class="nav-link" href="messages.html">Messages</a><a class="nav-link active" href="notifications.html">Notifications</a><a class="nav-link" href="profile.html">Profile</a><a class="nav-link" href="settings.html">Settings</a></nav></aside>
+    <main>
+      <header><h1 class="text-3xl font-black">Notifications</h1><p class="mt-1 text-sm muted">Keep track of activity around your posts and network.</p></header>
+      <section class="panel mt-8 p-6">
+        <div class="flex flex-wrap gap-3"><button class="chip active">All</button><button class="chip">Mentions</button><button class="chip">Comments</button><button class="chip">Followers</button></div>
+        <div class="mt-6 divide-y divide-slate-100">
+          <article class="flex items-center gap-4 py-4"><img class="avatar h-12 w-12" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=80" alt="Emma" /><div class="mr-auto"><p><b>Emma Watson</b> liked your post</p><p class="text-sm muted">2 minutes ago</p></div><img class="h-12 w-12 rounded-xl object-cover" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=96&q=80" alt="Post" /></article>
+          <article class="flex items-center gap-4 py-4"><img class="avatar h-12 w-12" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&q=80" alt="Liam" /><div class="mr-auto"><p><b>Liam Carter</b> commented on your travel post</p><p class="text-sm muted">18 minutes ago</p></div><button class="btn-secondary px-4 py-2 text-sm">Reply</button></article>
+          <article class="flex items-center gap-4 py-4"><img class="avatar h-12 w-12" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=96&q=80" alt="Olivia" /><div class="mr-auto"><p><b>Olivia Rhye</b> started following you</p><p class="text-sm muted">1 hour ago</p></div><button class="btn-primary px-4 py-2 text-sm">Follow</button></article>
+          <article class="flex items-center gap-4 py-4"><img class="avatar h-12 w-12" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=96&q=80" alt="Sophia" /><div class="mr-auto"><p><b>Sophia Bennett</b> mentioned you in a story</p><p class="text-sm muted">3 hours ago</p></div><span class="rounded-full bg-violet/10 px-3 py-1 text-sm font-bold text-violet">Mention</span></article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
