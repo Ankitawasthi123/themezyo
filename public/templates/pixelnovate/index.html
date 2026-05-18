@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en" data-theme="violet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixelnovate - Digital Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: 'rgb(var(--color-ink) / <alpha-value>)',
+              muted: 'rgb(var(--color-muted) / <alpha-value>)',
+              brand: 'rgb(var(--color-brand) / <alpha-value>)',
+              brandDark: 'rgb(var(--color-brand-dark) / <alpha-value>)',
+              line: 'rgb(var(--color-line) / <alpha-value>)',
+              page: 'rgb(var(--color-page) / <alpha-value>)',
+              surface: 'rgb(var(--color-surface) / <alpha-value>)'
+            },
+            boxShadow: {
+              soft: '0 24px 70px rgba(55, 44, 166, 0.14)',
+              card: '0 18px 45px rgba(23, 31, 67, 0.08)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root,
+      [data-theme="violet"] {
+        --color-ink: 7 18 56;
+        --color-muted: 101 112 137;
+        --color-brand: 91 53 245;
+        --color-brand-dark: 61 39 216;
+        --color-line: 223 229 242;
+        --color-page: 255 255 255;
+        --color-surface: 255 255 255;
+      }
+
+      [data-theme="ocean"] {
+        --color-ink: 4 38 54;
+        --color-muted: 78 100 117;
+        --color-brand: 0 128 157;
+        --color-brand-dark: 0 94 125;
+        --color-line: 205 225 232;
+        --color-page: 247 253 255;
+        --color-surface: 255 255 255;
+      }
+
+      [data-theme="forest"] {
+        --color-ink: 17 43 33;
+        --color-muted: 82 105 95;
+        --color-brand: 19 128 86;
+        --color-brand-dark: 11 96 65;
+        --color-line: 211 226 219;
+        --color-page: 248 252 249;
+        --color-surface: 255 255 255;
+      }
+
+      [data-theme="dark"] {
+        --color-ink: 237 242 247;
+        --color-muted: 169 181 197;
+        --color-brand: 124 92 255;
+        --color-brand-dark: 155 132 255;
+        --color-line: 50 61 82;
+        --color-page: 11 16 30;
+        --color-surface: 19 27 45;
+      }
+
+      body {
+        background: rgb(var(--color-page));
+        transition: background-color 180ms ease, color 180ms ease;
+      }
+
+      [data-theme="dark"] .bg-white {
+        background-color: rgb(var(--color-surface)) !important;
+      }
+
+      [data-theme="dark"] .border-white {
+        border-color: rgb(var(--color-surface)) !important;
+      }
+
+      .theme-button[data-active="true"] {
+        outline: 2px solid rgb(var(--color-brand));
+        outline-offset: 3px;
+      }
+    </style>
+  </head>
+  <body class="bg-page text-ink antialiased">
+    <div class="min-h-screen overflow-hidden">
+      <header class="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 lg:px-8">
+        <a href="#" class="flex items-center gap-3" aria-label="Pixelnovate home">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand to-indigo-500 text-lg font-black text-white shadow-card">P</span>
+          <span class="text-2xl font-extrabold tracking-tight">Pixelnovate</span>
+        </a>
+        <nav class="hidden items-center gap-10 text-sm font-semibold text-ink lg:flex">
+          <a class="text-brand underline underline-offset-4" href="#">Home</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#about">About Us</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="hidden items-center gap-3 sm:flex">
+          <div class="flex items-center gap-2 rounded-lg border border-line bg-white px-3 py-2" aria-label="Theme selector">
+            <button class="theme-button h-5 w-5 rounded-full bg-[#5b35f5]" type="button" data-theme-value="violet" aria-label="Violet theme"></button>
+            <button class="theme-button h-5 w-5 rounded-full bg-[#00809d]" type="button" data-theme-value="ocean" aria-label="Ocean theme"></button>
+            <button class="theme-button h-5 w-5 rounded-full bg-[#138056]" type="button" data-theme-value="forest" aria-label="Forest theme"></button>
+            <button class="theme-button h-5 w-5 rounded-full bg-[#0b101e]" type="button" data-theme-value="dark" aria-label="Dark theme"></button>
+          </div>
+          <a href="#contact" class="hidden rounded-lg bg-brand px-7 py-4 text-sm font-bold text-white shadow-card transition hover:bg-brandDark lg:inline-flex">Let's Talk <span class="ml-3">-&gt;</span></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 pt-8 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:pb-20">
+          <div>
+            <p class="mb-6 text-sm font-extrabold uppercase tracking-wide text-brand">We build digital experiences</p>
+            <h1 class="max-w-2xl text-5xl font-black leading-[1.08] tracking-tight text-ink md:text-7xl">
+              We Build Brands That Grow <span class="relative inline-block text-brand">Business<span class="absolute -bottom-2 left-0 h-2 w-full rounded-full bg-brand/90"></span></span>
+            </h1>
+            <p class="mt-8 max-w-xl text-lg leading-8 text-muted">A full-service digital agency helping startups and businesses turn ideas into powerful digital products.</p>
+            <div class="mt-9 flex flex-wrap gap-5">
+              <a href="#services" class="rounded-lg bg-brand px-8 py-4 text-sm font-bold text-white shadow-card transition hover:bg-brandDark">Our Services <span class="ml-3">-&gt;</span></a>
+              <a href="#portfolio" class="rounded-lg border border-line bg-white px-8 py-4 text-sm font-bold text-ink transition hover:border-brand hover:text-brand">View Our Work <span class="ml-3">-&gt;</span></a>
+            </div>
+            <div class="mt-10 flex items-center gap-5">
+              <div class="flex -space-x-3">
+                <img class="h-11 w-11 rounded-full border-4 border-white object-cover" src="assets/images/client-1.jpg" alt="Client" />
+                <img class="h-11 w-11 rounded-full border-4 border-white object-cover" src="assets/images/client-2.jpg" alt="Client" />
+                <img class="h-11 w-11 rounded-full border-4 border-white object-cover" src="assets/images/client-3.jpg" alt="Client" />
+                <span class="grid h-11 w-11 place-items-center rounded-full border-4 border-white bg-brand text-xl font-bold text-white">+</span>
+              </div>
+              <p class="text-sm font-semibold leading-6 text-muted">Trusted by 150+ clients<br />worldwide</p>
+            </div>
+          </div>
+
+          <div class="relative min-h-[560px]">
+            <div class="absolute left-8 top-0 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-cyan-100 via-violet-100 to-indigo-100 blur-sm"></div>
+            <div class="absolute right-0 top-4 hidden h-64 w-64 rounded-full bg-indigo-50 lg:block"></div>
+            <div class="relative ml-auto mt-8 max-w-[620px] rounded-3xl border border-line bg-white p-7 shadow-soft">
+              <div class="mb-10 flex items-center justify-between text-xs font-semibold">
+                <div class="flex items-center gap-2"><span class="h-3 w-3 rounded bg-brand"></span> Brand.</div>
+                <div class="hidden gap-7 text-[11px] text-ink md:flex"><span>Home</span><span>About</span><span>Services</span><span>Works</span><span>Blog</span></div>
+                <span class="rounded-md bg-brand px-4 py-2 text-white">Contact Us</span>
+              </div>
+              <div class="grid gap-6 md:grid-cols-[1fr_0.9fr]">
+                <div class="pt-6">
+                  <h2 class="text-3xl font-black leading-tight">Crafting Digital Experiences That <span class="text-brand">Inspire</span></h2>
+                  <p class="mt-4 text-sm leading-6 text-muted">We design and develop modern websites, applications and brands that help businesses stand out.</p>
+                  <button class="mt-5 rounded-lg bg-brand px-6 py-3 text-xs font-bold text-white">Get Started</button>
+                </div>
+                <div class="rounded-2xl bg-indigo-50 p-5">
+                  <img class="h-48 w-full rounded-xl object-cover shadow-card" src="assets/images/business-meeting.jpg" alt="Business meeting" />
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute left-0 top-32 w-36 rounded-[2rem] border border-line bg-white p-4 shadow-soft sm:w-44">
+              <div class="mb-4 h-2 w-12 rounded-full bg-line"></div>
+              <h3 class="text-lg font-black leading-tight">Creative Digital Agency</h3>
+              <p class="mt-2 text-xs leading-5 text-muted">We turn ideas into digital products people love.</p>
+              <button class="mt-4 rounded-md bg-brand px-4 py-2 text-[11px] font-bold text-white">Get Started</button>
+              <img class="mt-4 h-24 w-full rounded-xl object-cover" src="assets/images/team.jpg" alt="Team" />
+            </div>
+
+            <div class="absolute bottom-12 right-0 grid w-full max-w-[510px] grid-cols-3 gap-4">
+              <div class="rounded-2xl bg-white p-5 shadow-card"><p class="text-2xl font-black">120+</p><p class="mt-1 text-xs text-muted">Projects Completed</p></div>
+              <div class="rounded-2xl bg-white p-5 shadow-card"><p class="text-2xl font-black">98%</p><p class="mt-1 text-xs text-muted">Client Satisfaction</p></div>
+              <div class="rounded-2xl bg-white p-5 shadow-card"><p class="text-2xl font-black">8+</p><p class="mt-1 text-xs text-muted">Years Experience</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+          <div class="mx-auto max-w-2xl text-center">
+            <p class="text-sm font-extrabold uppercase text-brand">What we do</p>
+            <h2 class="mt-3 text-4xl font-black tracking-tight">Services That Drive Results</h2>
+            <p class="mt-4 text-muted">We provide end-to-end digital solutions to help your brand grow, engage and convert.</p>
+          </div>
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <article class="rounded-xl border border-line bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-card"><div class="mx-auto grid h-14 w-14 place-items-center rounded-xl bg-violet-100 text-3xl">[ ]</div><h3 class="mt-7 font-black">Web Design</h3><p class="mt-4 text-sm leading-6 text-muted">Beautiful, modern and responsive websites that create impact.</p><a class="mt-7 inline-block text-sm font-bold text-brand" href="#">Learn More -&gt;</a></article>
+            <article class="rounded-xl border border-line bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-card"><div class="mx-auto grid h-14 w-14 place-items-center rounded-xl bg-sky-100 text-2xl text-blue-600">&lt;/&gt;</div><h3 class="mt-7 font-black">Web Development</h3><p class="mt-4 text-sm leading-6 text-muted">Fast, secure and scalable websites built with modern tech.</p><a class="mt-7 inline-block text-sm font-bold text-brand" href="#">Learn More -&gt;</a></article>
+            <article class="rounded-xl border border-line bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-card"><div class="mx-auto grid h-14 w-14 place-items-center rounded-xl bg-green-100 text-3xl text-green-600">[cart]</div><h3 class="mt-7 font-black">E-Commerce</h3><p class="mt-4 text-sm leading-6 text-muted">Powerful online stores that drive sales and grow your business.</p><a class="mt-7 inline-block text-sm font-bold text-brand" href="#">Learn More -&gt;</a></article>
+            <article class="rounded-xl border border-line bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-card"><div class="mx-auto grid h-14 w-14 place-items-center rounded-xl bg-orange-100 text-2xl text-orange-500">[app]</div><h3 class="mt-7 font-black">Mobile App</h3><p class="mt-4 text-sm leading-6 text-muted">Cross-platform mobile apps for iOS and Android users.</p><a class="mt-7 inline-block text-sm font-bold text-brand" href="#">Learn More -&gt;</a></article>
+            <article class="rounded-xl border border-line bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-card"><div class="mx-auto grid h-14 w-14 place-items-center rounded-xl bg-yellow-100 text-2xl text-yellow-600">[seo]</div><h3 class="mt-7 font-black">SEO & Marketing</h3><p class="mt-4 text-sm leading-6 text-muted">Rank higher, get found and grow with digital marketing.</p><a class="mt-7 inline-block text-sm font-bold text-brand" href="#">Learn More -&gt;</a></article>
+            <article class="rounded-xl border border-line bg-white p-8 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-card"><div class="mx-auto grid h-14 w-14 place-items-center rounded-xl bg-pink-100 text-2xl text-pink-500">[brand]</div><h3 class="mt-7 font-black">Branding</h3><p class="mt-4 text-sm leading-6 text-muted">Unique branding and design solutions that build impact.</p><a class="mt-7 inline-block text-sm font-bold text-brand" href="#">Learn More -&gt;</a></article>
+          </div>
+        </section>
+
+        <section id="portfolio" class="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+          <div>
+            <p class="text-sm font-extrabold uppercase text-brand">Our portfolio</p>
+            <h2 class="mt-4 text-4xl font-black leading-tight tracking-tight">Work That Speaks For Itself</h2>
+            <p class="mt-5 leading-7 text-muted">We take pride in delivering digital solutions that help brands stand out and succeed.</p>
+            <a href="#" class="mt-8 inline-flex rounded-lg border border-line px-7 py-4 text-sm font-bold">View All Projects <span class="ml-3">-&gt;</span></a>
+          </div>
+          <div class="grid gap-6 md:grid-cols-3">
+            <article><img class="h-44 w-full rounded-xl border border-line object-cover shadow-card" src="assets/images/project-greeny.jpg" alt="Greeny project" /><h3 class="mt-4 font-black">Greeny</h3><p class="text-sm text-muted">E-Commerce Website</p></article>
+            <article><img class="h-44 w-full rounded-xl border border-line object-cover shadow-card" src="assets/images/project-finexo.jpg" alt="Finexo project" /><h3 class="mt-4 font-black">Finexo</h3><p class="text-sm text-muted">Web Application</p></article>
+            <article><img class="h-44 w-full rounded-xl border border-line object-cover shadow-card" src="assets/images/project-housia.jpg" alt="Housia project" /><h3 class="mt-4 font-black">Housia</h3><p class="text-sm text-muted">Real Estate Website</p></article>
+          </div>
+        </section>
+
+        <section class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+          <div class="grid gap-10 rounded-2xl bg-brand p-10 text-white shadow-soft lg:grid-cols-[1fr_0.9fr] lg:p-16">
+            <div>
+              <p class="text-sm font-extrabold uppercase">What our clients say</p>
+              <h2 class="mt-6 max-w-lg text-4xl font-black leading-tight">Trusted By Businesses Around The World</h2>
+              <div class="mt-12 flex flex-wrap gap-8 text-xl font-bold opacity-95"><span>Google</span><span>Microsoft</span><span>airbnb</span><span>shopify</span><span>slack</span></div>
+            </div>
+            <div class="rounded-2xl bg-white p-9 text-ink shadow-card">
+              <div class="text-6xl font-black leading-none text-brand">“</div>
+              <p class="text-lg leading-8">Pixelnovate transformed our idea into a beautiful digital product. Their team was professional, creative and delivered beyond expectations.</p>
+              <div class="mt-8 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-4"><img class="h-12 w-12 rounded-full object-cover" src="assets/images/testimonial-rohan.jpg" alt="Rohan Mehta" /><div><h3 class="font-black">Rohan Mehta</h3><p class="text-sm text-muted">CEO, Finexo</p></div></div>
+                <div class="font-bold text-amber-400">5 / 5</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+          <div class="grid gap-10 rounded-2xl border border-line bg-white p-8 shadow-card lg:grid-cols-[0.85fr_1.15fr] lg:p-12">
+            <div>
+              <div class="grid h-20 w-20 place-items-center rounded-2xl bg-violet-100 text-4xl text-brand">-&gt;</div>
+              <h2 class="mt-7 text-3xl font-black tracking-tight">Ready to start your next project?</h2>
+              <p class="mt-4 leading-7 text-muted">Share a few details and we will compare your needs with the right digital solution for your goals.</p>
+              <div class="mt-8 space-y-4 text-sm font-semibold text-muted">
+                <p>Phone: +91 98765 43210</p>
+                <p>Email: hello@pixelnovate.com</p>
+                <p>Location: Ahmedabad, India</p>
+              </div>
+            </div>
+            <form class="grid gap-5" action="mailto:hello@pixelnovate.com" method="post" enctype="text/plain">
+              <div class="grid gap-5 md:grid-cols-2">
+                <label class="text-sm font-bold">Name
+                  <input class="mt-2 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10" type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label class="text-sm font-bold">Email
+                  <input class="mt-2 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10" type="email" name="email" placeholder="you@example.com" required />
+                </label>
+              </div>
+              <div class="grid gap-5 md:grid-cols-2">
+                <label class="text-sm font-bold">Service
+                  <select class="mt-2 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10" name="service">
+                    <option>Web Design</option>
+                    <option>Web Development</option>
+                    <option>E-Commerce</option>
+                    <option>Mobile App</option>
+                    <option>SEO & Marketing</option>
+                    <option>Branding</option>
+                  </select>
+                </label>
+                <label class="text-sm font-bold">Budget
+                  <select class="mt-2 w-full rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10" name="budget">
+                    <option>Under $2,000</option>
+                    <option>$2,000 - $5,000</option>
+                    <option>$5,000 - $10,000</option>
+                    <option>$10,000+</option>
+                  </select>
+                </label>
+              </div>
+              <label class="text-sm font-bold">Project Details
+                <textarea class="mt-2 min-h-36 w-full resize-y rounded-lg border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10" name="message" placeholder="Tell us what you want to build" required></textarea>
+              </label>
+              <button class="w-full rounded-lg bg-brand px-9 py-4 text-sm font-bold text-white shadow-card transition hover:bg-brandDark md:w-auto md:justify-self-start" type="submit">Send Inquiry <span class="ml-3">-&gt;</span></button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="mx-auto max-w-7xl px-6 pb-8 pt-10 lg:px-8">
+        <div class="grid gap-10 border-b border-line pb-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.7fr_0.8fr_0.8fr_1.1fr]">
+          <div><div class="flex items-center gap-3"><span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand to-indigo-500 font-black text-white">P</span><span class="text-2xl font-extrabold">Pixelnovate</span></div><p class="mt-6 max-w-xs leading-7 text-muted">A digital agency crafting innovative solutions that drive growth and create lasting impact.</p><div class="mt-7 flex gap-4 text-muted"><span class="grid h-8 w-8 place-items-center rounded-full border border-line">f</span><span class="grid h-8 w-8 place-items-center rounded-full border border-line">x</span><span class="grid h-8 w-8 place-items-center rounded-full border border-line">in</span><span class="grid h-8 w-8 place-items-center rounded-full border border-line">ig</span></div></div>
+          <div><h3 class="font-black">Quick Links</h3><ul class="mt-5 space-y-3 text-sm text-muted"><li>Home</li><li>About Us</li><li>Services</li><li>Portfolio</li><li>Blog</li><li>Contact</li></ul></div>
+          <div><h3 class="font-black">Services</h3><ul class="mt-5 space-y-3 text-sm text-muted"><li>Web Design</li><li>Web Development</li><li>E-Commerce</li><li>Mobile App</li><li>SEO & Marketing</li><li>Branding</li></ul></div>
+          <div><h3 class="font-black">Company</h3><ul class="mt-5 space-y-3 text-sm text-muted"><li>About Us</li><li>Our Team</li><li>Careers</li><li>Testimonials</li><li>FAQs</li><li>Contact Us</li></ul></div>
+          <div><h3 class="font-black">Contact Us</h3><ul class="mt-5 space-y-5 text-sm text-muted"><li>Phone: +91 98765 43210</li><li>Email: hello@pixelnovate.com</li><li>Location: Ahmedabad, India</li></ul></div>
+        </div>
+        <div class="flex flex-col justify-between gap-4 pt-7 text-sm text-muted sm:flex-row"><p>&copy; 2024 Pixelnovate. All rights reserved.</p><p>Privacy Policy <span class="mx-6">|</span> Terms & Conditions</p></div>
+      </footer>
+    </div>
+    <script>
+      const themeButtons = document.querySelectorAll('[data-theme-value]');
+      const savedTheme = localStorage.getItem('pixelnovate-theme') || 'violet';
+
+      function applyTheme(theme) {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem('pixelnovate-theme', theme);
+        themeButtons.forEach((button) => {
+          button.dataset.active = String(button.dataset.themeValue === theme);
+        });
+      }
+
+      themeButtons.forEach((button) => {
+        button.addEventListener('click', () => applyTheme(button.dataset.themeValue));
+      });
+
+      applyTheme(savedTheme);
+    </script>
+  </body>
+</html>
