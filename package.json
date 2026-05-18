@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "postbuild": "node scripts/copy-standalone-assets.mjs",
+    "start": "next start -H 0.0.0.0",
+    "lint": "next build"
   },
   "dependencies": {
     "next": "latest",

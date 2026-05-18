@@ -9,6 +9,7 @@ const categoryIcons = {
   'Digital Agency': '/icons/business.svg',
   'E-commerce': '/icons/ecommerce.svg',
   'Real Estate': '/icons/landing.svg',
+  Career: '/icons/portfolio.svg',
 }
 
 export default function Categories(){

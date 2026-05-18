@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templates - ResumeAI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: "#111b46", muted: "#66708f", violet: "#6547ff", lavender: "#f4f1ff" },
+          boxShadow: { soft: "0 18px 50px rgba(73,68,166,.14)", lift: "0 12px 30px rgba(79,70,229,.16)" }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fbfbff; }
+    .nav-link { display: flex; align-items: center; gap: .75rem; border-radius: .75rem; padding: .75rem .9rem; font-size: .875rem; font-weight: 700; color: #53607f; }
+    .nav-link.active, .nav-link:hover { background: #f2efff; color: #6547ff; }
+    .shot { height: 318px; overflow: hidden; border-radius: .8rem; background: #fff; box-shadow: inset 0 0 0 1px #e6e8f1; }
+    .shot-page { min-height: 430px; width: 128%; margin-left: -14%; transform: scale(.78); transform-origin: top center; background: #fff; }
+    .shot-line { display: block; height: 5px; border-radius: 99px; background: #e2e6f0; margin-top: 8px; }
+    .shot-line:nth-child(2n) { width: 74%; }
+    .shot-line:nth-child(3n) { width: 56%; }
+    .shot-dot { display: inline-block; height: 7px; width: 7px; border-radius: 999px; background: currentColor; margin-left: 3px; }
+  </style>
+</head>
+<body class="text-ink">
+  <div class="min-h-screen lg:grid lg:grid-cols-[260px_1fr]">
+    <aside class="border-r border-slate-200 bg-white p-6">
+      <a href="index.html" class="flex items-center gap-2 text-xl font-black">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-violet text-white">+</span>ResumeAI
+      </a>
+      <a href="builder.html" class="mt-8 flex items-center justify-center gap-2 rounded-lg bg-violet px-4 py-3 text-sm font-black text-white shadow-lift">+ Create New Resume</a>
+      <nav class="mt-7 space-y-2">
+        <a class="nav-link" href="dashboard.html">Dashboard</a>
+        <a class="nav-link" href="preview.html">My Resumes</a>
+        <a class="nav-link" href="ai-writer.html">AI Writer</a>
+        <a class="nav-link" href="ats-checker.html">ATS Checker</a>
+        <a class="nav-link active" href="templates.html">Templates</a>
+        <a class="nav-link" href="builder.html">Cover Letters</a>
+        <a class="nav-link" href="#">Settings</a>
+        <a class="nav-link" href="#">Billing</a>
+      </nav>
+      <div class="mt-20 rounded-xl bg-lavender p-5">
+        <h3 class="font-black">Upgrade to Pro</h3>
+        <p class="mt-2 text-xs leading-5 text-muted">Unlock all features and create unlimited resumes.</p>
+        <button class="mt-4 w-full rounded-lg bg-violet px-4 py-3 text-sm font-black text-white">Upgrade Now</button>
+      </div>
+    </aside>
+
+    <main class="p-5 sm:p-8 lg:p-10">
+      <h1 class="text-3xl font-black">Templates</h1>
+      <p class="mt-2 text-sm text-muted">Choose a professional template that best fits your style.</p>
+
+      <div class="mt-8 flex flex-wrap gap-3 text-sm font-black">
+        <button class="rounded-full bg-violet px-5 py-3 text-white">All</button>
+        <button class="rounded-full border border-slate-200 bg-white px-5 py-3">Modern</button>
+        <button class="rounded-full border border-slate-200 bg-white px-5 py-3">Minimal</button>
+        <button class="rounded-full border border-slate-200 bg-white px-5 py-3">Creative</button>
+        <button class="rounded-full border border-slate-200 bg-white px-5 py-3">Professional</button>
+      </div>
+
+      <section class="mt-8 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <article class="rounded-xl border-2 border-violet bg-white p-3 shadow-soft">
+          <div class="shot relative">
+            <div class="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-violet text-white">OK</div>
+            <div class="shot-page grid grid-cols-[112px_1fr]">
+              <aside class="bg-violet/25 p-6">
+                <img class="h-20 w-20 rounded-full object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" alt="Modern Purple resume screenshot" />
+                <p class="mt-8 text-[10px] font-black uppercase text-violet">Contact</p>
+                <span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span>
+                <p class="mt-8 text-[10px] font-black uppercase text-violet">Skills</p>
+                <div class="mt-3 space-y-3 text-violet">
+                  <p><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></p>
+                  <p><span class="shot-dot"></span><span class="shot-dot"></span><span class="shot-dot"></span></p>
+                </div>
+              </aside>
+              <main class="p-7">
+                <h3 class="text-xl font-black">JOHN DOE</h3>
+                <p class="text-xs font-bold text-violet">Senior Product Designer</p>
+                <div class="mt-7 border-t pt-5"><b class="text-xs text-violet">SUMMARY</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span></div>
+                <div class="mt-7 border-t pt-5"><b class="text-xs text-violet">EXPERIENCE</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></div>
+                <div class="mt-7 border-t pt-5"><b class="text-xs text-violet">EDUCATION</b><span class="shot-line w-4/5"></span><span class="shot-line w-3/5"></span></div>
+              </main>
+            </div>
+          </div>
+          <h3 class="mt-4 text-center font-black">Modern Purple</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot">
+            <div class="shot-page p-8">
+              <div class="flex items-center justify-between">
+                <div><h3 class="text-xl font-black">Rebecca Collins</h3><p class="text-xs text-muted">Marketing Manager</p></div>
+                <div class="h-16 w-16 rounded-full bg-slate-200"></div>
+              </div>
+              <div class="mt-7 grid grid-cols-[1fr_140px] gap-8">
+                <main><b class="text-xs">PROFILE</b><span class="shot-line w-full"></span><span class="shot-line"></span><b class="mt-7 block text-xs">EXPERIENCE</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span><b class="mt-7 block text-xs">EDUCATION</b><span class="shot-line"></span><span class="shot-line"></span></main>
+                <aside><b class="text-xs">DETAILS</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span><b class="mt-7 block text-xs">SKILLS</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></aside>
+              </div>
+            </div>
+          </div>
+          <h3 class="mt-4 text-center font-black">Minimal Clean</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot">
+            <div class="shot-page grid grid-cols-[100px_1fr]">
+              <aside class="bg-blue-600 p-5 text-white"><div class="h-16 w-16 rounded-full bg-white/25"></div><p class="mt-8 text-[10px] font-black">CONTACT</p><span class="shot-line bg-white/40"></span><span class="shot-line bg-white/40"></span><p class="mt-8 text-[10px] font-black">TOOLS</p><span class="shot-line bg-white/40"></span><span class="shot-line bg-white/40"></span></aside>
+              <main class="p-7"><h3 class="text-xl font-black">MARK CRAIG</h3><p class="text-xs font-bold text-blue-600">Product Manager</p><div class="mt-7"><b class="text-xs text-blue-600">SUMMARY</b><span class="shot-line w-full"></span><span class="shot-line"></span></div><div class="mt-7"><b class="text-xs text-blue-600">WORK HISTORY</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></div><div class="mt-7"><b class="text-xs text-blue-600">CERTIFICATIONS</b><span class="shot-line"></span><span class="shot-line"></span></div></main>
+            </div>
+          </div>
+          <h3 class="mt-4 text-center font-black">Professional Blue</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot">
+            <div class="shot-page">
+              <header class="bg-neutral-950 p-8 text-white"><h3 class="text-xl font-black">JANE DOE</h3><p class="text-xs text-white/70">Creative Lead</p></header>
+              <main class="grid grid-cols-[1fr_130px] gap-8 p-8"><section><b class="text-xs">ABOUT</b><span class="shot-line w-full"></span><span class="shot-line"></span><b class="mt-7 block text-xs">EXPERIENCE</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span><b class="mt-7 block text-xs">PROJECTS</b><span class="shot-line"></span><span class="shot-line"></span></section><aside><b class="text-xs">SKILLS</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span><b class="mt-7 block text-xs">AWARDS</b><span class="shot-line"></span><span class="shot-line"></span></aside></main>
+            </div>
+          </div>
+          <h3 class="mt-4 text-center font-black">Creative Black</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot"><div class="shot-page p-8"><h3 class="text-2xl font-black tracking-wide">Executive Resume</h3><p class="text-xs text-muted">Operations Director</p><div class="mt-7 border-t border-slate-300 pt-5"><b class="text-xs">LEADERSHIP SUMMARY</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span></div><div class="mt-7 grid grid-cols-2 gap-8"><div><b class="text-xs">CAREER HISTORY</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></div><div><b class="text-xs">IMPACT</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></div></div></div></div>
+          <h3 class="mt-4 text-center font-black">Executive</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot">
+            <div class="shot-page grid grid-cols-[110px_1fr]">
+              <aside class="bg-emerald-400 p-6 text-white"><div class="h-20 w-20 rounded-full bg-white/35"></div><p class="mt-8 text-[10px] font-black">CONTACT</p><span class="shot-line bg-white/45"></span><span class="shot-line bg-white/45"></span><p class="mt-8 text-[10px] font-black">SKILLS</p><span class="shot-line bg-white/45"></span><span class="shot-line bg-white/45"></span></aside>
+              <main class="p-7"><h3 class="text-xl font-black">Samuel Wilson</h3><p class="text-xs font-bold text-emerald-500">Data Analyst</p><div class="mt-7"><b class="text-xs text-emerald-600">PROFILE</b><span class="shot-line"></span><span class="shot-line"></span></div><div class="mt-7"><b class="text-xs text-emerald-600">EXPERIENCE</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></div></main>
+            </div>
+          </div>
+          <h3 class="mt-4 text-center font-black">Simple Green</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot"><div class="shot-page p-8"><div class="border-b border-slate-200 pb-6 text-center"><h3 class="text-xl font-black">Anna Stone</h3><p class="text-xs text-muted">Project Manager</p></div><div class="mt-7 grid grid-cols-[130px_1fr] gap-8"><aside><b class="text-xs">CONTACT</b><span class="shot-line"></span><span class="shot-line"></span><b class="mt-7 block text-xs">SKILLS</b><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></aside><main><b class="text-xs">SUMMARY</b><span class="shot-line w-full"></span><span class="shot-line"></span><b class="mt-7 block text-xs">EXPERIENCE</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span></main></div></div></div>
+          <h3 class="mt-4 text-center font-black">Elegant</h3>
+        </article>
+
+        <article class="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div class="shot"><div class="shot-page p-8"><h3 class="text-xl font-black">Classic Resume</h3><p class="text-xs text-muted">Business Analyst</p><div class="mt-6 h-px bg-slate-300"></div><div class="mt-6"><b class="text-xs">PROFESSIONAL SUMMARY</b><span class="shot-line w-full"></span><span class="shot-line"></span></div><div class="mt-7"><b class="text-xs">EXPERIENCE</b><span class="shot-line w-full"></span><span class="shot-line"></span><span class="shot-line"></span><span class="shot-line"></span></div><div class="mt-7"><b class="text-xs">EDUCATION</b><span class="shot-line"></span><span class="shot-line"></span></div></div></div>
+          <h3 class="mt-4 text-center font-black">Classic</h3>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

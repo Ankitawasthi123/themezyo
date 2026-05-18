@@ -216,6 +216,56 @@ export const templates = [
     ],
     includes: ['HTML files', 'Property assets', 'Preview screenshots', 'Zip download'],
   },
+  {
+    id: 'resume-builder',
+    title: 'ResumeAI',
+    category: 'Career',
+    price: 'Free',
+    rating: 4.9,
+    reviews: 274,
+    color: '#6547ff',
+    layoutType: 'AI resume builder website template',
+    hero: {
+      tagline: 'Resume builder website',
+      headline: 'Create job-winning resumes with AI',
+      subtext:
+        'A multi-page resume builder website with landing, dashboard, builder, AI writer, ATS checker, resume preview, and templates screens.',
+    },
+    thumbnail: '/templates/resume-builder/screenshots/home.svg',
+    images: ['/templates/resume-builder/screenshots/home.svg'],
+    summary:
+      'ResumeAI is a career website template for AI resume builders, job seeker tools, coaching portals, and ATS optimization products.',
+    sections: [
+      'AI resume builder landing page',
+      'Dashboard and resume management',
+      'Resume builder form flow',
+      'AI writer and ATS checker pages',
+      'Template gallery and preview pages',
+    ],
+    stats: [
+      { label: 'Pages', value: '7' },
+      { label: 'Screenshots', value: '1' },
+      { label: 'Format', value: 'HTML' },
+    ],
+    sourceText:
+      'Source files are included from the ResumeAI resume-builder folder, including landing, dashboard, builder, AI writer, ATS checker, preview, and template gallery HTML pages.',
+    format: 'HTML, Tailwind CSS CDN',
+    updated: 'May 2026',
+    support: 'Paid, based on idea and work',
+    zipPath: '/templates/resume-builder.zip',
+    previewPath: '/templates/resume-builder/html/index.html',
+    description:
+      'An AI resume builder website template with landing page, dashboard, builder workflow, AI writer, ATS checker, preview, and template gallery screens.',
+    features: [
+      'Resume builder landing page',
+      'Dashboard screen',
+      'Builder workflow',
+      'AI writer page',
+      'ATS checker page',
+      'Template gallery',
+    ],
+    includes: ['HTML files', 'Multi-page preview', 'Tailwind CDN styling', 'Zip download'],
+  },
 ]
 
 export function getTemplateById(id) {
