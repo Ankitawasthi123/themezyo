@@ -20,19 +20,19 @@ export default function Categories(){
   }))
 
   return (
-    <section className="py-12">
+    <section className="py-14 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-gray-800">{t('categories.title')}</h3>
-          <Link className="text-sm text-indigo-600" href="/categories">{t('common.viewAllCategories')}</Link>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <h3 className="text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">{t('categories.title')}</h3>
+          <Link className="text-sm font-semibold text-blue-600 hover:text-blue-700" href="/categories">{t('common.viewAllCategories')}</Link>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {items.map((it)=> (
-            <Link key={it.title} href="/categories" className="p-4 rounded-xl bg-white/60 backdrop-blur-sm shadow-sm text-center text-sm hover:shadow-md transition">
-              <img src={it.icon} alt={it.title} className="h-8 w-8 mx-auto mb-2" style={{filter:'invert(0.3) hue-rotate(250deg) saturate(2)'}} />
-              <div className="text-gray-800 font-medium">{it.title}</div>
-              <div className="text-xs text-gray-500">{it.count} {t('common.templates')}</div>
+            <Link key={it.title} href="/categories" className="rounded-xl border border-gray-200 bg-white p-5 text-center text-sm shadow-sm transition hover:-translate-y-0.5 hover:border-blue-100 hover:shadow-md">
+              <img src={it.icon} alt={it.title} className="mx-auto mb-3 h-9 w-9" style={{filter:'invert(0.3) hue-rotate(250deg) saturate(2)'}} />
+              <div className="font-bold text-slate-800">{it.title}</div>
+              <div className="mt-1 text-xs font-medium text-gray-500">{it.count} {t('common.templates')}</div>
             </Link>
           ))}
         </div>

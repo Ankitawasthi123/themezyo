@@ -10,7 +10,9 @@
     "lint": "next build"
   },
   "dependencies": {
+    "formik": "^2.4.9",
     "next": "latest",
+    "nodemailer": "^8.0.9",
     "react": "latest",
     "react-dom": "latest"
   },

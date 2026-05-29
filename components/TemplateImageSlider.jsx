@@ -70,7 +70,7 @@ export default function TemplateImageSlider({ template }) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 mb-8">
+    <div className="mb-8 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
       <div className="relative overflow-hidden rounded-lg">
         {activeSlide.type === 'image' ? (
           <img src={activeSlide.src} alt={activeSlide.label} className="w-full h-80 object-cover" />
@@ -79,9 +79,9 @@ export default function TemplateImageSlider({ template }) {
             className="w-full h-80 bg-gradient-to-br flex items-end"
             style={{backgroundImage: `linear-gradient(135deg, ${activeSlide.color}90, ${activeSlide.color}35)`}}
           >
-            <div className="m-6 bg-white/90 rounded-lg p-5 shadow-md max-w-sm">
-              <div className="text-xs font-semibold text-indigo-600">{template.category}</div>
-              <div className="mt-2 text-2xl font-bold text-gray-900">{template.title}</div>
+            <div className="m-6 max-w-sm rounded-lg bg-white/90 p-5 shadow-sm">
+              <div className="text-xs font-semibold text-blue-600">{template.category}</div>
+              <div className="mt-2 text-2xl font-bold text-slate-800">{template.title}</div>
               <div className="mt-2 text-sm text-gray-600">{activeSlide.label}</div>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function TemplateImageSlider({ template }) {
         <button
           type="button"
           onClick={showPrevious}
-          className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 shadow text-gray-900"
+          className="absolute left-4 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-white/90 text-slate-800 shadow-sm transition hover:bg-white"
           aria-label={t('slider.previous')}
         >
           &lt;
@@ -98,7 +98,7 @@ export default function TemplateImageSlider({ template }) {
         <button
           type="button"
           onClick={showNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 shadow text-gray-900"
+          className="absolute right-4 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full bg-white/90 text-slate-800 shadow-sm transition hover:bg-white"
           aria-label={t('slider.next')}
         >
           &gt;
@@ -112,7 +112,7 @@ export default function TemplateImageSlider({ template }) {
               key={`${slide.label}-${index}`}
               type="button"
               onClick={() => setActiveIndex(index)}
-              className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-md border-2 ${activeIndex === index ? 'border-indigo-600' : 'border-transparent'}`}
+              className={`h-16 w-24 flex-shrink-0 overflow-hidden rounded-md border-2 transition ${activeIndex === index ? 'border-blue-600' : 'border-transparent opacity-75 hover:opacity-100'}`}
               aria-label={`${t('slider.show')} ${slide.label}`}
             >
               {slide.type === 'image' ? (
@@ -127,7 +127,7 @@ export default function TemplateImageSlider({ template }) {
           ))}
         </div>
 
-        <label className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-indigo-600 px-4 py-2 text-sm font-semibold text-indigo-600 hover:bg-indigo-50">
+        <label className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-blue-200 px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-50">
           {t('slider.upload')}
           <input type="file" accept="image/*" multiple onChange={handleUpload} className="sr-only" />
         </label>

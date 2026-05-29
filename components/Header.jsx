@@ -14,21 +14,21 @@ export default function Header() {
   ]
 
   return (
-    <header className="bg-white border-b border-gray-100">
+    <header className="sticky top-0 z-40 border-b border-blue-100 bg-white/95 backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-5 md:py-6">
+        <div className="flex justify-between items-center py-4">
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-3">
               <img
-                src="/brand/themezyo-logo.png"
+                src="/brand/themezyo-icon.png"
                 alt="Themezyo"
-                className="h-12 w-auto max-w-[180px] object-contain"
+                className="h-11 w-11 object-contain"
               />
             </Link>
 
-            <nav className="hidden lg:flex gap-6 text-sm text-gray-600">
+            <nav className="hidden lg:flex gap-6 text-sm font-medium text-gray-600">
               {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className="hover:text-indigo-600">
+                <Link key={item.href} href={item.href} className="transition hover:text-blue-600">
                   {item.label}
                 </Link>
               ))}
@@ -40,15 +40,15 @@ export default function Header() {
               value={language}
               onChange={(event) => setLanguage(event.target.value)}
               aria-label={t('nav.language')}
-              className="rounded-lg border border-gray-200 bg-white px-2 py-2 text-sm text-gray-700"
+              className="rounded-lg border border-gray-200 bg-white px-2 py-2 text-sm font-medium text-gray-700 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
             >
               {languages.map((item) => (
                 <option key={item.code} value={item.code}>{item.nativeLabel}</option>
               ))}
             </select>
-            <Link href="/help" className="hidden md:inline text-gray-600 hover:text-indigo-600">{t('nav.docs')}</Link>
-            <Link href="/contact" className="hidden md:inline text-gray-600 hover:text-indigo-600">{t('nav.support')}</Link>
-            <Link className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-lg text-sm shadow-md" href="/templates">{t('nav.downloadFree')}</Link>
+            <Link href="/help" className="hidden text-sm font-medium text-gray-600 transition hover:text-blue-600 md:inline">{t('nav.docs')}</Link>
+            <Link href="/contact" className="hidden text-sm font-medium text-gray-600 transition hover:text-blue-600 md:inline">{t('nav.support')}</Link>
+            <Link className="inline-flex items-center rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:shadow-md" href="/templates">{t('nav.downloadFree')}</Link>
           </div>
         </div>
       </div>

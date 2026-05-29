@@ -3,7 +3,6 @@ import Hero from '../components/Hero'
 import Categories from '../components/Categories'
 import TemplatesGrid from '../components/TemplatesGrid'
 import Features from '../components/Features'
-import Testimonial from '../components/Testimonial'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 
@@ -16,7 +15,6 @@ export default function Page() {
         <Categories />
         <TemplatesGrid />
         <Features />
-        <Testimonial />
         <Newsletter />
       </main>
       <Footer />
