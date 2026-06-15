@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { Formik } from 'formik'
 import { useState } from 'react'
-import { getTemplatePageCount, templates } from '../data/templates'
 import AiCanvasBackground from './AiCanvasBackground'
 import { useI18n } from './I18nProvider'
 import { readJsonResponse } from '../lib/readJsonResponse'
@@ -21,8 +20,6 @@ export default function Hero(){
   const [isIdeaModalOpen, setIsIdeaModalOpen] = useState(false)
   const [isIdeaSubmitted, setIsIdeaSubmitted] = useState(false)
   const [ideaSubmitError, setIdeaSubmitError] = useState('')
-  const templateCount = templates.length
-  const pageCount = getTemplatePageCount()
 
   function openIdeaModal() {
     setIsIdeaSubmitted(false)
@@ -101,21 +98,7 @@ export default function Hero(){
               <Link className="inline-flex items-center rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 text-white shadow-md transition hover:shadow-lg" href="/templates">{t('hero.download')}</Link>
               <button type="button" onClick={openIdeaModal} className="inline-flex items-center px-6 py-3 border border-gray-200 rounded-lg text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">{t('hero.shareIdea')}</button>
             </div>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-              <div className="flex items-center gap-3"><span className="font-semibold text-slate-800">{templateCount}</span> {t('hero.templates')}</div>
-              <div className="flex items-center gap-3"><span className="font-semibold text-slate-800">{pageCount}</span> HTML pages</div>
-              <div className="flex items-center gap-3"><span className="font-semibold text-slate-800">{t('hero.paid')}</span> {t('hero.help')}</div>
-            </div>
           </div>
-        </div>
-
-        <div className="mt-12 flex items-center justify-center gap-6 opacity-70 flex-wrap">
-          <img src="/logos/slack.svg" alt="Slack" className="h-6 w-auto" />
-          <img src="/logos/google.svg" alt="Google" className="h-6 w-auto" />
-          <img src="/logos/microsoft.svg" alt="Microsoft" className="h-6 w-auto" />
-          <img src="/logos/airbnb.svg" alt="Airbnb" className="h-6 w-auto" />
-          <img src="/logos/hubspot.svg" alt="HubSpot" className="h-6 w-auto" />
         </div>
       </div>
 

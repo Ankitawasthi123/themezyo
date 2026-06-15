@@ -20,6 +20,7 @@ export const templates = [
       '/templates/nexora/screenshots/explore.svg',
       '/templates/nexora/screenshots/studio.svg',
     ],
+    imageLabels: ['Home feed', 'Explore page', 'AI studio'],
     summary:
       'Nexora is a social AI network template for creator communities, content platforms, social dashboards, and AI-assisted posting products.',
     sections: [
@@ -76,6 +77,7 @@ export const templates = [
       '/templates/aiflow/screenshots/templates.png',
       '/templates/aiflow/screenshots/playground.png',
     ],
+    imageLabels: ['Landing page', 'Dashboard', 'Templates library', 'AI playground'],
     summary:
       'AIFlow is a SaaS template for AI product platforms with landing, dashboard, tools, docs, pricing, and account pages.',
     sections: [
@@ -128,8 +130,9 @@ export const templates = [
     images: [
       '/templates/pixelnovate/screenshots/home.png',
       '/templates/pixelnovate/screenshots/details.png',
-      '/templates/pixelnovate/thumb/Pixelnovate-1.png',
+      '/templates/pixelnovate/thumb/Pixelnovate-3.png',
     ],
+    imageLabels: ['Homepage', 'Template details', 'Services and portfolio'],
     summary:
       'Pixelnovate is a clean digital agency template for studios, marketing teams, product teams, and web service businesses.',
     sections: [
@@ -184,6 +187,7 @@ export const templates = [
       '/templates/dressfit-ai/screenshots/shop.png',
       '/templates/dressfit-ai/screenshots/upload.png',
     ],
+    imageLabels: ['AI stylist home', 'Shop looks', 'Upload flow'],
     summary:
       'DressFit AI is an e-commerce template for fashion stores that want an AI stylist concept and a complete shopping journey.',
     sections: [
@@ -238,6 +242,7 @@ export const templates = [
       '/templates/home-match/screenshots/properties.png',
       '/templates/home-match/screenshots/layout.png',
     ],
+    imageLabels: ['AI planning home', 'Property listings', 'Layout preview'],
     summary:
       'HomeMatch AI is a real estate template for property portals, home layout planners, and AI-assisted buyer journeys.',
     sections: [
@@ -287,7 +292,16 @@ export const templates = [
         'A multi-page resume builder website with landing, dashboard, builder, AI writer, ATS checker, resume preview, and templates screens.',
     },
     thumbnail: '/templates/resume-builder/screenshots/home.svg',
-    images: ['/templates/resume-builder/screenshots/home.svg'],
+    images: [
+      '/templates/resume-builder/screenshots/home.svg',
+      '/templates/resume-builder/screenshots/dashboard.svg',
+      '/templates/resume-builder/screenshots/builder.svg',
+      '/templates/resume-builder/screenshots/ai-writer.svg',
+      '/templates/resume-builder/screenshots/ats-checker.svg',
+      '/templates/resume-builder/screenshots/preview.svg',
+      '/templates/resume-builder/screenshots/templates.svg',
+    ],
+    imageLabels: ['Resume builder home', 'Dashboard', 'Builder workflow', 'AI writer', 'ATS checker', 'Resume preview', 'Template gallery'],
     summary:
       'ResumeAI is a career website template for AI resume builders, job seeker tools, coaching portals, and ATS optimization products.',
     sections: [
@@ -299,7 +313,7 @@ export const templates = [
     ],
     stats: [
       { label: 'Pages', value: '7' },
-      { label: 'Screenshots', value: '1' },
+      { label: 'Screenshots', value: '7' },
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:

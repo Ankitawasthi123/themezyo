@@ -21,7 +21,6 @@ export default function TemplateDetailContent({ template }) {
   const updated = template.updated || 'May 2026'
   const support = template.support || 'Paid, based on idea and work'
   const ctaDescription = template.ctaDescription || t('detail.ctaDescription')
-  const mainImage = template.images?.[0] || template.thumbnail
   const downloadHref = template.zipPath || `/downloads/${template.id}`
 
   return (
@@ -46,12 +45,6 @@ export default function TemplateDetailContent({ template }) {
                     <span className="text-gray-700">{template.rating} {t('common.rating')} ({template.reviews} {t('common.reviews')})</span>
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-700">{template.category}</span>
                   </div>
-
-                  {mainImage ? (
-                    <div className="mt-6 overflow-hidden rounded-xl border border-gray-200">
-                      <img src={mainImage} alt={`${template.title} preview`} className="w-full h-80 object-cover" />
-                    </div>
-                  ) : null}
 
                   <p className="mt-6 text-gray-700 leading-relaxed">{summary}</p>
 

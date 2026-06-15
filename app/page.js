@@ -6,6 +6,14 @@ import Features from '../components/Features'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 
+export const metadata = {
+  title: 'Free AI Website Templates for Modern Projects',
+  description: 'Browse free AI website templates for SaaS apps, social platforms, e-commerce stores, real estate portals, resume builders, and agencies.',
+  alternates: {
+    canonical: '/',
+  },
+}
+
 export default function Page() {
   return (
     <div className="min-h-screen bg-gray-50">
