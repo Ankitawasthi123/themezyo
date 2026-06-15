@@ -96,7 +96,13 @@ export default function TemplatesPage(){
                 return (
                   <div key={template.id} className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                     {imageSrc ? (
-                      <img src={imageSrc} alt={`${template.title} thumbnail`} className="h-44 w-full object-cover transition duration-300 group-hover:scale-[1.02]" />
+                      <img
+                        src={imageSrc}
+                        alt={`${template.title} thumbnail`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-44 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                      />
                     ) : (
                       <div
                         className="h-44 bg-gradient-to-br"

@@ -48,7 +48,13 @@ export default function TemplateImageSlider({ template }) {
       <div className="relative aspect-[36/25] overflow-hidden rounded-lg border border-gray-100 bg-slate-100">
         {activeSlide.type === 'image' ? (
           <a href={activeSlide.src} target="_blank" rel="noreferrer" className="block h-full">
-            <img src={activeSlide.src} alt={activeSlide.label} className="h-full w-full object-cover" />
+            <img
+              src={activeSlide.src}
+              alt={activeSlide.label}
+              decoding="async"
+              fetchPriority="high"
+              className="h-full w-full object-cover"
+            />
           </a>
         ) : (
           <div
@@ -92,7 +98,13 @@ export default function TemplateImageSlider({ template }) {
               aria-label={`${t('slider.show')} ${slide.label}`}
             >
               {slide.type === 'image' ? (
-                <img src={slide.src} alt={slide.label} className="h-full w-full object-cover" />
+                <img
+                  src={slide.src}
+                  alt={slide.label}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
               ) : (
                 <span
                   className="block h-full w-full"

@@ -23,7 +23,13 @@ export default function TemplatesGrid(){
                 <Link key={template.id} href={`/templates/${template.id}`} className="group w-72 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                   <div className="h-40 overflow-hidden bg-gradient-to-br">
                     {template.thumbnail ? (
-                      <img src={template.thumbnail} alt={`${template.title} screenshot`} className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]" />
+                      <img
+                        src={template.thumbnail}
+                        alt={`${template.title} screenshot`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                      />
                     ) : (
                       <div
                         className="h-full"
