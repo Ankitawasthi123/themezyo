@@ -44,7 +44,7 @@ export default function Newsletter(){
         <div className="rounded-2xl border border-gray-200 bg-white px-6 py-12 shadow-sm sm:px-10 lg:px-14">
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_420px]">
             <div>
-              <p className="text-sm font-bold uppercase tracking-wide text-blue-600">Weekly ideas</p>
+              <p className="text-sm font-bold uppercase tracking-wide text-blue-600">Template updates</p>
               <h4 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight text-slate-800 sm:text-4xl lg:text-5xl">{t('newsletter.title')}</h4>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-600">{t('newsletter.intro')}</p>
             </div>
@@ -59,7 +59,7 @@ export default function Newsletter(){
               {message ? (
                 <p className={`mt-4 px-1 text-sm font-semibold ${status === 'success' ? 'text-emerald-600' : 'text-rose-600'}`}>{message}</p>
               ) : null}
-              <p className="mt-4 px-1 text-sm text-gray-500">Fresh prompts, launch angles, and useful idea notes.</p>
+              <p className="mt-4 px-1 text-sm text-gray-500">New releases, customization tips, and project updates.</p>
             </form>
           </div>
         </div>

@@ -28,8 +28,12 @@ export async function generateMetadata({ params }) {
       template.title,
       template.category,
       template.layoutType,
+      `free ${template.category} website template`,
+      `responsive ${template.category} HTML template`,
       'free HTML template',
       'AI website template',
+      'startup website template',
+      'business website template',
       ...(template.features || []),
     ].filter(Boolean),
     alternates: {

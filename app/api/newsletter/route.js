@@ -1,11 +1,19 @@
 import { NextResponse } from 'next/server'
 import { sendApiNotification } from '../../../lib/emailNotifications'
+import { checkRateLimit } from '../../../lib/rateLimit'
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
 export async function POST(request) {
+  if (!checkRateLimit(request, 'newsletter', 10)) {
+    return NextResponse.json(
+      { message: 'Too many subscription attempts. Please try again later.' },
+      { status: 429 }
+    )
+  }
+
   const supabaseUrl = process.env.SUPABASE_URL
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
   const tableName = process.env.SUPABASE_NEWSLETTER_TABLE || 'newsletter_subscribers'
@@ -53,8 +61,17 @@ export async function POST(request) {
   if (!response.ok) {
     const details = await response.text()
 
+    if (response.status === 409 || details.includes('duplicate key')) {
+      return NextResponse.json(
+        { message: 'This email is already subscribed.' },
+        { status: 409 }
+      )
+    }
+
+    console.error('Newsletter storage failed:', response.status, details)
+
     return NextResponse.json(
-      { message: 'Unable to subscribe.', details },
+      { message: 'Unable to subscribe.' },
       { status: 502 }
     )
   }

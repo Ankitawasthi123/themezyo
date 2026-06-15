@@ -9,7 +9,7 @@ import { useI18n } from './I18nProvider'
 export default function TemplateDetailContent({ template }) {
   const { t } = useI18n()
   const summary = template.summary || template.description
-  const layoutType = template.layoutType || `${template.category} AI idea pack`
+  const layoutType = template.layoutType || `${template.category} website template`
   const sections = template.sections || template.features?.slice(0, 4) || []
   const stats = template.stats || [
     { label: 'Rating', value: `${template.rating}` },
@@ -18,10 +18,11 @@ export default function TemplateDetailContent({ template }) {
   ]
   const sourceText = template.sourceText || t('detail.defaultSource')
   const format = template.format || 'HTML, Tailwind CSS'
-  const updated = template.updated || 'May 2026'
-  const support = template.support || 'Paid, based on idea and work'
+  const updated = template.updated || 'June 2026'
+  const support = template.support || 'Paid customization available'
   const ctaDescription = template.ctaDescription || t('detail.ctaDescription')
   const downloadHref = template.zipPath || `/downloads/${template.id}`
+  const coffeeUrl = process.env.NEXT_PUBLIC_BUY_ME_A_COFFEE_URL
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -42,7 +43,6 @@ export default function TemplateDetailContent({ template }) {
                 <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
                   <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">{template.title}</h1>
                   <div className="mt-4 flex flex-wrap items-center gap-4">
-                    <span className="text-gray-700">{template.rating} {t('common.rating')} ({template.reviews} {t('common.reviews')})</span>
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-700">{template.category}</span>
                   </div>
 
@@ -149,6 +149,7 @@ export default function TemplateDetailContent({ template }) {
                     </Link>
                   </div>
 
+                  {coffeeUrl ? (
                   <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-5 text-center shadow-sm">
                     <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-500 text-white shadow-sm">
                       <svg className="h-9 w-9" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -159,10 +160,11 @@ export default function TemplateDetailContent({ template }) {
                     </div>
                     <h3 className="mt-4 text-lg font-bold text-slate-800">{t('detail.coffeeTitle')}</h3>
                     <p className="mt-2 text-sm text-gray-700">{t('detail.coffeeText')}</p>
-                    <a href="https://www.buymeacoffee.com/" target="_blank" rel="noreferrer" className="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-amber-500 px-6 py-3 font-bold text-white shadow-md transition hover:bg-amber-600">
+                    <a href={coffeeUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-amber-500 px-6 py-3 font-bold text-white shadow-md transition hover:bg-amber-600">
                       {t('detail.coffeeButton')}
                     </a>
                   </div>
+                  ) : null}
 
                   <div className="mt-6 space-y-4 border-t pt-6">
                     <div>

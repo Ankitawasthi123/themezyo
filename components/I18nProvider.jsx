@@ -9,8 +9,8 @@ export function I18nProvider({ children }) {
   const [language, setLanguageState] = useState(defaultLanguage)
 
   useEffect(() => {
-    const storedLanguage = window.localStorage.getItem('templix-language')
-    if (storedLanguage && dictionaries[storedLanguage]) {
+    const storedLanguage = window.localStorage.getItem('themezyo-language')
+    if (storedLanguage && languages.some((item) => item.code === storedLanguage)) {
       setLanguageState(storedLanguage)
     }
   }, [])
@@ -25,7 +25,7 @@ export function I18nProvider({ children }) {
   function setLanguage(nextLanguage) {
     if (!dictionaries[nextLanguage]) return
     setLanguageState(nextLanguage)
-    window.localStorage.setItem('templix-language', nextLanguage)
+    window.localStorage.setItem('themezyo-language', nextLanguage)
   }
 
   const value = useMemo(() => {

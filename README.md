@@ -1,6 +1,6 @@
-# Templify - Next.js App
+# Themezyo - Next.js App
 
-An AI-based ideas marketplace built with the Next.js App Router and Tailwind CSS.
+A responsive website template library built with the Next.js App Router and Tailwind CSS.
 
 Quick start (PowerShell / CMD):
 

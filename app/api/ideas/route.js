@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { sendApiNotification } from '../../../lib/emailNotifications'
+import { checkRateLimit } from '../../../lib/rateLimit'
 
 const requiredFields = ['name', 'email', 'ideaTitle', 'category', 'details']
 
@@ -25,6 +26,13 @@ function validateIdeaPayload(payload) {
 }
 
 export async function POST(request) {
+  if (!checkRateLimit(request, 'template-request')) {
+    return NextResponse.json(
+      { message: 'Too many requests. Please try again later.' },
+      { status: 429 }
+    )
+  }
+
   const supabaseUrl = process.env.SUPABASE_URL
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
   const tableName = process.env.SUPABASE_IDEAS_TABLE || 'template_ideas'
@@ -77,10 +85,10 @@ export async function POST(request) {
   })
 
   if (!response.ok) {
-    const details = await response.text()
+    console.error('Template request storage failed:', response.status, await response.text())
 
     return NextResponse.json(
-      { message: 'Unable to save idea.', details },
+      { message: 'Unable to save request.' },
       { status: 502 }
     )
   }

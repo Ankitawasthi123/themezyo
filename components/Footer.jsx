@@ -24,7 +24,7 @@ export default function Footer(){
                 <li><Link href="/" className="hover:text-blue-600">{t('nav.home')}</Link></li>
                 <li><Link href="/templates" className="hover:text-blue-600">{t('nav.templates')}</Link></li>
                 <li><Link href="/categories" className="hover:text-blue-600">{t('nav.categories')}</Link></li>
-                <li><Link href="/help" className="hover:text-blue-600">{t('footer.license')}</Link></li>
+                <li><Link href="/terms" className="hover:text-blue-600">{t('footer.license')}</Link></li>
               </ul>
             </div>
             <div>
@@ -40,7 +40,7 @@ export default function Footer(){
               <ul className="mt-3 text-sm text-gray-600 space-y-2">
                 <li><Link href="/about" className="hover:text-blue-600">{t('nav.about')}</Link></li>
                 <li><Link href="/contact" className="hover:text-blue-600">{t('nav.contact')}</Link></li>
-                <li><Link href="/help" className="hover:text-blue-600">{t('footer.licensing')}</Link></li>
+                <li><Link href="/terms" className="hover:text-blue-600">{t('footer.licensing')}</Link></li>
               </ul>
             </div>
           </div>
@@ -49,8 +49,8 @@ export default function Footer(){
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>&copy; 2026 Themezyo. {t('footer.rights')}</div>
             <div className="flex gap-4">
-              <Link href="/help" className="hover:text-blue-600">{t('footer.privacy')}</Link>
-              <Link href="/help" className="hover:text-blue-600">{t('footer.terms')}</Link>
+              <Link href="/privacy" className="hover:text-blue-600">{t('footer.privacy')}</Link>
+              <Link href="/terms" className="hover:text-blue-600">{t('footer.terms')}</Link>
             </div>
           </div>
         </div>

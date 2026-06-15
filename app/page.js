@@ -7,11 +7,11 @@ import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 
 export const metadata = {
-  title: 'Free AI Website Templates for Modern Projects',
-  description: 'Browse free AI website templates for SaaS apps, social platforms, e-commerce stores, real estate portals, resume builders, and agencies.',
+  title: 'Free Responsive Website Templates for Startups & Businesses',
+  description: 'Browse free responsive HTML templates for SaaS startups, agencies, e-commerce stores, real estate platforms, resume builders, and creator businesses.',
   alternates: {
     canonical: '/',
-  },
+  },  
 }
 
 export default function Page() {

@@ -37,10 +37,10 @@ export const templates = [
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'Source files are included from A:\\templates\\social\\nexora\\html, with all Nexora HTML pages, shared CSS, preview screenshots, and downloadable zip.',
+      'The download includes all Nexora HTML pages, shared CSS, preview screenshots, and the complete source package.',
     format: 'HTML, Tailwind CSS CDN',
-    updated: 'May 2026',
-    support: 'Paid, based on idea and work',
+    updated: 'June 2026',
+    support: 'Paid customization available',
     zipPath: '/templates/nexora.zip',
     previewPath: '/templates/nexora/html/index.html',
     description:
@@ -93,10 +93,10 @@ export const templates = [
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'Source files are included from the AIFlow SaaS template folder, including dashboard imagery, HTML pages, screenshots, and zip download.',
+      'The download includes the AIFlow HTML pages, dashboard imagery, preview screenshots, and the complete source package.',
     format: 'HTML, Tailwind CSS CDN',
-    updated: 'May 2026',
-    support: 'Paid, based on idea and work',
+    updated: 'June 2026',
+    support: 'Paid customization available',
     zipPath: '/templates/aiflow.zip',
     previewPath: '/templates/aiflow/index.html',
     description:
@@ -148,10 +148,10 @@ export const templates = [
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'Source files are included from the Pixelnovate HTML template folder, with image assets, thumbnail previews, and downloadable zip.',
+      'The download includes the Pixelnovate HTML pages, image assets, preview screenshots, and the complete source package.',
     format: 'HTML, Tailwind CSS CDN',
-    updated: 'May 2026',
-    support: 'Paid, based on idea and work',
+    updated: 'June 2026',
+    support: 'Paid customization available',
     zipPath: '/templates/pixelnovate.zip',
     previewPath: '/templates/pixelnovate/index.html',
     description:
@@ -203,10 +203,10 @@ export const templates = [
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'Source files are included from the DressFit AI template folder, including product imagery, page HTML, screenshots, and zip download.',
+      'The download includes the DressFit AI HTML pages, product imagery, preview screenshots, and the complete source package.',
     format: 'HTML, Tailwind CSS CDN',
-    updated: 'May 2026',
-    support: 'Paid, based on idea and work',
+    updated: 'June 2026',
+    support: 'Paid customization available',
     zipPath: '/templates/dressfit-ai.zip',
     previewPath: '/templates/dressfit-ai/html/index.html',
     description:
@@ -258,10 +258,10 @@ export const templates = [
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'Source files are included from the HomeMatch AI template folder, including property images, floor plan assets, screenshots, and zip download.',
+      'The download includes the HomeMatch AI HTML pages, property images, floor plan assets, screenshots, and the complete source package.',
     format: 'HTML, Tailwind CSS CDN',
-    updated: 'May 2026',
-    support: 'Paid, based on idea and work',
+    updated: 'June 2026',
+    support: 'Paid customization available',
     zipPath: '/templates/home-match.zip',
     previewPath: '/templates/home-match/html/index.html',
     description:
@@ -317,10 +317,10 @@ export const templates = [
       { label: 'Format', value: 'HTML' },
     ],
     sourceText:
-      'Source files are included from the ResumeAI resume-builder folder, including landing, dashboard, builder, AI writer, ATS checker, preview, and template gallery HTML pages.',
+      'The download includes the ResumeAI landing, dashboard, builder, AI writer, ATS checker, preview, and template gallery HTML pages.',
     format: 'HTML, Tailwind CSS CDN',
-    updated: 'May 2026',
-    support: 'Paid, based on idea and work',
+    updated: 'June 2026',
+    support: 'Paid customization available',
     zipPath: '/templates/resume-builder.zip',
     previewPath: '/templates/resume-builder/html/index.html',
     description:

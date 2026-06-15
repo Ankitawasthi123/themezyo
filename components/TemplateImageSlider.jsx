@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useI18n } from './I18nProvider'
 
 export default function TemplateImageSlider({ template }) {
@@ -23,43 +23,9 @@ export default function TemplateImageSlider({ template }) {
     ]
   }, [template.color, template.imageLabels, template.images, template.thumbnail, t])
 
-  const [uploadedSlides, setUploadedSlides] = useState([])
   const [activeIndex, setActiveIndex] = useState(0)
-  const slides = uploadedSlides.length > 0 ? uploadedSlides : defaultSlides
+  const slides = defaultSlides
   const activeSlide = slides[activeIndex] || slides[0]
-
-  useEffect(() => {
-    setActiveIndex(0)
-  }, [uploadedSlides.length])
-
-  useEffect(() => {
-    return () => {
-      uploadedSlides.forEach((slide) => {
-        if (slide.type === 'image' && slide.src.startsWith('blob:')) {
-          URL.revokeObjectURL(slide.src)
-        }
-      })
-    }
-  }, [uploadedSlides])
-
-  function handleUpload(event) {
-    const files = Array.from(event.target.files || [])
-    const imageFiles = files.filter((file) => file.type.startsWith('image/'))
-
-    setUploadedSlides((currentSlides) => {
-      currentSlides.forEach((slide) => {
-        if (slide.type === 'image' && slide.src.startsWith('blob:')) {
-          URL.revokeObjectURL(slide.src)
-        }
-      })
-
-      return imageFiles.map((file) => ({
-        type: 'image',
-        label: file.name,
-        src: URL.createObjectURL(file),
-      }))
-    })
-  }
 
   function showPrevious() {
     setActiveIndex((index) => (index === 0 ? slides.length - 1 : index - 1))
@@ -115,7 +81,7 @@ export default function TemplateImageSlider({ template }) {
         </button>
       </div>
 
-      <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mt-4">
         <div className="flex gap-3 overflow-x-auto hide-scrollbar">
           {slides.map((slide, index) => (
             <button
@@ -136,11 +102,6 @@ export default function TemplateImageSlider({ template }) {
             </button>
           ))}
         </div>
-
-        <label className="inline-flex cursor-pointer items-center justify-center rounded-lg border border-blue-200 px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-50">
-          {t('slider.upload')}
-          <input type="file" accept="image/*" multiple onChange={handleUpload} className="sr-only" />
-        </label>
       </div>
     </div>
   )

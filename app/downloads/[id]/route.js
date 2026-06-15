@@ -65,8 +65,7 @@ function createTemplateFile(template) {
         <span class="tag">${template.category}</span>
         <h1>${template.title}</h1>
         <p>${template.description}</p>
-        <p><strong>Use this as an AI idea pack:</strong> expand the prompts, test the angles, and adapt the next steps for your market.</p>
-        <a href="#">Start editing</a>
+        <p><strong>Customize this starter:</strong> update the content, colors, imagery, and layout for your project.</p>
       </section>
     </main>
   </body>
@@ -79,7 +78,7 @@ export async function GET(_request, { params }) {
   const template = getTemplateById(id)
 
   if (!template) {
-    return new Response('Idea not found', { status: 404 })
+    return new Response('Template not found', { status: 404 })
   }
 
   const fileName = `${template.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`

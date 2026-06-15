@@ -76,7 +76,7 @@ export default function TemplatesPage(){
                   <option key={category.title} value={category.title}>{category.title} ({category.count})</option>
                 ))}
               </select>
-              <select value={selectedSort} onChange={(event) => setSelectedSort(event.target.value)} className="min-h-11 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" aria-label="Sort ideas">
+              <select value={selectedSort} onChange={(event) => setSelectedSort(event.target.value)} className="min-h-11 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" aria-label="Sort templates">
                 <option value={sortOptions.popular}>{t('templatesPage.sortPopular')}</option>
                 <option value={sortOptions.newest}>{t('templatesPage.newest')}</option>
                 <option value={sortOptions.priceLow}>{t('templatesPage.priceLow')}</option>
@@ -123,7 +123,7 @@ export default function TemplatesPage(){
               </div>
             ) : (
               <div className="rounded-xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-                <h2 className="text-xl font-bold text-slate-800">No ideas found</h2>
+                <h2 className="text-xl font-bold text-slate-800">No templates found</h2>
                 <p className="mt-2 text-gray-600">Try a different search term or category.</p>
               </div>
             )}

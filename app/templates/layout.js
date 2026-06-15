@@ -1,12 +1,12 @@
 export const metadata = {
-  title: 'Free HTML Templates',
-  description: 'Browse and download free HTML website templates with screenshots, live previews, and ready-to-use pages for AI-powered projects.',
+  title: 'Free Responsive HTML Website Templates',
+  description: 'Browse and download free responsive HTML templates for startups, SaaS products, agencies, online stores, real estate platforms, and creator websites.',
   alternates: {
     canonical: '/templates',
   },
   openGraph: {
-    title: 'Free HTML Templates | Themezyo',
-    description: 'Explore free AI-ready HTML templates for SaaS, social media, e-commerce, real estate, agencies, and resume builders.',
+    title: 'Free Responsive HTML Website Templates | Themezyo',
+    description: 'Explore free responsive HTML templates with live previews, project screenshots, source files, and ready-to-use pages.',
     url: '/templates',
   },
 }

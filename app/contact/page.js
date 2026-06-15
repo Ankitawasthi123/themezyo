@@ -15,6 +15,7 @@ const initialFormValues = {
 
 export default function ContactPage(){
   const { t } = useI18n()
+  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@themezyo.com'
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState({})
   const [status, setStatus] = useState('idle')
@@ -89,15 +90,7 @@ export default function ContactPage(){
                 <div className="mt-8 space-y-4">
                   <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
                     <h3 className="font-bold text-slate-800">{t('contact.email')}</h3>
-                    <p className="mt-1 text-gray-600">support@templix.com</p>
-                  </div>
-                  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                    <h3 className="font-bold text-slate-800">{t('contact.phone')}</h3>
-                    <p className="mt-1 text-gray-600">+1 (234) 567-8900</p>
-                  </div>
-                  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                    <h3 className="font-bold text-slate-800">{t('contact.address')}</h3>
-                    <p className="mt-1 text-gray-600">123 Main Street<br/>San Francisco, CA 94102<br/>United States</p>
+                    <a className="mt-1 inline-block text-blue-600 hover:text-blue-700" href={`mailto:${supportEmail}`}>{supportEmail}</a>
                   </div>
                   <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
                     <h3 className="font-bold text-slate-800">{t('contact.hours')}</h3>
