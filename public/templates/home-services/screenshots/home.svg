@@ -1,0 +1,23 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#eaf2fa"/>
+  <rect x="55" y="42" width="1170" height="716" rx="28" fill="white"/>
+  <rect x="55" y="42" width="1170" height="100" rx="28" fill="#032653"/>
+  <text x="100" y="105" font-family="Arial" font-size="28" font-weight="900" fill="white">FIXIT PRO</text>
+  <text x="720" y="101" font-family="Arial" font-size="15" fill="white">SERVICES   AREAS   REVIEWS   ABOUT   CONTACT</text>
+  <rect x="55" y="120" width="1170" height="510" fill="#052b5d"/>
+  <text x="105" y="225" font-family="Arial" font-size="16" font-weight="700" fill="#ff7100">WE'RE HERE WHEN YOU NEED US</text>
+  <text x="105" y="305" font-family="Arial" font-size="56" font-weight="900" fill="white">Reliable Home Services</text>
+  <text x="105" y="370" font-family="Arial" font-size="56" font-weight="900" fill="white">You Can Count On</text>
+  <text x="105" y="420" font-family="Arial" font-size="18" fill="#c8d8e8">HVAC, Plumbing, Roofing &amp; Electrical services available 24/7.</text>
+  <rect x="105" y="465" width="215" height="54" rx="8" fill="#ff7100"/>
+  <text x="130" y="498" font-family="Arial" font-size="15" font-weight="700" fill="white">CALL (123) 456-7890</text>
+  <circle cx="800" cy="390" r="180" fill="#0b447d"/>
+  <path d="M690 550 L800 245 L910 550 Z" fill="#ffb066"/>
+  <rect x="955" y="205" width="220" height="340" rx="18" fill="white"/>
+  <text x="980" y="250" font-family="Arial" font-size="18" font-weight="800" fill="#032653">AI Problem Analyzer</text>
+  <rect x="980" y="280" width="170" height="130" rx="10" fill="#f4f8fc" stroke="#8aa5bf" stroke-dasharray="7 7"/>
+  <text x="1048" y="345" font-family="Arial" font-size="34" fill="#ff7100">↑</text>
+  <rect x="980" y="440" width="170" height="50" rx="8" fill="#ff7100"/>
+  <text x="1005" y="472" font-family="Arial" font-size="14" font-weight="700" fill="white">ANALYZE PROBLEM</text>
+  <text x="105" y="700" font-family="Arial" font-size="18" font-weight="800" fill="#032653">HVAC</text><text x="340" y="700" font-family="Arial" font-size="18" font-weight="800" fill="#032653">PLUMBING</text><text x="610" y="700" font-family="Arial" font-size="18" font-weight="800" fill="#032653">ROOFING</text><text x="870" y="700" font-family="Arial" font-size="18" font-weight="800" fill="#032653">ELECTRICAL</text>
+</svg>

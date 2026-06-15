@@ -45,14 +45,14 @@ export default function TemplateImageSlider({ template }) {
         <p className="text-sm font-semibold text-gray-500">{activeIndex + 1} / {slides.length}</p>
       </div>
 
-      <div className="relative overflow-hidden rounded-lg border border-gray-100 bg-slate-100">
+      <div className="relative aspect-[36/25] overflow-hidden rounded-lg border border-gray-100 bg-slate-100">
         {activeSlide.type === 'image' ? (
-          <a href={activeSlide.src} target="_blank" rel="noreferrer" className="block">
-            <img src={activeSlide.src} alt={activeSlide.label} className="h-[420px] w-full object-contain" />
+          <a href={activeSlide.src} target="_blank" rel="noreferrer" className="block h-full">
+            <img src={activeSlide.src} alt={activeSlide.label} className="h-full w-full object-cover" />
           </a>
         ) : (
           <div
-            className="flex h-[420px] w-full items-end bg-gradient-to-br"
+            className="flex h-full w-full items-end bg-gradient-to-br"
             style={{backgroundImage: `linear-gradient(135deg, ${activeSlide.color}90, ${activeSlide.color}35)`}}
           >
             <div className="m-6 max-w-sm rounded-lg bg-white/90 p-5 shadow-sm">
@@ -88,11 +88,11 @@ export default function TemplateImageSlider({ template }) {
               key={`${slide.label}-${index}`}
               type="button"
               onClick={() => setActiveIndex(index)}
-              className={`h-20 w-32 flex-shrink-0 overflow-hidden rounded-lg border-2 bg-slate-100 transition ${activeIndex === index ? 'border-blue-600' : 'border-transparent opacity-75 hover:opacity-100'}`}
+              className={`aspect-[36/25] w-36 flex-shrink-0 overflow-hidden rounded-lg border-2 bg-slate-100 transition ${activeIndex === index ? 'border-blue-600' : 'border-transparent opacity-75 hover:opacity-100'}`}
               aria-label={`${t('slider.show')} ${slide.label}`}
             >
               {slide.type === 'image' ? (
-                <img src={slide.src} alt={slide.label} className="h-full w-full object-contain" />
+                <img src={slide.src} alt={slide.label} className="h-full w-full object-cover" />
               ) : (
                 <span
                   className="block h-full w-full"
