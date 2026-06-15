@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/copy-standalone-assets.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "start": "next start -H 0.0.0.0",
     "lint": "next build"
   },
