@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { I18nProvider } from '../components/I18nProvider'
+import Script from 'next/script'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themezyo.com'
 
@@ -11,17 +12,30 @@ export const metadata = {
   },
   description: 'Download free responsive HTML and AI website templates for SaaS startups, agencies, online stores, real estate platforms, creators, and global businesses.',
   keywords: [
-    'free responsive HTML templates',
-    'AI website templates',
-    'startup website templates',
-    'SaaS website templates',
-    'business website templates',
-    'landing page templates',
-    'agency website templates',
-    'e-commerce HTML templates',
-    'developer website templates',
-    'free website templates',
     'Themezyo',
+    'Themezyo templates',
+    'free HTML website templates',
+    'free responsive HTML templates',
+    'responsive website templates',
+    'download free website templates',
+    'free website templates with source code',
+    'HTML CSS JavaScript templates',
+    'AI-ready website templates',
+    'AI SaaS website templates',
+    'startup landing page templates',
+    'SaaS landing page templates',
+    'digital agency website templates',
+    'ecommerce website templates',
+    'real estate website templates',
+    'healthcare website templates',
+    'clinic website templates',
+    'education website templates',
+    'service business website templates',
+    'portfolio website templates',
+    'business landing page templates',
+    'landing page templates',
+    'mobile friendly HTML templates',
+    'commercial use website templates',
   ],
   category: 'technology',
   authors: [{ name: 'Themezyo' }],
@@ -76,6 +90,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TMHWVJKDQ3"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-TMHWVJKDQ3');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
