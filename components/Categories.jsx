@@ -18,6 +18,7 @@ export default function Categories(){
     ...category,
     icon: categoryIcons[category.title] || '/icons/landing.svg',
   }))
+  const visibleItems = items.slice(0, 4)
 
   return (
     <section className="py-14 sm:py-16">
@@ -28,7 +29,7 @@ export default function Categories(){
         </div>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {items.map((it)=> (
+          {visibleItems.map((it)=> (
             <Link key={it.title} href="/categories" className="rounded-xl border border-gray-200 bg-white p-5 text-center text-sm shadow-sm transition hover:-translate-y-0.5 hover:border-blue-100 hover:shadow-md">
               <img src={it.icon} alt={it.title} className="mx-auto mb-3 h-9 w-9" style={{filter:'invert(0.3) hue-rotate(250deg) saturate(2)'}} />
               <div className="font-bold text-slate-800">{it.title}</div>
