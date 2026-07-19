@@ -15,7 +15,6 @@ const initialFormValues = {
 
 export default function ContactPage(){
   const { t } = useI18n()
-  const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@themezyo.com'
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState({})
   const [status, setStatus] = useState('idle')
@@ -83,23 +82,8 @@ export default function ContactPage(){
         </section>
 
         <section className="py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
-              <div>
-                <h2 className="text-2xl font-extrabold text-slate-800">{t('contact.info')}</h2>
-                <div className="mt-8 space-y-4">
-                  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                    <h3 className="font-bold text-slate-800">{t('contact.email')}</h3>
-                    <a className="mt-1 inline-block text-blue-600 hover:text-blue-700" href={`mailto:${supportEmail}`}>{supportEmail}</a>
-                  </div>
-                  <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                    <h3 className="font-bold text-slate-800">{t('contact.hours')}</h3>
-                    <p className="mt-1 text-gray-600 whitespace-pre-line">{t('contact.hoursText')}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+          <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div>
                     <label className="block text-sm font-semibold text-slate-800">{t('contact.name')}</label>
@@ -128,7 +112,6 @@ export default function ContactPage(){
                     {status === 'loading' ? 'Sending...' : t('common.sendMessage')}
                   </button>
                 </form>
-              </div>
             </div>
           </div>
         </section>
