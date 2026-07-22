@@ -7,7 +7,7 @@ import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 
 export const metadata = {
-  title: 'Free Responsive Website Templates for Startups & Businesses',
+  title: 'Launch Faster With Ready-to-Use Templates',
   description: 'Browse free responsive HTML templates for SaaS startups, agencies, e-commerce stores, real estate platforms, resume builders, and creator businesses.',
   alternates: {
     canonical: '/',

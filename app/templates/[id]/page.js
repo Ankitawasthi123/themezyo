@@ -3,18 +3,12 @@ import TemplateDetailContent from '../../../components/TemplateDetailContent'
 import { getTemplateById, templates } from '../../../data/templates'
 
 function createTemplateKeywords(template) {
-  const title = template.title
   const category = template.category
   const normalizedCategory = String(category || '').toLowerCase()
-  const titleSlugWords = String(template.id || '').replace(/-/g, ' ')
+  const templateType = getTemplateType(template)
 
   return [
-    title,
-    `${title} template`,
-    `${title} HTML template`,
-    `${title} website template`,
-    titleSlugWords,
-    `${titleSlugWords} HTML template`,
+    templateType,
     category,
     `${category} website template`,
     `${category} HTML template`,
@@ -24,18 +18,16 @@ function createTemplateKeywords(template) {
     `responsive ${normalizedCategory} HTML template`,
     `download ${normalizedCategory} website template`,
     `download ${normalizedCategory} HTML template`,
-    template.layoutType,
     'free HTML website template',
-    'free responsive HTML template',
-    'HTML CSS JavaScript template',
-    'mobile friendly website template',
-    'Themezyo template',
-    ...(template.features || []),
-    ...(template.sections || []),
   ]
     .filter(Boolean)
     .map((keyword) => String(keyword).trim())
     .filter((keyword, index, keywords) => keywords.indexOf(keyword) === index)
+    .slice(0, 10)
+}
+
+function getTemplateType(template) {
+  return template.layoutType || template.category
 }
 
 export function generateStaticParams() {
@@ -56,11 +48,16 @@ export async function generateMetadata({ params }) {
   const title = `${template.title} - ${template.category} HTML Template`
   const description = template.description || template.summary
   const image = template.thumbnail || template.images?.[0]
+  const templateType = getTemplateType(template)
 
   return {
     title,
     description,
     keywords: createTemplateKeywords(template),
+    other: {
+      'template-type': templateType,
+      'template-category': template.category,
+    },
     alternates: {
       canonical: `/templates/${template.id}`,
     },

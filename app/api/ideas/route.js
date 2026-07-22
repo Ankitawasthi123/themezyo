@@ -25,22 +25,18 @@ function validateIdeaPayload(payload) {
   return errors
 }
 
+export function GET() {
+  return NextResponse.json(
+    { message: 'Template ideas must be submitted with a POST request.' },
+    { status: 405, headers: { Allow: 'POST' } }
+  )
+}
+
 export async function POST(request) {
   if (!checkRateLimit(request, 'template-request')) {
     return NextResponse.json(
       { message: 'Too many requests. Please try again later.' },
       { status: 429 }
-    )
-  }
-
-  const supabaseUrl = process.env.SUPABASE_URL
-  const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-  const tableName = process.env.SUPABASE_IDEAS_TABLE || 'template_ideas'
-
-  if (!supabaseUrl || !supabaseServiceRoleKey) {
-    return NextResponse.json(
-      { message: 'Supabase environment variables are missing.' },
-      { status: 500 }
     )
   }
 
@@ -73,44 +69,26 @@ export async function POST(request) {
     )
   }
 
-  const response = await fetch(`${supabaseUrl}/rest/v1/${tableName}`, {
-    method: 'POST',
-    headers: {
-      apikey: supabaseServiceRoleKey,
-      Authorization: `Bearer ${supabaseServiceRoleKey}`,
-      'Content-Type': 'application/json',
-      Prefer: 'return=representation',
-    },
-    body: JSON.stringify(normalizedPayload),
-  })
-
-  if (!response.ok) {
-    console.error('Template request storage failed:', response.status, await response.text())
-
-    return NextResponse.json(
-      { message: 'Unable to save request.' },
-      { status: 502 }
-    )
-  }
-
-  const savedIdea = await response.json()
-  const idea = savedIdea[0]
-
   try {
     await sendApiNotification({
       subject: 'New template idea submitted',
       title: 'New template idea',
       fields: {
-        Name: idea.name,
-        Email: idea.email,
-        'Idea title': idea.idea_title,
-        Category: idea.category,
-        Details: idea.details,
+        Name: normalizedPayload.name,
+        Email: normalizedPayload.email,
+        'Idea title': normalizedPayload.idea_title,
+        Category: normalizedPayload.category,
+        Details: normalizedPayload.details,
       },
     })
   } catch (error) {
     console.error('Idea notification failed:', error)
+
+    return NextResponse.json(
+      { message: 'Unable to send template request email.' },
+      { status: 502 }
+    )
   }
 
-  return NextResponse.json({ idea }, { status: 201 })
+  return NextResponse.json({ idea: normalizedPayload }, { status: 201 })
 }
