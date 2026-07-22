@@ -6,6 +6,7 @@ import { useState } from 'react'
 import AiCanvasBackground from './AiCanvasBackground'
 import { useI18n } from './I18nProvider'
 import { readJsonResponse } from '../lib/readJsonResponse'
+import { getTemplateCategories, getTemplatePageCount, templates } from '../data/templates'
 
 const ideaInitialValues = {
   name: '',
@@ -20,6 +21,15 @@ export default function Hero(){
   const [isIdeaModalOpen, setIsIdeaModalOpen] = useState(false)
   const [isIdeaSubmitted, setIsIdeaSubmitted] = useState(false)
   const [ideaSubmitError, setIdeaSubmitError] = useState('')
+  const templateCount = templates.length
+  const pageCount = getTemplatePageCount()
+  const popularCategories = getTemplateCategories().slice(0, 6)
+  const proofPoints = [
+    { value: `${templateCount}+`, label: 'Free templates' },
+    { value: `${pageCount}+`, label: 'Included pages' },
+    { value: 'Live', label: 'Browser previews' },
+    { value: 'ZIP', label: 'Source downloads' },
+  ]
 
   function openIdeaModal() {
     setIsIdeaSubmitted(false)
@@ -97,6 +107,28 @@ export default function Hero(){
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link className="inline-flex items-center rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 text-white shadow-md transition hover:shadow-lg" href="/templates">{t('hero.download')}</Link>
               <button type="button" onClick={openIdeaModal} className="inline-flex items-center px-6 py-3 border border-gray-200 rounded-lg text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">{t('hero.shareIdea')}</button>
+            </div>
+            <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+              {proofPoints.map((point) => (
+                <div key={point.label} className="rounded-lg border border-blue-100 bg-white/85 px-4 py-3 shadow-sm backdrop-blur">
+                  <div className="text-xl font-extrabold text-slate-800">{point.value}</div>
+                  <div className="mt-1 text-xs font-semibold text-gray-600">{point.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mx-auto mt-7 max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Popular template categories</p>
+              <div className="mt-3 flex flex-wrap justify-center gap-2">
+                {popularCategories.map((category) => (
+                  <Link
+                    key={category.title}
+                    href={`/templates?category=${encodeURIComponent(category.title)}`}
+                    className="rounded-full border border-gray-200 bg-white/85 px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

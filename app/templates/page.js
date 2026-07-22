@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { getTemplateCategories, templates } from '../../data/templates'
@@ -19,7 +19,15 @@ export default function TemplatesPage(){
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedSort, setSelectedSort] = useState(sortOptions.popular)
-  const categories = getTemplateCategories()
+  const categories = useMemo(() => getTemplateCategories(), [])
+
+  useEffect(() => {
+    const category = new URLSearchParams(window.location.search).get('category')
+
+    if (category && categories.some((item) => item.title === category)) {
+      setSelectedCategory(category)
+    }
+  }, [categories])
   const filteredTemplates = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase()
 

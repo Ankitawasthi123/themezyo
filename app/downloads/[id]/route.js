@@ -1,4 +1,7 @@
+import { readFile } from 'fs/promises'
+import path from 'path'
 import { getTemplateById } from '../../../data/templates'
+import { sendApiNotification } from '../../../lib/emailNotifications'
 
 function createTemplateFile(template) {
   return `<!doctype html>
@@ -73,7 +76,7 @@ function createTemplateFile(template) {
 `
 }
 
-export async function GET(_request, { params }) {
+export async function GET(request, { params }) {
   const { id } = await params
   const template = getTemplateById(id)
 
@@ -81,12 +84,54 @@ export async function GET(_request, { params }) {
     return new Response('Template not found', { status: 404 })
   }
 
-  const fileName = `${template.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`
+  const fallbackFileName = `${template.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`
+  const zipPath = template.zipPath ? path.join(process.cwd(), 'public', template.zipPath.replace(/^\/+/, '')) : null
+  const zipFileName = template.zipPath ? path.basename(template.zipPath) : null
+  const fileName = zipFileName || fallbackFileName
+  try {
+    await sendApiNotification({
+      subject: `${template.title} template downloaded`,
+      title: 'Template downloaded',
+      fields: {
+        Template: template.title,
+        'Template ID': template.id,
+        Category: template.category,
+        Format: template.format || 'HTML',
+        Price: template.price,
+        'Download file': fileName,
+        'Downloaded at': new Date().toISOString(),
+      },
+    })
+  } catch (error) {
+    console.error('Download notification failed:', error)
+  }
+
+  if (zipPath) {
+    try {
+      const publicPath = path.join(process.cwd(), 'public')
+      const resolvedZipPath = path.resolve(zipPath)
+
+      if (!resolvedZipPath.startsWith(path.resolve(publicPath))) {
+        throw new Error('Invalid download path')
+      }
+
+      const zipFile = await readFile(resolvedZipPath)
+
+      return new Response(zipFile, {
+        headers: {
+          'Content-Type': 'application/zip',
+          'Content-Disposition': `attachment; filename="${fileName}"`,
+        },
+      })
+    } catch (error) {
+      console.error('Template zip download failed:', error)
+    }
+  }
 
   return new Response(createTemplateFile(template), {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      'Content-Disposition': `attachment; filename="${fileName}"`,
+      'Content-Disposition': `attachment; filename="${fallbackFileName}"`,
     },
   })
 }

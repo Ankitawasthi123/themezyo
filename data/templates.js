@@ -20,7 +20,7 @@ export const templates = [
       '/templates/nexora/screenshots/real-2-ai-studio.png',
       '/templates/nexora/screenshots/real-3-create-post.png',
     ],
-    imageLabels: ['Homepage', 'Ai Studio', 'Create Post'],
+    imageLabels: ['Homepage', 'AI Studio', 'Create Post'],
     summary:
       'Nexora is a social AI network template for creator communities, content platforms, social dashboards, and AI-assisted posting products.',
     sections: [
@@ -1202,7 +1202,7 @@ export const templates = [
     summary: 'AlignCare is designed for chiropractic clinics, spinal care specialists, posture correction practices, and pain relief providers.',
     sections: ['Chiropractic clinic landing page', 'Services and conditions sections', 'AI symptom checker', 'Booking and contact pages', 'About and practice trust content'],
     stats: [{ label: 'Pages', value: '6' }, { label: 'Screenshots', value: '3' }, { label: 'Format', value: 'HTML' }],
-    sourceText: 'The download includes all AlignCare HTML pages, shared CSS and JavaScript, and the real rendered screenshotss.',
+    sourceText: 'The download includes all AlignCare HTML pages, shared CSS and JavaScript, and the real rendered screenshots.',
     format: 'HTML, Tailwind CSS CDN, CSS, JavaScript',
     updated: 'July 2026',
     support: 'Paid customization available',

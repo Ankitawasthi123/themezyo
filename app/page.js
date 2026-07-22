@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import Hero from '../components/Hero'
+import SmartTemplatePicker from '../components/SmartTemplatePicker'
 import Categories from '../components/Categories'
 import TemplatesGrid from '../components/TemplatesGrid'
 import Features from '../components/Features'
@@ -20,6 +21,7 @@ export default function Page() {
       <Header />
       <main>
         <Hero />
+        <SmartTemplatePicker />
         <Categories />
         <TemplatesGrid />
         <Features />
