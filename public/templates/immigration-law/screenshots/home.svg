@@ -1,0 +1,25 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#edf2f7"/>
+  <rect x="55" y="42" width="1170" height="716" rx="28" fill="#041f42"/>
+  <text x="100" y="105" font-family="Georgia" font-size="30" font-weight="700" fill="#f0b83f">LEXORA</text>
+  <text x="710" y="101" font-family="Arial" font-size="14" fill="white">ABOUT   PRACTICE AREAS   ATTORNEYS   RESULTS   CONTACT</text>
+  <text x="105" y="220" font-family="Arial" font-size="16" font-weight="700" fill="#f0b83f">YOUR TRUSTED PARTNER IN</text>
+  <text x="105" y="300" font-family="Georgia" font-size="62" font-weight="700" fill="white">Immigration &amp;</text>
+  <text x="105" y="370" font-family="Georgia" font-size="62" font-weight="700" fill="white">Business Law</text>
+  <text x="105" y="420" font-family="Arial" font-size="18" fill="#aebbd0">Strategic legal solutions for individuals, families and businesses.</text>
+  <rect x="105" y="465" width="175" height="52" rx="6" fill="#f0b83f"/>
+  <text x="132" y="498" font-family="Arial" font-size="14" font-weight="700" fill="#041f42">FREE CONSULTATION</text>
+  <rect x="610" y="170" width="260" height="430" rx="130" fill="#163f6d"/>
+  <circle cx="740" cy="320" r="80" fill="#d4a47b"/>
+  <path d="M645 580 Q740 385 835 580" fill="#24334a"/>
+  <rect x="930" y="190" width="240" height="370" rx="16" fill="#062953" stroke="#d99a21" stroke-width="2"/>
+  <text x="958" y="240" font-family="Arial" font-size="18" font-weight="700" fill="white">AI Visa Eligibility</text>
+  <text x="978" y="270" font-family="Arial" font-size="13" fill="#aebbd0">Check eligibility in minutes</text>
+  <rect x="958" y="310" width="184" height="55" rx="7" fill="#0d3764"/>
+  <text x="980" y="344" font-family="Arial" font-size="14" fill="white">Passport Copy  ›</text>
+  <rect x="958" y="380" width="184" height="55" rx="7" fill="#0d3764"/>
+  <text x="980" y="414" font-family="Arial" font-size="14" fill="white">Resume / CV  ›</text>
+  <rect x="958" y="460" width="184" height="50" rx="7" fill="#f0b83f"/>
+  <text x="985" y="491" font-family="Arial" font-size="13" font-weight="700" fill="#041f42">ANALYZE ELIGIBILITY</text>
+  <text x="105" y="690" font-family="Arial" font-size="24" font-weight="700" fill="white">20+ Years</text><text x="330" y="690" font-family="Arial" font-size="24" font-weight="700" fill="white">15K+ Cases</text><text x="575" y="690" font-family="Arial" font-size="24" font-weight="700" fill="white">98% Success</text>
+</svg>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora - Social AI Network</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="nexora.css" />
+</head>
+<body>
+  <div class="mx-auto grid min-h-screen max-w-[1320px] gap-5 px-5 pb-24 pt-5 xl:grid-cols-[220px_minmax(0,1fr)_280px]">
+    <aside class="sticky-rail hidden xl:block">
+      <a href="index.html" class="flex items-center gap-3 text-xl font-black"><span class="brand-mark">N</span>Nexora</a>
+      <nav class="mt-8 space-y-1.5">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="explore.html">Explore</a>
+        <a class="nav-link" href="create-post.html">Create Post</a>
+        <a class="nav-link" href="shorts.html">Shorts</a>
+        <a class="nav-link" href="messages.html">Messages <b class="rounded-full bg-violet px-2 py-0.5 text-xs text-white">2</b></a>
+        <a class="nav-link" href="notifications.html">Notifications <b class="rounded-full bg-violet px-2 py-0.5 text-xs text-white">5</b></a>
+        <a class="nav-link" href="profile.html">Profile</a>
+        <a class="nav-link" href="settings.html">Settings</a>
+      </nav>
+      <section class="panel mt-8 p-5">
+        <p class="text-xs font-black uppercase tracking-[0.16em] text-violet">AI Studio</p>
+        <p class="mt-3 text-sm leading-6 muted">Generate polished visuals and captions for your next post.</p>
+        <a href="ai-studio.html" class="btn-primary mt-5 w-full py-3 text-sm">Open Studio</a>
+      </section>
+      <section class="panel mt-5 p-5">
+        <h2 class="font-black">Today</h2>
+        <div class="mt-4 space-y-3 text-sm">
+          <p class="flex justify-between"><span class="muted">Profile visits</span><b>1.8K</b></p>
+          <p class="flex justify-between"><span class="muted">New followers</span><b>42</b></p>
+          <p class="flex justify-between"><span class="muted">Drafts ready</span><b>6</b></p>
+        </div>
+      </section>
+    </aside>
+
+    <main class="mx-auto w-full max-w-[760px]">
+      <header class="flex items-center gap-3">
+        <input class="field min-h-12 flex-1" placeholder="Search creators, topics, or posts" />
+        <a href="create-post.html" class="btn-primary hidden h-12 px-5 text-sm sm:inline-flex">Create</a>
+        <a href="profile.html"><img class="avatar h-12 w-12" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=112&q=80" alt="Arjun profile" /></a>
+      </header>
+
+      <section class="panel mt-5 p-4">
+        <div class="flex items-center gap-3">
+          <img class="avatar h-11 w-11" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=96&q=80" alt="Arjun" />
+          <a href="create-post.html" class="field flex min-h-11 items-center text-sm muted">Share an update with your network</a>
+        </div>
+        <div class="mt-4 grid grid-cols-4 gap-2 border-t border-slate-100 pt-4 text-sm">
+          <button class="rounded-xl py-2 font-bold muted hover:bg-slate-50">Photo</button>
+          <button class="rounded-xl py-2 font-bold muted hover:bg-slate-50">Video</button>
+          <button class="rounded-xl py-2 font-bold muted hover:bg-slate-50">Short</button>
+          <button class="rounded-xl py-2 font-bold muted hover:bg-slate-50">Poll</button>
+        </div>
+      </section>
+
+      <section class="mt-5 flex gap-4 overflow-x-auto pb-1">
+        <a href="create-post.html" class="min-w-20 text-center"><div class="grid h-16 w-16 place-items-center rounded-full bg-violet/10 text-2xl text-violet">+</div><p class="mt-2 text-xs font-bold">Create</p></a>
+        <div class="min-w-20 text-center"><img class="avatar mx-auto h-16 w-16 ring-2 ring-violet/30" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Emma" /><p class="mt-2 text-xs font-bold">Emma</p></div>
+        <div class="min-w-20 text-center"><img class="avatar mx-auto h-16 w-16 ring-2 ring-violet/30" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="James" /><p class="mt-2 text-xs font-bold">James</p></div>
+        <div class="min-w-20 text-center"><img class="avatar mx-auto h-16 w-16 ring-2 ring-violet/30" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80" alt="Olivia" /><p class="mt-2 text-xs font-bold">Olivia</p></div>
+        <div class="min-w-20 text-center"><img class="avatar mx-auto h-16 w-16 ring-2 ring-violet/30" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Noah" /><p class="mt-2 text-xs font-bold">Noah</p></div>
+        <div class="min-w-20 text-center"><img class="avatar mx-auto h-16 w-16 ring-2 ring-violet/30" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Sophia" /><p class="mt-2 text-xs font-bold">Sophia</p></div>
+      </section>
+
+      <article class="panel mt-5 overflow-hidden">
+        <div class="p-5">
+          <div class="flex items-start gap-3"><img class="avatar h-11 w-11" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=112&q=80" alt="Olivia Rhye" /><div class="mr-auto"><h2 class="font-black">Olivia Rhye</h2><p class="text-sm muted">2h ago - Public</p></div><button class="text-sm font-black muted">More</button></div>
+          <p class="mt-4 leading-7">Chasing sunsets and new ideas. Grateful for moments like these.<br><span class="font-bold text-violet">#sunset #nature #goodvibes</span></p>
+        </div>
+        <img class="h-[340px] w-full object-cover" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1100&q=90" alt="Sunset coastline post" />
+        <div class="p-5">
+          <div class="flex flex-wrap items-center gap-4 border-b border-slate-100 pb-4 text-sm font-semibold muted"><span class="mr-auto">1.2K reactions</span><span>87 comments</span><span>23 shares</span></div>
+          <div class="grid grid-cols-4 gap-2 pt-3 text-sm font-bold muted"><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Like</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Comment</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Share</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Save</button></div>
+        </div>
+      </article>
+
+      <article class="panel mt-5 p-5">
+        <div class="flex items-start gap-3"><div class="grid h-11 w-11 place-items-center rounded-full bg-slate-100 font-black text-slate-600 ring-1 ring-slate-200">T</div><div class="mr-auto"><h2 class="font-black">Tech Voyager</h2><p class="text-sm muted">4h ago - Public</p></div><button class="text-sm font-black muted">More</button></div>
+        <p class="mt-4 leading-7">The future is here. Which one excites you most?</p>
+        <div class="mt-4 grid grid-cols-3 gap-2 overflow-hidden rounded-2xl"><img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=500&q=90" alt="Future city" /><img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=500&q=90" alt="VR headset" /><img class="h-44 w-full object-cover" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=500&q=90" alt="AI robot" /></div>
+        <div class="mt-4 flex flex-wrap items-center gap-4 border-b border-slate-100 pb-4 text-sm font-semibold muted"><span class="mr-auto">986 reactions</span><span>64 comments</span><span>12 shares</span></div>
+        <div class="grid grid-cols-4 gap-2 pt-3 text-sm font-bold muted"><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Like</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Comment</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Share</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Save</button></div>
+      </article>
+
+      <article class="panel mt-5 overflow-hidden">
+        <div class="p-5">
+          <div class="flex items-start gap-3"><img class="avatar h-11 w-11" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=112&q=80" alt="Liam Carter" /><div class="mr-auto"><h2 class="font-black">Liam Carter</h2><p class="text-sm muted">6h ago - Public</p></div><button class="text-sm font-black muted">More</button></div>
+          <p class="mt-4 leading-7">A useful reminder for creators: consistency is easier when your idea bank is organized before the week begins.</p>
+        </div>
+        <div class="mx-5 grid gap-3 rounded-2xl bg-slate-50 p-4 sm:grid-cols-3">
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200"><b>Plan</b><p class="mt-2 text-sm muted">Capture themes and hooks.</p></div>
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200"><b>Create</b><p class="mt-2 text-sm muted">Batch visuals and captions.</p></div>
+          <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200"><b>Review</b><p class="mt-2 text-sm muted">Track engagement signals.</p></div>
+        </div>
+        <div class="p-5">
+          <div class="flex flex-wrap items-center gap-4 border-b border-slate-100 pb-4 text-sm font-semibold muted"><span class="mr-auto">742 reactions</span><span>38 comments</span><span>16 shares</span></div>
+          <div class="grid grid-cols-4 gap-2 pt-3 text-sm font-bold muted"><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Like</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Comment</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Share</button><button class="rounded-xl py-2 hover:bg-violet/10 hover:text-violet">Save</button></div>
+        </div>
+      </article>
+    </main>
+
+    <aside class="sticky-rail hidden space-y-5 xl:block">
+      <section class="panel p-5">
+        <div class="flex items-center justify-between"><h2 class="font-black">Trending</h2><a class="text-sm font-black text-violet" href="explore.html">View</a></div>
+        <div class="mt-4 space-y-4 text-sm"><p><b>#Wanderlust</b><span class="block muted">18.2K posts</span></p><p><b>#AIArt</b><span class="block muted">12.7K posts</span></p><p><b>#FutureTech</b><span class="block muted">7.6K posts</span></p></div>
+      </section>
+      <section class="panel p-5">
+        <div class="flex items-center justify-between"><h2 class="font-black">Live Rooms</h2><a class="text-sm font-black text-violet" href="#">View</a></div>
+        <div class="mt-4 space-y-4 text-sm">
+          <p><b>Creator Growth Lab</b><span class="block muted">186 listening</span></p>
+          <p><b>AI Art Review</b><span class="block muted">92 listening</span></p>
+        </div>
+      </section>
+      <section class="panel p-5">
+        <div class="flex items-center justify-between"><h2 class="font-black">Suggested</h2><a class="text-sm font-black text-violet" href="#">View</a></div>
+        <div class="mt-4 space-y-4"><div class="flex items-center gap-3"><img class="avatar h-10 w-10" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&q=80" alt="Liam" /><div class="mr-auto"><b class="text-sm">Liam Carter</b><p class="text-xs muted">@liam.carter</p></div><button class="btn-primary px-3 py-2 text-xs">Follow</button></div><div class="flex items-center gap-3"><img class="avatar h-10 w-10" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=96&q=80" alt="Ava" /><div class="mr-auto"><b class="text-sm">Ava Mitchell</b><p class="text-xs muted">@ava.mitchell</p></div><button class="btn-primary px-3 py-2 text-xs">Follow</button></div></div>
+      </section>
+      <section class="panel p-5">
+        <h2 class="font-black">Upcoming</h2>
+        <div class="mt-4 space-y-4 text-sm">
+          <div class="rounded-xl bg-slate-50 p-4"><b>Portfolio critique</b><p class="mt-1 muted">Today, 7:30 PM</p></div>
+          <div class="rounded-xl bg-slate-50 p-4"><b>Shorts workshop</b><p class="mt-1 muted">Tomorrow, 11:00 AM</p></div>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="fixed bottom-5 left-1/2 z-20 grid w-[min(92vw,720px)] -translate-x-1/2 grid-cols-5 rounded-[20px] bg-white/95 px-5 py-3 text-center text-sm font-bold shadow-xl ring-1 ring-slate-200 backdrop-blur xl:hidden">
+    <a class="text-violet" href="index.html">Home</a><a class="muted" href="explore.html">Explore</a><a class="text-violet" href="create-post.html">Create</a><a class="muted" href="shorts.html">Shorts</a><a class="muted" href="profile.html">Profile</a>
+  </nav>
+</body>
+</html>

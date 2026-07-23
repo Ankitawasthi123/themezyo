@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900">
+  <defs><filter id="s"><feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#4944a6" flood-opacity=".14"/></filter></defs>
+  <rect width="1280" height="900" fill="#fbfbff"/>
+  <rect width="260" height="900" fill="#fff" stroke="#e6e8f1"/>
+  <rect x="42" y="44" width="38" height="38" rx="12" fill="#6547ff"/><text x="54" y="70" fill="#fff" font-family="Arial" font-size="24" font-weight="900">+</text>
+  <text x="94" y="71" fill="#111b46" font-family="Arial" font-size="26" font-weight="900">ResumeAI</text>
+  <rect x="32" y="128" width="196" height="48" rx="12" fill="#6547ff"/><text x="76" y="158" fill="#fff" font-family="Arial" font-size="15" font-weight="900">Create New Resume</text>
+  <g font-family="Arial" font-size="15" font-weight="800"><rect x="32" y="216" width="196" height="44" rx="12" fill="#f2efff"/><text x="62" y="244" fill="#6547ff">Dashboard</text><text x="62" y="300" fill="#66708f">My Resumes</text><text x="62" y="356" fill="#66708f">AI Writer</text><text x="62" y="412" fill="#66708f">ATS Checker</text><text x="62" y="468" fill="#66708f">Templates</text></g>
+  <text x="316" y="78" fill="#111b46" font-family="Arial" font-size="36" font-weight="900">Dashboard</text>
+  <text x="316" y="112" fill="#66708f" font-family="Arial" font-size="17">Welcome back, John! Ready to build something amazing today?</text>
+  <g filter="url(#s)"><rect x="316" y="160" width="200" height="140" rx="18" fill="#fff"/><rect x="548" y="160" width="200" height="140" rx="18" fill="#fff"/><rect x="780" y="160" width="200" height="140" rx="18" fill="#fff"/><rect x="1012" y="160" width="200" height="140" rx="18" fill="#fff"/></g>
+  <g font-family="Arial"><text x="348" y="236" fill="#111b46" font-size="42" font-weight="900">3</text><text x="348" y="266" fill="#66708f" font-size="15" font-weight="800">Resumes</text><text x="580" y="236" fill="#111b46" font-size="42" font-weight="900">85</text><text x="580" y="266" fill="#66708f" font-size="15" font-weight="800">ATS Score</text><text x="812" y="236" fill="#111b46" font-size="42" font-weight="900">2</text><text x="812" y="266" fill="#66708f" font-size="15" font-weight="800">Cover Letters</text><text x="1044" y="236" fill="#111b46" font-size="42" font-weight="900">1</text><text x="1044" y="266" fill="#66708f" font-size="15" font-weight="800">LinkedIn Profile</text></g>
+  <g filter="url(#s)"><rect x="316" y="340" width="896" height="300" rx="20" fill="#fff"/></g>
+  <text x="352" y="396" fill="#111b46" font-family="Arial" font-size="25" font-weight="900">Recent Resumes</text>
+  <g font-family="Arial"><rect x="352" y="432" width="824" height="62" rx="14" fill="#fbfbff" stroke="#edf0f7"/><text x="432" y="468" fill="#111b46" font-size="17" font-weight="900">Senior Product Designer</text><circle cx="1102" cy="463" r="24" fill="none" stroke="#34d399" stroke-width="7"/><rect x="352" y="516" width="824" height="62" rx="14" fill="#fbfbff" stroke="#edf0f7"/><text x="432" y="552" fill="#111b46" font-size="17" font-weight="900">Frontend Developer</text><circle cx="1102" cy="547" r="24" fill="none" stroke="#fbbf24" stroke-width="7"/><rect x="352" y="600" width="824" height="62" rx="14" fill="#fbfbff" stroke="#edf0f7"/></g>
+  <g filter="url(#s)"><rect x="316" y="684" width="896" height="142" rx="20" fill="#fff"/></g>
+  <text x="352" y="740" fill="#111b46" font-family="Arial" font-size="24" font-weight="900">Improve Your Resume</text><rect x="998" y="724" width="120" height="54" rx="27" fill="none" stroke="#34d399" stroke-width="10"/><text x="1040" y="758" fill="#111b46" font-family="Arial" font-size="24" font-weight="900">92</text>
+</svg>

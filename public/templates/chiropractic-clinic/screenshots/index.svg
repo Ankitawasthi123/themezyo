@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="AlignCare homepage preview">
+  <rect width="1200" height="800" fill="#f8fbfb"/>
+  <rect x="64" y="62" width="1072" height="676" rx="30" fill="#fff"/>
+  <text x="128" y="150" fill="#0f766e" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">AlignCare</text>
+  <text x="128" y="270" fill="#0f2027" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="900">Chiropractic Care</text>
+  <text x="128" y="340" fill="#168574" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="900">for Lasting Relief</text>
+  <text x="130" y="414" fill="#486b68" font-family="Inter, Arial, sans-serif" font-size="25">Spinal care, posture correction, and booking.</text>
+  <rect x="130" y="470" width="245" height="60" rx="30" fill="#0f766e"/>
+  <text x="168" y="509" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Book Appointment</text>
+  <circle cx="920" cy="332" r="205" fill="#d8efec"/>
+  <path d="M874 238c-46 62-58 124-24 188 34 64 14 114-54 152" fill="none" stroke="#0f766e" stroke-width="28" stroke-linecap="round"/>
+  <path d="M956 250c-42 58-54 116-22 176 32 60 14 108-48 144" fill="none" stroke="#7dd3c7" stroke-width="28" stroke-linecap="round"/>
+</svg>

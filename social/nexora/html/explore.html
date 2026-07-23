@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore - Nexora</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="nexora.css" />
+</head>
+<body>
+  <div class="app-shell layout">
+    <aside class="hidden lg:block">
+      <a href="index.html" class="flex items-center gap-3 text-xl font-black"><span class="brand-mark">N</span>Nexora</a>
+      <nav class="mt-8 space-y-2">
+        <a class="nav-link" href="index.html">Home</a><a class="nav-link active" href="explore.html">Explore</a><a class="nav-link" href="create-post.html">Create Post</a><a class="nav-link" href="shorts.html">Shorts</a><a class="nav-link" href="messages.html">Messages</a><a class="nav-link" href="notifications.html">Notifications</a><a class="nav-link" href="profile.html">Profile</a><a class="nav-link" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main>
+      <header class="flex flex-wrap items-center gap-4">
+        <div>
+          <h1 class="text-3xl font-black">Explore</h1>
+          <p class="mt-1 text-sm muted">Discover creators, topics, and visual stories curated for you.</p>
+        </div>
+        <div class="ml-auto flex min-w-[280px] flex-1 gap-3 lg:max-w-xl">
+          <input class="field" placeholder="Search people, tags, or topics" />
+          <a class="btn-primary h-[52px] w-[52px]" href="create-post.html">+</a>
+        </div>
+      </header>
+      <div class="mt-8 flex flex-wrap gap-3"><button class="chip active">For You</button><button class="chip">Trending</button><button class="chip">Design</button><button class="chip">AI Art</button><button class="chip">Travel</button><button class="chip">Technology</button></div>
+      <section class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        <article class="panel overflow-hidden"><img class="h-72 w-full object-cover" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=90" alt="Coastal sunset" /><div class="p-5"><h2 class="font-black">#Wanderlust</h2><p class="mt-1 text-sm muted">18.7K posts this week</p></div></article>
+        <article class="panel overflow-hidden"><img class="h-72 w-full object-cover" src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=700&q=90" alt="VR creator" /><div class="p-5"><h2 class="font-black">#AIArt</h2><p class="mt-1 text-sm muted">12.7K posts this week</p></div></article>
+        <article class="panel overflow-hidden"><img class="h-72 w-full object-cover" src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=90" alt="Future city" /><div class="p-5"><h2 class="font-black">#FutureTech</h2><p class="mt-1 text-sm muted">7.4K posts this week</p></div></article>
+        <article class="panel overflow-hidden"><img class="h-72 w-full object-cover" src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=90" alt="Mountain lake" /><div class="p-5"><h2 class="font-black">#Nature</h2><p class="mt-1 text-sm muted">9.1K posts this week</p></div></article>
+        <article class="panel overflow-hidden"><img class="h-72 w-full object-cover" src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=700&q=90" alt="Forest" /><div class="p-5"><h2 class="font-black">#GoodVibes</h2><p class="mt-1 text-sm muted">8.8K posts this week</p></div></article>
+        <article class="panel overflow-hidden"><img class="h-72 w-full object-cover" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=90" alt="AI profile" /><div class="p-5"><h2 class="font-black">#DigitalCulture</h2><p class="mt-1 text-sm muted">6.2K posts this week</p></div></article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

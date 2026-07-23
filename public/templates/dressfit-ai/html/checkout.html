@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - DressFit AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{coal:'#111111',gold:'#ffc400',amberSoft:'#fff7d6'},boxShadow:{soft:'0 18px 55px rgba(17,17,17,.10)',gold:'0 12px 30px rgba(255,196,0,.30)'}}}}</script>
+  <style>body{font-family:Inter,ui-sans-serif,system-ui;color:#171717;background:#fffdf6;min-width:1100px}</style>
+</head>
+<body>
+  <header class="border-b border-black/10 bg-white">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="index.html" class="flex items-center gap-3"><span class="grid h-12 w-12 place-items-center rounded-xl bg-gold text-2xl font-black text-coal">A</span><b class="text-2xl">DressFit <span class="text-gold">AI</span></b></a>
+      <a href="bag.html" class="rounded-lg border border-coal px-5 py-3 text-sm font-extrabold">Back to Bag</a>
+    </nav>
+  </header>
+  <main class="mx-auto grid max-w-7xl grid-cols-[1fr_430px] gap-8 px-6 py-12">
+    <section class="space-y-8">
+      <div class="rounded-2xl bg-white p-8 shadow-soft">
+        <p class="font-black uppercase text-gold">Step 3</p><h1 class="mt-3 text-4xl font-black">Confirm delivery and payment</h1>
+        <div class="mt-8 grid grid-cols-2 gap-5">
+          <input class="rounded-lg border border-black/10 px-4 py-3" placeholder="Full name">
+          <input class="rounded-lg border border-black/10 px-4 py-3" placeholder="Phone number">
+          <input class="col-span-2 rounded-lg border border-black/10 px-4 py-3" placeholder="Delivery address">
+          <input class="rounded-lg border border-black/10 px-4 py-3" placeholder="City">
+          <input class="rounded-lg border border-black/10 px-4 py-3" placeholder="Pincode">
+        </div>
+        <h2 class="mt-10 text-2xl font-black">Payment Method</h2>
+        <div class="mt-5 grid grid-cols-3 gap-4"><button class="rounded-xl bg-amberSoft p-5 font-black" type="button">UPI</button><button class="rounded-xl bg-slate-50 p-5 font-black" type="button">Card</button><button class="rounded-xl bg-slate-50 p-5 font-black" type="button">COD</button></div>
+      </div>
+      <div class="rounded-2xl bg-white p-8 shadow-soft">
+        <h2 class="text-2xl font-black">Provider-wise final review</h2>
+        <div id="review" class="mt-6 space-y-4"></div>
+      </div>
+    </section>
+    <aside class="h-fit rounded-2xl bg-coal p-7 text-white shadow-soft">
+      <h2 class="text-2xl font-black text-gold">Purchase Flow</h2>
+      <p class="mt-4 text-sm text-slate-300">DressFit will place the order with each selected ecommerce provider, keep provider names attached to products, and track all marketplace deliveries in one dashboard.</p>
+      <div class="mt-7 space-y-4 text-sm"><p class="flex justify-between"><span>Items</span><b id="itemTotal">Rs.0</b></p><p class="flex justify-between"><span>Delivery fees</span><b id="deliveryTotal">Rs.0</b></p><p class="flex justify-between"><span>Handling</span><b>Rs.49</b></p><p class="flex justify-between border-t border-white/10 pt-4 text-lg"><span>Total</span><b id="grandTotal" class="text-gold">Rs.0</b></p></div>
+      <a href="tracking.html" class="mt-8 block rounded-lg bg-gold py-4 text-center font-black text-coal">Place Order</a>
+    </aside>
+  </main>
+  <script>
+    let bag = JSON.parse(localStorage.getItem('dressfitBag') || '[]');
+    if (!bag.length) bag = [{name:'Brown Casual Shirt',site:'Myntra',price:699,size:'M (38)',icon:'SH',type:'Shirt',deliveryFee:39,eta:'2-4 days'}];
+    const review = document.getElementById('review');
+    const sites = [...new Set(bag.map(item => item.site))];
+    let itemTotal = 0, deliveryTotal = 0;
+    sites.forEach(site => {
+      const items = bag.filter(item => item.site === site);
+      const fee = Number(items[0].deliveryFee || 49);
+      deliveryTotal += fee;
+      const section = document.createElement('section');
+      section.className = 'rounded-xl border border-black/10 p-5';
+      section.innerHTML = `<div class="flex items-center justify-between"><h3 class="text-xl font-black">${site}</h3><span class="rounded-full bg-amberSoft px-4 py-2 text-sm font-black">Delivery Rs.${fee}</span></div><div class="mt-4 space-y-3"></div>`;
+      const rows = section.querySelector('.space-y-3');
+      items.forEach(item => { itemTotal += Number(item.price); rows.innerHTML += `<p class="flex justify-between rounded-lg bg-slate-50 p-3 text-sm"><span>${item.name} • ${item.type} • Size ${item.size}</span><b>Rs.${item.price}</b></p>`; });
+      review.appendChild(section);
+    });
+    document.getElementById('itemTotal').textContent = 'Rs.' + itemTotal;
+    document.getElementById('deliveryTotal').textContent = 'Rs.' + deliveryTotal;
+    document.getElementById('grandTotal').textContent = 'Rs.' + (itemTotal + deliveryTotal + 49);
+  </script>
+</body>
+</html>

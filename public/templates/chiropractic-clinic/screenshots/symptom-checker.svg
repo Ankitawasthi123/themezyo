@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="AlignCare symptom checker preview">
+  <rect width="1200" height="800" fill="#eef8f6"/>
+  <rect x="110" y="90" width="980" height="620" rx="28" fill="#ffffff"/>
+  <text x="170" y="180" fill="#0f766e" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900">AI Symptom Checker</text>
+  <text x="170" y="248" fill="#0f2027" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="900">Understand your pain pattern</text>
+  <rect x="170" y="320" width="520" height="180" rx="20" fill="#f8fbfb" stroke="#d8efec" stroke-width="4"/>
+  <text x="210" y="386" fill="#486b68" font-family="Inter, Arial, sans-serif" font-size="24">Describe symptoms...</text>
+  <rect x="170" y="536" width="220" height="60" rx="30" fill="#0f766e"/>
+  <text x="218" y="575" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Analyze</text>
+  <rect x="760" y="312" width="240" height="300" rx="28" fill="#d8efec"/>
+  <path d="M884 370v170m-72-85h144" stroke="#0f766e" stroke-width="22" stroke-linecap="round"/>
+</svg>

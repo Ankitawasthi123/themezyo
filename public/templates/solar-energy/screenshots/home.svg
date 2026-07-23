@@ -1,0 +1,25 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="800" fill="#edf6ea"/>
+  <rect x="55" y="42" width="1170" height="716" rx="28" fill="white"/>
+  <text x="100" y="105" font-family="Arial" font-size="30" font-weight="900" fill="#248b18">☀ Solaris</text>
+  <text x="720" y="101" font-family="Arial" font-size="14" fill="#40535d">RESIDENTIAL   COMMERCIAL   FINANCING   ABOUT   CONTACT</text>
+  <text x="105" y="210" font-family="Arial" font-size="16" font-weight="700" fill="#248b18">CLEAN ENERGY. SMARTER TOMORROW.</text>
+  <text x="105" y="285" font-family="Arial" font-size="54" font-weight="900" fill="#16313c">Power Your Life with Clean,</text>
+  <text x="105" y="350" font-family="Arial" font-size="54" font-weight="900" fill="#248b18">Affordable Solar Energy</text>
+  <text x="105" y="405" font-family="Arial" font-size="18" fill="#657681">Lower bills. Increase value. Save the planet.</text>
+  <rect x="105" y="450" width="155" height="52" rx="7" fill="#248b18"/>
+  <text x="135" y="483" font-family="Arial" font-size="14" font-weight="700" fill="white">FREE QUOTE</text>
+  <circle cx="775" cy="255" r="80" fill="#ffd44d"/>
+  <path d="M590 540 L720 320 L940 540 Z" fill="#dce8df"/>
+  <g fill="#174b80" stroke="white" stroke-width="3">
+    <rect x="650" y="420" width="95" height="65"/><rect x="748" y="420" width="95" height="65"/><rect x="846" y="420" width="95" height="65"/>
+    <rect x="680" y="488" width="95" height="65"/><rect x="778" y="488" width="95" height="65"/>
+  </g>
+  <rect x="965" y="185" width="205" height="365" rx="16" fill="white" stroke="#dce6e6" stroke-width="3"/>
+  <text x="990" y="235" font-family="Arial" font-size="18" font-weight="800" fill="#16313c">AI Solar Assistant</text>
+  <rect x="990" y="275" width="155" height="52" rx="7" fill="#f5faf3"/><text x="1003" y="305" font-family="Arial" font-size="11" fill="#40535d">How much can I save?</text>
+  <rect x="990" y="342" width="155" height="52" rx="7" fill="#f5faf3"/><text x="1003" y="372" font-family="Arial" font-size="11" fill="#40535d">Is my roof suitable?</text>
+  <rect x="990" y="409" width="155" height="52" rx="7" fill="#f5faf3"/><text x="1003" y="439" font-family="Arial" font-size="11" fill="#40535d">Available incentives?</text>
+  <rect x="990" y="480" width="155" height="45" rx="7" fill="#248b18"/><text x="1022" y="508" font-family="Arial" font-size="12" font-weight="700" fill="white">ASK ASSISTANT</text>
+  <text x="105" y="690" font-family="Arial" font-size="25" font-weight="900" fill="#248b18">10,000+ PROJECTS</text><text x="500" y="690" font-family="Arial" font-size="25" font-weight="900" fill="#248b18">150MW+ INSTALLED</text><text x="900" y="690" font-family="Arial" font-size="25" font-weight="900" fill="#248b18">25 YEAR WARRANTY</text>
+</svg>

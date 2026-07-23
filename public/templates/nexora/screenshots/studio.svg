@@ -1,15 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
-  <rect width="1200" height="760" fill="#f7f8fa"/>
-  <rect x="85" y="80" width="1030" height="600" rx="30" fill="#ffffff" stroke="#e1e4e8"/>
-  <text x="135" y="155" fill="#2b2f38" font-family="Arial, sans-serif" font-size="48" font-weight="900">Nexora AI Studio</text>
-  <text x="135" y="205" fill="#667085" font-family="Arial, sans-serif" font-size="25">Generate polished visuals and captions for your next post.</text>
-  <rect x="135" y="270" width="470" height="320" rx="24" fill="#ffffff" stroke="#d8dde3"/>
-  <text x="175" y="335" fill="#2b2f38" font-family="Arial, sans-serif" font-size="28" font-weight="900">Prompt builder</text>
-  <rect x="175" y="375" width="350" height="44" rx="12" fill="#f7f8fa" stroke="#d8dde3"/>
-  <rect x="175" y="445" width="390" height="92" rx="14" fill="#f7f8fa" stroke="#d8dde3"/>
-  <rect x="175" y="555" width="170" height="48" rx="12" fill="#0067b8"/>
-  <text x="205" y="587" fill="#ffffff" font-family="Arial, sans-serif" font-size="20" font-weight="900">Generate</text>
-  <rect x="655" y="270" width="360" height="320" rx="24" fill="#eef5fb" stroke="#d7dce2"/>
-  <circle cx="835" cy="395" r="78" fill="#0067b8" opacity="0.18"/>
-  <text x="735" y="510" fill="#0067b8" font-family="Arial, sans-serif" font-size="28" font-weight="900">AI output preview</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef7ff"/>
+      <stop offset="1" stop-color="#f6f2ff"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0067b8"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="art" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="0.45" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#164e8a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="960" fill="url(#bg)"/>
+  <g filter="url(#shadow)">
+    <rect x="92" y="72" width="1256" height="816" rx="36" fill="#ffffff" stroke="#dce8f5"/>
+  </g>
+  <rect x="92" y="72" width="1256" height="108" rx="36" fill="#fbfdff"/>
+  <rect x="130" y="104" width="52" height="52" rx="17" fill="url(#brand)"/>
+  <text x="147" y="139" fill="#ffffff" font-family="Arial, sans-serif" font-size="23" font-weight="900">N</text>
+  <text x="202" y="139" fill="#111827" font-family="Arial, sans-serif" font-size="30" font-weight="900">Nexora AI Studio</text>
+  <rect x="1134" y="108" width="150" height="48" rx="16" fill="url(#brand)"/>
+  <text x="1171" y="139" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="900">Generate</text>
+
+  <text x="132" y="262" fill="#111827" font-family="Arial, sans-serif" font-size="50" font-weight="900">Generate polished visuals and captions</text>
+  <text x="134" y="305" fill="#64748b" font-family="Arial, sans-serif" font-size="21" font-weight="600">Build social-ready assets from a prompt, then publish them into the Nexora feed.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="132" y="360" width="510" height="420" rx="30" fill="#ffffff" stroke="#dce8f5"/>
+  </g>
+  <text x="174" y="416" fill="#111827" font-family="Arial, sans-serif" font-size="26" font-weight="900">Prompt builder</text>
+  <rect x="174" y="454" width="402" height="54" rx="17" fill="#f8fbff" stroke="#dce8f5"/>
+  <text x="202" y="489" fill="#8a97a8" font-family="Arial, sans-serif" font-size="16" font-weight="700">Sunset city, cinematic, creator brand</text>
+  <rect x="174" y="534" width="402" height="128" rx="20" fill="#f8fbff" stroke="#dce8f5"/>
+  <text x="202" y="575" fill="#536274" font-family="Arial, sans-serif" font-size="18" font-weight="800">Create a vibrant social post with</text>
+  <text x="202" y="605" fill="#536274" font-family="Arial, sans-serif" font-size="18" font-weight="800">a short caption and 5 hashtags.</text>
+  <g font-family="Arial, sans-serif" font-size="15" font-weight="900">
+    <rect x="174" y="696" width="108" height="38" rx="14" fill="#eaf4ff"/>
+    <text x="202" y="721" fill="#0067b8">Visual</text>
+    <rect x="294" y="696" width="116" height="38" rx="14" fill="#f3f4f6"/>
+    <text x="323" y="721" fill="#536274">Caption</text>
+    <rect x="422" y="696" width="104" height="38" rx="14" fill="#f3f4f6"/>
+    <text x="451" y="721" fill="#536274">Tags</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="706" y="360" width="588" height="420" rx="30" fill="#101827"/>
+  </g>
+  <rect x="748" y="404" width="504" height="226" rx="28" fill="url(#art)"/>
+  <circle cx="1123" cy="476" r="70" fill="#fff7ed" opacity="0.5"/>
+  <path d="M748 604l115-90 88 66 90-46 211 70z" fill="#172554" opacity="0.22"/>
+  <text x="748" y="688" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="900">AI output preview</text>
+  <text x="748" y="726" fill="#b9c4d3" font-family="Arial, sans-serif" font-size="18" font-weight="700">Generated post visual, caption, and hashtag set are ready for review.</text>
+  <rect x="748" y="748" width="136" height="42" rx="15" fill="#ffffff"/>
+  <text x="779" y="775" fill="#0067b8" font-family="Arial, sans-serif" font-size="15" font-weight="900">Use in post</text>
+  <rect x="900" y="748" width="126" height="42" rx="15" fill="#1f2a44"/>
+  <text x="932" y="775" fill="#dbeafe" font-family="Arial, sans-serif" font-size="15" font-weight="900">Regenerate</text>
 </svg>

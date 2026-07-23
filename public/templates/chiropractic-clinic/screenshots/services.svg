@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="AlignCare services preview">
+  <rect width="1200" height="800" fill="#f4fbfa"/>
+  <text x="96" y="120" fill="#0f766e" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="900">AlignCare Services</text>
+  <text x="96" y="184" fill="#0f2027" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="900">Care for your spine, posture, and recovery</text>
+  <g fill="#ffffff" stroke="#d8efec" stroke-width="3">
+    <rect x="96" y="260" width="300" height="150" rx="22"/><rect x="450" y="260" width="300" height="150" rx="22"/><rect x="804" y="260" width="300" height="150" rx="22"/>
+    <rect x="96" y="462" width="300" height="150" rx="22"/><rect x="450" y="462" width="300" height="150" rx="22"/><rect x="804" y="462" width="300" height="150" rx="22"/>
+  </g>
+  <g fill="#0f766e" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">
+    <text x="132" y="336">Spinal Adjustments</text><text x="486" y="336">Posture Correction</text><text x="840" y="336">Sports Recovery</text>
+    <text x="132" y="538">Wellness Programs</text><text x="486" y="538">Trigger Point Therapy</text><text x="840" y="538">Injury Prevention</text>
+  </g>
+</svg>
