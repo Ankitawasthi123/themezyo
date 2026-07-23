@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skillora is a modern online learning marketplace template for courses, instructors, and AI-guided study.">
+  <title>Skillora - Learn Skills. Build Tomorrow.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Skillora home">
+        <span class="brand-mark"><i data-lucide="sparkles"></i></span>
+        <span>Skillora</span>
+      </a>
+      <nav class="main-nav" id="main-nav">
+        <a href="courses.html">Courses <i data-lucide="chevron-down"></i></a>
+        <a href="programs.html">Programs <i data-lucide="chevron-down"></i></a>
+        <a href="#business">For Business <i data-lucide="chevron-down"></i></a>
+        <a href="blog.html">Resources <i data-lucide="chevron-down"></i></a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+      <label class="nav-search">
+        <i data-lucide="search"></i>
+        <input data-course-search type="search" placeholder="Search courses, skills or topics">
+      </label>
+      <div class="nav-actions">
+        <a class="button button-ghost" href="login.html">Log in</a>
+        <a class="button button-primary" href="signup.html">Sign up</a>
+        <button class="menu-button" data-menu aria-label="Toggle menu"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>New</span> AI-powered learning platform</div>
+          <h1>Learn Skills.<br><em>Build Tomorrow.</em></h1>
+          <p>Join 50,000+ learners and access expert-led courses, professional certifications, and career-boosting programs.</p>
+          <div class="hero-actions">
+            <a class="button button-primary button-large" href="#courses">Explore courses <i data-lucide="arrow-right"></i></a>
+            <button class="button button-outline button-large" data-watch><i data-lucide="play"></i> How it works</button>
+          </div>
+          <div class="hero-trust">
+            <div class="avatar-stack">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80" alt="">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&q=80" alt="">
+            </div>
+            <div><strong>4.9/5 learner rating</strong><span>Trusted by students worldwide</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-blob"></div>
+          <img class="hero-person" src="assets/hero-student.png" alt="Student learning on a laptop">
+          <article class="float-card ai-card">
+            <span class="mini-icon violet"><i data-lucide="bot"></i></span>
+            <div><b>AI Study Assistant</b><small>Personalized course recommendations</small><a href="#ai">Explore now</a></div>
+          </article>
+          <article class="float-card progress-card">
+            <div class="progress-title"><span>Learning progress</span><i data-lucide="sliders-horizontal"></i></div>
+            <strong>78%</strong>
+            <div class="mini-chart"><span></span><span></span><span></span><span></span><span></span></div>
+          </article>
+          <span class="shape shape-one"></span><span class="shape shape-two"></span><span class="shape shape-three"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-strip">
+      <div class="container feature-grid">
+        <article><span class="mini-icon mint"><i data-lucide="user-round-check"></i></span><div><b>Expert instructors</b><small>Learn from industry experts</small></div></article>
+        <article><span class="mini-icon coral"><i data-lucide="panels-top-left"></i></span><div><b>Interactive learning</b><small>Engaging and practical content</small></div></article>
+        <article><span class="mini-icon violet"><i data-lucide="bot"></i></span><div><b>AI study assistant</b><small>Personalized study support</small></div></article>
+        <article><span class="mini-icon lilac"><i data-lucide="badge-check"></i></span><div><b>Certificates</b><small>Shareable and verified</small></div></article>
+        <article><span class="mini-icon amber"><i data-lucide="headphones"></i></span><div><b>Career support</b><small>Job-ready skills</small></div></article>
+      </div>
+    </section>
+
+    <section class="section container" id="courses">
+      <div class="section-heading">
+        <div><span class="section-kicker">Explore your path</span><h2>Top categories</h2></div>
+        <a href="#course-list">View all categories <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="category-grid" data-categories>
+        <button class="category active" data-category="all"><span class="mini-icon blue"><i data-lucide="code-2"></i></span><b>All courses</b><small>1,250+ courses</small></button>
+        <button class="category" data-category="data"><span class="mini-icon amber"><i data-lucide="chart-no-axes-combined"></i></span><b>Data science</b><small>980+ courses</small></button>
+        <button class="category" data-category="business"><span class="mini-icon mint"><i data-lucide="briefcase-business"></i></span><b>Business</b><small>1,100+ courses</small></button>
+        <button class="category" data-category="design"><span class="mini-icon coral"><i data-lucide="pen-tool"></i></span><b>Design</b><small>850+ courses</small></button>
+        <button class="category" data-category="marketing"><span class="mini-icon violet"><i data-lucide="megaphone"></i></span><b>Marketing</b><small>620+ courses</small></button>
+        <button class="category" data-category="it"><span class="mini-icon mint"><i data-lucide="server-cog"></i></span><b>IT & software</b><small>760+ courses</small></button>
+        <button class="category" data-category="growth"><span class="mini-icon amber"><i data-lucide="user-round"></i></span><b>Personal growth</b><small>430+ courses</small></button>
+      </div>
+    </section>
+
+    <section class="section container" id="course-list">
+      <div class="section-heading">
+        <div><span class="section-kicker">Start learning today</span><h2>Popular courses</h2></div>
+        <a href="courses.html">View all courses <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="courses-layout">
+        <div class="course-grid">
+          <article class="course-card" data-course data-category="it" data-name="complete python bootcamp" data-url="course-detail.html?course=python" tabindex="0" role="link">
+            <div class="course-art art-python"><span class="art-label">Bestseller</span><i data-lucide="braces"></i><button class="save" aria-label="Save course"><i data-lucide="heart"></i></button></div>
+            <div class="course-body"><span class="course-type">Development</span><h3>The Complete Python Bootcamp</h3><div class="course-meta"><span class="stars">4.9</span><span>(12.5k)</span><span>Beginner</span></div><div class="course-bottom"><strong>$49.99</strong><span>42 hours</span></div></div>
+          </article>
+          <article class="course-card" data-course data-category="data" data-name="data science machine learning" data-url="course-detail.html?course=data" tabindex="0" role="link">
+            <div class="course-art art-data"><span class="art-label">Popular</span><i data-lucide="network"></i><button class="save" aria-label="Save course"><i data-lucide="heart"></i></button></div>
+            <div class="course-body"><span class="course-type">Data science</span><h3>Data Science & Machine Learning</h3><div class="course-meta"><span class="stars">4.8</span><span>(8.2k)</span><span>Intermediate</span></div><div class="course-bottom"><strong>$59.99</strong><span>56 hours</span></div></div>
+          </article>
+          <article class="course-card" data-course data-category="design" data-name="ui ux design from scratch" data-url="course-detail.html?course=design" tabindex="0" role="link">
+            <div class="course-art art-design"><i data-lucide="figma"></i><button class="save" aria-label="Save course"><i data-lucide="heart"></i></button></div>
+            <div class="course-body"><span class="course-type">Design</span><h3>UI/UX Design from Scratch</h3><div class="course-meta"><span class="stars">4.7</span><span>(6.8k)</span><span>Beginner</span></div><div class="course-bottom"><strong>$39.99</strong><span>35 hours</span></div></div>
+          </article>
+          <article class="course-card" data-course data-category="it" data-name="aws cloud practitioner" data-url="course-detail.html?course=cloud" tabindex="0" role="link">
+            <div class="course-art art-cloud"><i data-lucide="cloud-cog"></i><button class="save" aria-label="Save course"><i data-lucide="heart"></i></button></div>
+            <div class="course-body"><span class="course-type">Cloud computing</span><h3>AWS Cloud Practitioner Essentials</h3><div class="course-meta"><span class="stars">4.8</span><span>(5.4k)</span><span>Beginner</span></div><div class="course-bottom"><strong>$49.99</strong><span>29 hours</span></div></div>
+          </article>
+        </div>
+        <aside class="ai-banner" id="ai">
+          <span class="ai-orbit"><i data-lucide="sparkles"></i></span>
+          <h2>Let AI guide your learning journey</h2>
+          <ul><li><i data-lucide="check-circle-2"></i> Plan your study</li><li><i data-lucide="check-circle-2"></i> Track progress</li><li><i data-lucide="check-circle-2"></i> Get smart recommendations</li></ul>
+          <button class="button ai-button" data-ai-chat>Try AI tutor free</button>
+          <div class="robot"><i data-lucide="bot"></i></div>
+        </aside>
+      </div>
+      <p class="empty-state" data-empty>No courses match your search yet.</p>
+    </section>
+
+    <section class="learning-banner" id="programs">
+      <div class="container learning-grid">
+        <div><span class="section-kicker light">Learning on your terms</span><h2>Learn anytime, anywhere</h2><p>Access courses on mobile, desktop, and TV. Your progress stays perfectly in sync.</p></div>
+        <div class="phone-card">
+          <div class="phone-top"></div><span class="phone-course"></span><span class="phone-line"></span><span class="phone-line short"></span>
+        </div>
+        <div class="store-buttons"><span><i data-lucide="apple"></i><b>App Store</b></span><span><i data-lucide="play"></i><b>Google Play</b></span></div>
+      </div>
+    </section>
+
+    <section class="stats container">
+      <article><strong>50K+</strong><span>Active learners</span></article><article><strong>1,500+</strong><span>Online courses</span></article><article><strong>200+</strong><span>Expert instructors</span></article><article><strong>98%</strong><span>Satisfaction rate</span></article><article><strong>150+</strong><span>Countries</span></article>
+    </section>
+
+    <section class="section soft-section" id="business">
+      <div class="container split">
+        <div class="business-copy"><span class="section-kicker">Skillora for business</span><h2>Build skills that move teams forward</h2><p>Give your organization practical learning paths, progress analytics, and role-ready certification programs.</p><a class="button button-primary button-large" href="#pricing">Explore team plans</a></div>
+        <div class="dashboard-card">
+          <div class="dash-head"><span><i data-lucide="layout-dashboard"></i> Team learning</span><b>June</b></div>
+          <div class="dash-stats"><span><small>Active learners</small><strong>1,284</strong></span><span><small>Courses completed</small><strong>862</strong></span><span><small>Hours learned</small><strong>4,920</strong></span></div>
+          <div class="bars"><i style="height:42%"></i><i style="height:67%"></i><i style="height:53%"></i><i style="height:86%"></i><i style="height:72%"></i><i style="height:94%"></i><i style="height:78%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="resources">
+      <div class="section-heading">
+        <div><span class="section-kicker">Learn from the best</span><h2>Meet expert instructors</h2></div><a href="instructors.html">View all instructors <i data-lucide="arrow-right"></i></a>
+      </div>
+      <div class="instructor-grid">
+        <article><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=420&q=85" alt="Maya Reynolds"><h3>Maya Reynolds</h3><p>Data science expert</p><span class="stars">4.9 (12.8k)</span></article>
+        <article><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=420&q=85" alt="Daniel Foster"><h3>Daniel Foster</h3><p>Cloud architect</p><span class="stars">4.8 (8.4k)</span></article>
+        <article><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=420&q=85" alt="Sarah Chen"><h3>Sarah Chen</h3><p>UX design lead</p><span class="stars">4.9 (10.2k)</span></article>
+        <article><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=420&q=85" alt="Michael Brooks"><h3>Michael Brooks</h3><p>Marketing strategist</p><span class="stars">4.7 (6.9k)</span></article>
+      </div>
+    </section>
+
+    <section class="section container" id="pricing">
+      <div class="testimonial-wrap">
+        <div><span class="section-kicker">Learner stories</span><h2>What our learners say</h2><p>Real skills. Real momentum. A learning experience designed to fit around life.</p></div>
+        <div class="testimonial"><i data-lucide="quote"></i><blockquote>Skillora helped me switch careers in six months. The projects felt practical, and the AI tutor kept me moving whenever I got stuck.</blockquote><div><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt=""><span><b>Priya Nair</b><small>Web developer</small></span></div></div>
+        <div class="testimonial"><i data-lucide="quote"></i><blockquote>The instructors explain complex ideas clearly. I used the cloud learning path to earn my first certification.</blockquote><div><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt=""><span><b>James Wilson</b><small>Product designer</small></span></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="#home"><span class="brand-mark"><i data-lucide="sparkles"></i></span><span>Skillora</span></a><p>Empowering learners worldwide with quality education and practical skills.</p><div class="socials"><a href="contact.html" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a><a href="contact.html" aria-label="Instagram"><i data-lucide="instagram"></i></a><a href="contact.html" aria-label="YouTube"><i data-lucide="youtube"></i></a></div></div>
+      <div><h3>Explore</h3><a href="courses.html">Courses</a><a href="programs.html">Programs</a><a href="instructors.html">Instructors</a><a href="certificates.html">Certificates</a></div>
+      <div><h3>For business</h3><a href="#business">Corporate training</a><a href="contact.html">Team solutions</a><a href="programs.html">Universities</a><a href="contact.html">Government</a></div>
+      <div><h3>Resources</h3><a href="blog.html">Blog</a><a href="courses.html">Guides</a><a href="programs.html">Webinars</a><a href="contact.html">Help center</a></div>
+      <div class="newsletter"><h3>Stay updated</h3><p>Subscribe to our learning newsletter.</p><form data-newsletter><input type="email" required placeholder="Enter your email"><button aria-label="Subscribe"><i data-lucide="arrow-right"></i></button></form><small data-newsletter-status></small></div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; <span data-year></span> Skillora. All rights reserved.</span><span>Privacy policy &nbsp; | &nbsp; Terms of service</span></div>
+  </footer>
+
+  <dialog class="modal" data-modal>
+    <button class="modal-close" data-close aria-label="Close"><i data-lucide="x"></i></button>
+    <span class="modal-icon"><i data-lucide="graduation-cap"></i></span>
+    <h2 data-modal-title>Start learning today</h2>
+    <p data-modal-copy>Create your free account and save your learning progress across every device.</p>
+    <form data-auth-form><input type="text" required placeholder="Full name"><input type="email" required placeholder="Email address"><button class="button button-primary">Create account</button></form>
+    <small data-auth-status></small>
+  </dialog>
+  <div class="toast" data-toast role="status"></div>
+</body>
+</html>

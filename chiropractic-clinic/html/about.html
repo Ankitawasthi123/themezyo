@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About AlignCare Chiropractic</title>
+  <meta name="description" content="Learn about AlignCare Chiropractic's expert team, patient-first approach, and modern spinal care services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+  <script defer src="app.js"></script>
+</head>
+<body class="antialiased bg-[#f8fbfb] text-[#0f2027]">
+  <header class="site-header">
+    <div class="container-page site-header-inner relative flex items-center justify-between gap-5">
+      <a class="site-logo" href="index.html">AlignCare</a>
+      <nav id="main-nav" class="main-nav flex items-center">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="about.html">About</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="index.html#conditions">Conditions</a>
+        <a class="nav-link" href="symptom-checker.html">Symptom Checker</a>
+        <a class="nav-link" href="index.html#reviews">Reviews</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <a class="btn-primary hidden xl:inline-flex" href="booking.html">Book Appointment</a>
+      <button data-menu-button aria-expanded="false" class="menu-button" aria-label="Open menu"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero bg-[radial-gradient(circle_at_10%_15%,#f1fcfb_0,transparent_28%),linear-gradient(135deg,#f8fffe_0,#e1f6f2_100%)] py-20">
+      <div class="container-page grid gap-10 lg:grid-cols-[1.2fr_.8fr]">
+        <div>
+          <span class="eyebrow">About AlignCare</span>
+          <h1 class="mt-5 text-5xl font-semibold leading-tight sm:text-[4rem]">A chiropractic clinic built around trust, results and comfort.</h1>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-[#486b68]">AlignCare is designed to help people recover from pain, restore spinal balance and stay active for life. Our team blends gentle adjustments, advanced diagnosis and patient education in every visit.</p>
+          <div class="mt-8 flex flex-wrap gap-3"><a class="btn-primary" href="booking.html">Schedule a Visit</a><a class="btn-outline" href="services.html">View Services</a></div>
+        </div>
+        <div class="rounded-[32px] bg-[#eaf7f4] p-5 shadow-[0_24px_60px_rgba(15,32,39,0.08)]">
+          <img class="h-full w-full rounded-[28px] object-cover" src="assets/images/spine-consultation.png" alt="Chiropractor working with patient">
+        </div>
+      </div>
+    </section>
+
+    <section class="container-page py-16">
+      <div class="grid gap-10 lg:grid-cols-[2fr_1fr]">
+        <div class="space-y-6">
+          <div class="soft-card p-8">
+            <h2>Our mission</h2>
+            <p class="mt-4 text-[#486b68] leading-7">We help patients feel better through thoughtful chiropractic care, gentle rehabilitation and guidance that fits each person's lifestyle. Every plan is centered on lasting pain relief and stronger movement.</p>
+          </div>
+          <div class="soft-card p-8">
+            <h2>Why choose AlignCare</h2>
+            <ul class="mt-4 space-y-3 text-[#486b68]"><li>Evidence-based chiropractic adjustments</li><li>Comprehensive posture and movement assessments</li><li>Welcoming, calm clinic environment</li><li>Care plans tailored to your goals</li></ul>
+          </div>
+        </div>
+        <div class="grid gap-5">
+          <div class="soft-card p-8">
+            <h3>Experienced team</h3>
+            <p class="mt-3 text-[#486b68]">Our chiropractors are trained in spinal care, injury recovery and sports performance. We use gentle methods and detailed evaluations to make sure each adjustment is safe and effective.</p>
+          </div>
+          <div class="soft-card p-8">
+            <h3>Patient-first care</h3>
+            <p class="mt-3 text-[#486b68]">We listen carefully, explain treatment clearly and make every visit as comfortable as possible. Your comfort, confidence and progress matter at every step.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16">
+      <div class="container-page text-center"><p class="section-kicker">Our Clinic</p><h2 class="mt-3 text-3xl font-semibold">A calm space for recovery and wellness</h2></div>
+      <div class="container-page mt-10 grid gap-5 sm:grid-cols-2">
+        <div class="image-hover overflow-hidden rounded-[28px] bg-[#f7fcfb]">
+          <img class="h-80 w-full object-cover" src="assets/images/clinic-reception.png" alt="Wellness clinic interior">
+        </div>
+        <div class="image-hover overflow-hidden rounded-[28px] bg-[#f7fcfb]">
+          <img class="h-80 w-full object-cover" src="assets/images/spine-consultation.png" alt="Chiropractic consultation">
+        </div>
+      </div>
+    </section>
+
+    <section class="container-page py-16">
+      <div class="text-center"><p class="section-kicker">Meet our team</p><h2 class="mt-3 text-3xl font-semibold">Skilled practitioners who care</h2></div>
+      <div class="mt-10 grid gap-5 lg:grid-cols-3">
+        <article class="soft-card p-8"><h3>Dr. Sarah Benson</h3><p class="mt-3 text-[#486b68]">Lead chiropractor specializing in spinal alignment, sports rehabilitation and posture correction.</p></article>
+        <article class="soft-card p-8"><h3>Mark Davis</h3><p class="mt-3 text-[#486b68]">Licensed massage therapist and movement coach focused on muscle balance and recovery.</p></article>
+        <article class="soft-card p-8"><h3>Amy Chen</h3><p class="mt-3 text-[#486b68]">Clinical coordinator guiding patients through personalized care plans and follow-up support.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-page grid gap-8 py-10 md:grid-cols-2 lg:grid-cols-4">
+      <div><a class="site-logo" href="index.html">AlignCare</a><p class="mt-4 text-xs leading-6 text-[#486b68]">Compassionate chiropractic care for pain relief, recovery and long-term wellness.</p></div>
+      <div><b class="text-xs">Quick Links</b><div class="mt-4 grid gap-2 text-xs text-[#486b68]"><a href="index.html">Home</a><a href="services.html">Services</a><a href="symptom-checker.html">Symptom Checker</a><a href="contact.html">Contact</a></div></div>
+      <div><b class="text-xs">Our Care</b><div class="mt-4 grid gap-2 text-xs text-[#486b68]"><a href="index.html">Chiropractic Care</a><a href="booking.html">Book Appointment</a><a href="services.html">Wellness</a><a href="about.html">About</a></div></div>
+      <div><b class="text-xs">Contact</b><p class="mt-4 text-xs leading-6 text-[#486b68]">123 Wellness Ave, Austin, TX 78701<br>(512) 555-0123<br>hello@aligncareclinic.com</p></div>
+    </div>
+    <div class="border-t border-[#c9e0df] py-4 text-center text-[10px] text-[#7d918f]">© <span data-year></span> AlignCare Chiropractic Clinic. All Rights Reserved.</div>
+  </footer>
+</body>
+</html>
