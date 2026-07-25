@@ -76,7 +76,7 @@ export default function Newsletter(){
 
                 <form onSubmit={handleSubmit} className="mt-4">
                   <div className="flex flex-col gap-3">
-                    <input aria-label="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder={t('newsletter.placeholder')} className="min-h-12 flex-1 rounded-lg border border-gray-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none transition placeholder:text-gray-500 focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
+                    <input aria-label="email" type="email" required autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder={t('newsletter.placeholder')} className="min-h-12 flex-1 rounded-lg border border-gray-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none transition placeholder:text-gray-500 focus:border-blue-500 focus:ring-4 focus:ring-blue-100" />
                     <button disabled={status === 'loading'} className="min-h-11 rounded-lg bg-blue-600 px-6 text-sm font-bold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70">
                       {status === 'loading' ? 'Subscribing...' : t('newsletter.subscribe')}
                     </button>

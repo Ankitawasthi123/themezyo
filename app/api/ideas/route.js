@@ -70,7 +70,7 @@ export async function POST(request) {
   }
 
   try {
-    await sendApiNotification({
+    const notificationResult = await sendApiNotification({
       subject: 'New template idea submitted',
       title: 'New template idea',
       fields: {
@@ -81,13 +81,12 @@ export async function POST(request) {
         Details: normalizedPayload.details,
       },
     })
+
+    if (notificationResult?.skipped) {
+      console.warn('Idea notification skipped:', notificationResult.reason)
+    }
   } catch (error) {
     console.error('Idea notification failed:', error)
-
-    return NextResponse.json(
-      { message: 'Unable to send template request email.' },
-      { status: 502 }
-    )
   }
 
   return NextResponse.json({ idea: normalizedPayload }, { status: 201 })

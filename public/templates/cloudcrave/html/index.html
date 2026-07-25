@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CloudCrave - Cloud Kitchen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body data-page="index.html">
+  <div class="cc-shell">
+    <header class="cc-header" data-cc-header></header>
+
+    <main>
+      <section class="cc-hero">
+        <div class="cc-container">
+          <div class="cc-hero-content">
+            <span class="cc-kicker">Fresh from our cloud kitchen</span>
+            <h1 class="cc-title">Delicious Food, <span>Made Fresh in the Cloud!</span></h1>
+            <p class="cc-lead">Hygienic, flavorful meals delivered to your doorstep. Order single meals, office lunches, family packs and party trays without the kitchen chaos.</p>
+            <div class="flex flex-wrap gap-3 mt-8">
+              <a class="cc-btn" href="menu.html">Order Now</a>
+              <a class="cc-btn secondary" href="menu.html">Explore Menu</a>
+            </div>
+          </div>
+        </div>
+        <div class="cc-offer"><div><span>FLAT</span><b>20%</b><span>OFF<br>Use Code: CLOUD20</span></div></div>
+      </section>
+
+      <div class="cc-container">
+        <div class="cc-card cc-trust">
+          <div class="cc-trust-item"><span class="cc-icon" data-icon="hygiene"></span><div><b>100% Hygienic</b><p class="text-xs text-stone-500">Kitchen certified</p></div></div>
+          <div class="cc-trust-item"><span class="cc-icon" data-icon="flame"></span><div><b>Fresh Ingredients</b><p class="text-xs text-stone-500">Daily sourced</p></div></div>
+          <div class="cc-trust-item"><span class="cc-icon" data-icon="scooter"></span><div><b>On-Time Delivery</b><p class="text-xs text-stone-500">Always fast</p></div></div>
+          <div class="cc-trust-item"><span class="cc-icon" data-icon="chef"></span><div><b>Best Quality</b><p class="text-xs text-stone-500">Always guaranteed</p></div></div>
+        </div>
+      </div>
+
+      <section class="cc-section">
+        <div class="cc-container">
+          <div class="cc-ai-layout">
+            <div class="cc-card cc-form-panel">
+              <div class="flex items-start justify-between gap-4 mb-5">
+                <div>
+                  <span class="cc-kicker mb-2">Customize Your Recipe</span>
+                  <h2 class="text-3xl font-black tracking-tight">Tell us your taste, we will craft it your way.</h2>
+                </div>
+                <span class="cc-tag">Powered by AI</span>
+              </div>
+              <form data-ai-form>
+                <div class="cc-ai-steps">
+                  <div class="cc-ai-mini-card">
+                    <h3 class="cc-step-title"><span class="cc-step-no">1</span> Choose a Dish You Love</h3>
+                    <div class="cc-search-wrap">
+                      <input class="cc-field" name="dish" placeholder="Search for a dish...">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+                    </div>
+                    <p class="cc-label mt-4">Popular Choices</p>
+                    <div class="cc-choice-wrap mt-3">
+                      <button class="cc-chip" type="button" data-ai-choice="Paneer">Paneer Butter Masala</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Biryani">Veg Biryani</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Pasta">Pasta Alfredo</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Chicken">Chicken Tikka Wrap</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Dal">Dal Makhani</button>
+                    </div>
+                    <a class="cc-btn secondary mt-5 !min-h-9 !px-4" href="menu.html">Explore More</a>
+                  </div>
+                  <div class="cc-ai-mini-card">
+                    <h3 class="cc-step-title"><span class="cc-step-no">2</span> Customize It Your Way</h3>
+                    <p class="cc-label">Spice Level</p>
+                    <div class="cc-choice-wrap">
+                      <label class="cc-chip" data-ai-radio><input class="hidden" type="radio" name="spice" value="Mild"> Mild</label>
+                      <label class="cc-chip active" data-ai-radio><input class="hidden" type="radio" name="spice" value="Medium" checked> Medium</label>
+                      <label class="cc-chip" data-ai-radio><input class="hidden" type="radio" name="spice" value="Spicy"> Spicy</label>
+                      <label class="cc-chip" data-ai-radio><input class="hidden" type="radio" name="spice" value="Extra Spicy"> Extra Spicy</label>
+                    </div>
+                    <p class="cc-label mt-4">Portion Size</p>
+                    <div class="cc-choice-wrap mt-3">
+                      <label class="cc-chip active" data-ai-radio><input class="hidden" type="radio" name="size" value="Regular" checked> Regular</label>
+                      <label class="cc-chip" data-ai-radio><input class="hidden" type="radio" name="size" value="Large"> Large</label>
+                      <label class="cc-chip" data-ai-radio><input class="hidden" type="radio" name="size" value="Family Pack"> Family Pack</label>
+                    </div>
+                    <p class="cc-label mt-4">Add / Remove Ingredients</p>
+                    <input class="cc-field" name="ingredients" placeholder="Add or remove ingredients...">
+                    <div class="cc-choice-wrap mt-3">
+                      <button class="cc-chip" type="button" data-ai-choice="No Onion">No Onion</button>
+                      <button class="cc-chip" type="button" data-ai-choice="No Garlic">No Garlic</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Low Oil">Low Oil</button>
+                    </div>
+                  </div>
+                  <div class="cc-ai-mini-card">
+                    <h3 class="cc-step-title"><span class="cc-step-no">3</span> Allergies & Preferences</h3>
+                    <p class="cc-label">I am allergic to</p>
+                    <div class="cc-choice-wrap">
+                      <button class="cc-chip" type="button" data-ai-choice="Nut Free">Nuts x</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Dairy Free">Dairy x</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Gluten Free">Gluten x</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Soy Free">Soy x</button>
+                      <button class="cc-chip" type="button" data-ai-choice="Egg Free">Egg x</button>
+                    </div>
+                    <p class="cc-label mt-4">I want to avoid</p>
+                    <div class="cc-choice-wrap">
+                      <button class="cc-chip" type="button" data-ai-choice="No Ajinomoto">Ajinomoto</button>
+                      <button class="cc-chip" type="button" data-ai-choice="No Artificial Colors">Artificial Colors</button>
+                      <button class="cc-chip" type="button" data-ai-choice="No Preservatives">Preservatives</button>
+                    </div>
+                    <button class="cc-btn mt-5 w-full" type="submit">Suggest Recipe</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <aside class="cc-card cc-ai-card" data-ai-output>
+              <div class="cc-ai-empty">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <span class="cc-kicker">AI Chef Suggests</span>
+                    <p class="text-stone-500 text-sm">Here is your perfect match.</p>
+                  </div>
+                  <div class="cc-ai-bot" data-icon="chef"></div>
+                </div>
+                <div class="cc-ai-product mt-5">
+                  <div class="cc-dish-img dish-1"></div>
+                  <div>
+                    <span class="cc-tag">Most Recommended</span>
+                    <h3 class="text-xl font-black mt-2">Creamy Paneer Butter Masala</h3>
+                    <ul class="text-sm text-stone-600 mt-3 space-y-1">
+                      <li>OK Medium spicy</li>
+                      <li>OK No onion, no garlic available</li>
+                      <li>OK Dairy free option on request</li>
+                      <li>OK High protein</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between mt-5">
+                  <b class="cc-price">Rs.249</b>
+                  <button class="cc-btn" type="button" data-add-cart="Creamy Paneer Butter Masala">Add to Cart</button>
+                </div>
+                <a class="cc-red font-black mt-5 inline-block" href="menu.html">View Full Recipe -></a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="cc-section pt-0">
+        <div class="cc-container">
+          <div class="cc-ai-banner-row">
+            <div class="cc-ai-banner-item"><span class="cc-icon" data-icon="scooter"></span><div><b>Lightning Fast Delivery</b><p class="text-xs text-stone-500">Hot and fresh at your door</p></div></div>
+            <div class="cc-ai-banner-item"><span class="cc-icon" data-icon="users"></span><div><b>30,000+ Happy Customers</b><p class="text-xs text-stone-500">Trusted since day one</p></div></div>
+            <div class="cc-ai-banner-item"><span class="cc-icon" data-icon="flame"></span><div><b>Wide Variety of Cuisines</b><p class="text-xs text-stone-500">Indian, Chinese, Continental</p></div></div>
+            <div class="cc-ai-banner-item"><span class="cc-icon" data-icon="party"></span><div><b>Perfect for Every Occasion</b><p class="text-xs text-stone-500">Meals, parties and events</p></div></div>
+            <div class="cc-ai-banner-item"><span class="cc-icon" data-icon="phone"></span><div><b>24/7 Customer Support</b><p class="text-xs text-stone-500">We are here to help</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cc-section pt-0">
+        <div class="cc-container">
+          <div class="flex items-end justify-between gap-4 mb-6">
+            <div>
+              <span class="cc-kicker">Popular Picks</span>
+              <h2 class="text-4xl font-black tracking-tight">Fresh favorites for you</h2>
+            </div>
+            <a class="cc-btn secondary" href="menu.html">View All</a>
+          </div>
+          <div class="cc-grid-5">
+            <article class="cc-card cc-dish-card"><div class="cc-dish-img dish-1"></div><div class="cc-dish-body"><span class="cc-tag">Bestseller</span><h3 class="font-black mt-2">Paneer Butter Masala</h3><div class="flex items-center justify-between mt-3"><b>Rs.249</b><button class="cc-btn !min-h-8 !px-3" data-add-cart="Paneer Butter Masala">Add</button></div></div></article>
+            <article class="cc-card cc-dish-card"><div class="cc-dish-img dish-2"></div><div class="cc-dish-body"><span class="cc-tag">Chef choice</span><h3 class="font-black mt-2">Veg Biryani</h3><div class="flex items-center justify-between mt-3"><b>Rs.229</b><button class="cc-btn !min-h-8 !px-3" data-add-cart="Veg Biryani">Add</button></div></div></article>
+            <article class="cc-card cc-dish-card"><div class="cc-dish-img dish-7"></div><div class="cc-dish-body"><span class="cc-tag">High protein</span><h3 class="font-black mt-2">Grilled Chicken Bowl</h3><div class="flex items-center justify-between mt-3"><b>Rs.269</b><button class="cc-btn !min-h-8 !px-3" data-add-cart="Grilled Chicken Bowl">Add</button></div></div></article>
+            <article class="cc-card cc-dish-card"><div class="cc-dish-img dish-5"></div><div class="cc-dish-body"><span class="cc-tag">Spicy</span><h3 class="font-black mt-2">Peri Peri Pasta</h3><div class="flex items-center justify-between mt-3"><b>Rs.199</b><button class="cc-btn !min-h-8 !px-3" data-add-cart="Peri Peri Pasta">Add</button></div></div></article>
+            <article class="cc-card cc-dish-card"><div class="cc-dish-img dish-9"></div><div class="cc-dish-body"><span class="cc-tag">Beverage</span><h3 class="font-black mt-2">Cold Coffee</h3><div class="flex items-center justify-between mt-3"><b>Rs.99</b><button class="cc-btn !min-h-8 !px-3" data-add-cart="Cold Coffee">Add</button></div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cc-section pt-0">
+        <div class="cc-container">
+          <div class="cc-card cc-band-inner cc-band cc-catering-tile">
+            <div>
+              <span class="cc-kicker text-white">Bulk Order / Party?</span>
+              <h2 class="text-4xl font-black">Get exciting discounts on large orders.</h2>
+              <p class="mt-3 text-white/80">Birthday parties, kitty parties, corporate events, weddings and more.</p>
+            </div>
+            <a class="cc-btn" href="catering.html">Order Catering</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cc-band">
+        <div class="cc-container cc-band-inner">
+          <div><h2 class="text-3xl font-black">Never Miss a Delicious Deal!</h2><p class="text-white/80">Subscribe to get exclusive offers and updates.</p></div>
+          <form class="flex gap-3 flex-wrap" data-form-message><input class="cc-field min-w-72" placeholder="Enter your email address"><button class="cc-btn dark">Subscribe</button><span class="basis-full text-sm text-white/80" data-status></span></form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cc-footer" data-cc-footer></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

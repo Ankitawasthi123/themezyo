@@ -66,7 +66,7 @@ export async function POST(request) {
   }
 
   try {
-    await sendApiNotification({
+    const notificationResult = await sendApiNotification({
       subject: 'New contact form message',
       title: 'Contact form message',
       fields: {
@@ -76,13 +76,12 @@ export async function POST(request) {
         Message: normalizedPayload.message,
       },
     })
+
+    if (notificationResult?.skipped) {
+      console.warn('Contact notification skipped:', notificationResult.reason)
+    }
   } catch (error) {
     console.error('Contact notification failed:', error)
-
-    return NextResponse.json(
-      { message: 'Unable to send message email.' },
-      { status: 502 }
-    )
   }
 
   return NextResponse.json({ message: normalizedPayload }, { status: 201 })

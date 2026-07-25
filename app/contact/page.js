@@ -13,6 +13,8 @@ const initialFormValues = {
   message: '',
 }
 
+const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL || 'support@themezyo.com'
+
 export default function ContactPage(){
   const { t } = useI18n()
   const [formValues, setFormValues] = useState(initialFormValues)
@@ -82,7 +84,45 @@ export default function ContactPage(){
         </section>
 
         <section className="py-12">
-          <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto grid max-w-5xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+            <aside className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-600">Support</p>
+              <h2 className="mt-3 text-2xl font-extrabold text-slate-800">Need help with a template?</h2>
+              <p className="mt-3 leading-7 text-gray-600">
+                Send template questions, customization requests, download issues, and setup support details.
+              </p>
+
+              <div className="mt-6 space-y-5">
+                <div>
+                  <p className="text-sm font-semibold text-gray-500">Email</p>
+                  <a className="mt-1 inline-block font-bold text-blue-600 hover:text-blue-700" href={`mailto:${supportEmail}`}>
+                    {supportEmail}
+                  </a>
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-gray-500">Best for</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">
+                    Template setup, paid customization, framework conversion, bug reports, and account or download questions.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-gray-500">Download help</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">
+                    If you are not able to download a template, email us and we can send you a direct download link for the file.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-gray-500">Helpful details</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">
+                    Include the template name, page link, your preferred framework, and what you want changed.
+                  </p>
+                </div>
+              </div>
+            </aside>
+
             <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                   <div>

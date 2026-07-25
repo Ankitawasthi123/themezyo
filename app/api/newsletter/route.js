@@ -40,7 +40,7 @@ export async function POST(request) {
   }
 
   try {
-    await sendApiNotification({
+    const notificationResult = await sendApiNotification({
       subject: 'New newsletter subscriber',
       title: 'Newsletter subscription',
       fields: {
@@ -49,13 +49,17 @@ export async function POST(request) {
         Status: 'subscribed',
       },
     })
+
+    if (notificationResult?.skipped) {
+      console.warn('Newsletter notification skipped:', notificationResult.reason)
+
+      return NextResponse.json(
+        { message: notificationResult.reason || 'Newsletter email notification was not sent.' },
+        { status: 502 }
+      )
+    }
   } catch (error) {
     console.error('Newsletter notification failed:', error)
-
-    return NextResponse.json(
-      { message: 'Unable to send subscription email.' },
-      { status: 502 }
-    )
   }
 
   return NextResponse.json(

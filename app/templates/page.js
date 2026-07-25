@@ -118,7 +118,12 @@ export default function TemplatesPage(){
                       />
                     )}
                     <div className="flex flex-1 flex-col p-5">
-                      <div className="inline-block self-start rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">{template.category}</div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <div className="inline-block rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">{template.category}</div>
+                        {template.isNew ? (
+                          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700">New</span>
+                        ) : null}
+                      </div>
                       <h4 className="mt-3 text-base font-bold text-slate-800">{template.title}</h4>
                       <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-500">{template.description}</p>
                       <div className="mt-auto flex items-center justify-between gap-3 pt-5">

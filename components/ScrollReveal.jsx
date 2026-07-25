@@ -21,7 +21,6 @@ export default function ScrollReveal() {
     const revealItems = Array.from(
       document.querySelectorAll(
         [
-          'main > section',
           'main h1',
           'main h2',
           'main h3',

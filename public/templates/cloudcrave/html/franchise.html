@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Franchise - CloudCrave</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body data-page="franchise.html">
+  <header class="cc-header" data-cc-header></header>
+  <main>
+    <section class="cc-page-hero">
+      <div class="cc-container cc-grid-2">
+        <div>
+          <span class="cc-kicker">Partner with us</span>
+          <h1 class="cc-page-title">Grow with India's leading cloud kitchen brand.</h1>
+          <p class="cc-lead">Launch a modern food business with tested operations, strong menus, delivery support and CloudCrave branding.</p>
+          <div class="cc-grid-2 mt-8">
+            <div class="cc-card cc-form-panel"><span class="cc-icon" data-icon="chef"></span><h3 class="font-black mt-3">Operational Training</h3><p class="text-stone-600 mt-2">Kitchen, delivery, packaging and quality systems.</p></div>
+            <div class="cc-card cc-form-panel"><span class="cc-icon" data-icon="users"></span><h3 class="font-black mt-3">Marketing Support</h3><p class="text-stone-600 mt-2">Brand assets, launch campaigns and menu strategy.</p></div>
+          </div>
+        </div>
+        <form class="cc-card cc-form-panel" data-form-message>
+          <h2 class="text-3xl font-black mb-5">Apply for Franchise</h2>
+          <input class="cc-field" placeholder="Your name">
+          <input class="cc-field mt-3" placeholder="Phone number">
+          <input class="cc-field mt-3" placeholder="City">
+          <select class="cc-field mt-3"><option>Investment range</option><option>Rs.10L - Rs.25L</option><option>Rs.25L - Rs.50L</option><option>Rs.50L+</option></select>
+          <textarea class="cc-field mt-3" placeholder="Tell us about your plan"></textarea>
+          <button class="cc-btn mt-4">Submit Application</button>
+          <p class="text-sm cc-red font-bold mt-3" data-status></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="cc-footer" data-cc-footer></footer>
+  <script src="app.js"></script>
+</body>
+</html>

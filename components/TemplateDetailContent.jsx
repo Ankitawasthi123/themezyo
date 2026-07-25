@@ -79,6 +79,86 @@ const categoryIntent = {
 }
 
 const templateSpecificSections = {
+  cloudcrave: [
+    {
+      heading: 'Cloud Kitchen Ordering Experience',
+      paragraphs: [
+        'CloudCrave is designed for delivery-first restaurants, shared kitchens, meal-prep brands, and food businesses that need to turn hungry visitors into customers quickly. Its bold visual hierarchy keeps menus, delivery coverage, catering, and ordering actions easy to find on desktop and mobile.',
+        'The included menu filters, cart interactions, delivery-area content, and AI recipe suggestion concept give you a practical foundation for presenting dishes while also creating a memorable branded experience.',
+      ],
+    },
+    {
+      heading: 'Catering And Franchise Growth',
+      paragraphs: [
+        'Dedicated catering and franchise pages let growing food brands speak to two different audiences without crowding the main ordering journey. Replace the demo content with real package sizes, service locations, kitchen capabilities, delivery policies, and franchise qualification details.',
+        'Blog and contact layouts provide additional space for local food content, announcements, corporate enquiries, and search-friendly landing copy.',
+      ],
+    },
+  ],
+  'bug-busters': [
+    {
+      heading: 'Pest Control Lead Generation',
+      paragraphs: [
+        'Bug Busters uses a high-contrast, urgent design for pest control companies that need visitors to identify a problem and request help quickly. Emergency calls to action, pest categories, service information, inspection booking, and pricing content form a clear path from concern to enquiry.',
+        'The layout suits residential exterminators, commercial pest management teams, inspection businesses, and local home-service providers. Add real coverage areas, response times, treatment methods, certifications, and guarantees before launch.',
+      ],
+    },
+    {
+      heading: 'Inspection And AI Suggestion Flow',
+      paragraphs: [
+        'The inspection and AI suggestion concepts help visitors describe signs of infestation before contacting the business. These front-end interactions can be connected to your preferred form service, CRM, scheduling system, or custom diagnosis workflow.',
+        'Result and recommendation copy should always be reviewed by a qualified pest professional so the published site sets accurate expectations and directs urgent cases appropriately.',
+      ],
+    },
+  ],
+  workwell: [
+    {
+      heading: 'Occupational Health Services',
+      paragraphs: [
+        'WorkWell is structured for occupational health providers, workplace screening companies, corporate wellness teams, and testing services. It organizes clinical services, employer packages, workplace testing, safety information, and corporate enquiries into a professional business-facing experience.',
+        'Use the service pages to explain appointment requirements, testing standards, turnaround times, reporting processes, on-site availability, and the industries your organization supports.',
+      ],
+    },
+    {
+      heading: 'Employer Recommendation Journey',
+      paragraphs: [
+        'The recommendation flow gives employers a simple way to explore suitable service packages based on workforce needs. It can remain a guided front-end experience or be connected to a rules engine, CRM, or consultation form.',
+        'Replace all sample health and compliance language with information reviewed for your location, services, and applicable workplace regulations.',
+      ],
+    },
+  ],
+  'revive-iv': [
+    {
+      heading: 'Mobile IV Therapy Booking Journey',
+      paragraphs: [
+        'Revive IV presents treatment choices, service areas, pricing, safety information, group bookings, and appointment requests in a calm premium layout. It is suited to mobile hydration teams, concierge wellness providers, and clinic-based IV services.',
+        'Treatment cards can be customized with real ingredients, eligibility requirements, session length, clinician credentials, availability, and pricing so visitors understand the service before requesting an appointment.',
+      ],
+    },
+    {
+      heading: 'Therapy Suggestion And Safety Content',
+      paragraphs: [
+        'The therapy suggestion pages demonstrate a guided selection experience and can be connected to a booking platform or reviewed recommendation workflow. They should not be presented as medical diagnosis without appropriate clinical design and oversight.',
+        'Before publishing, have a qualified professional review treatment claims, contraindications, consent language, emergency guidance, and all location-specific healthcare requirements.',
+      ],
+    },
+  ],
+  'recovery-path': [
+    {
+      heading: 'Compassionate Admissions Journey',
+      paragraphs: [
+        'RecoveryPath is designed for treatment centers and behavioral health organizations that need to communicate clearly with people seeking immediate support. Programs, admissions steps, insurance verification, team information, resources, contact options, and hotline content are organized into a calm and reassuring journey.',
+        'Replace the demonstration copy with verified levels of care, eligibility information, facility details, clinical credentials, accepted insurance, admissions availability, and real crisis resources.',
+      ],
+    },
+    {
+      heading: 'Assessment And Insurance Verification',
+      paragraphs: [
+        'The assessment and insurance pages are front-end concepts for confidential lead intake. They can be connected to secure, compliant systems selected by the treatment provider, with appropriate consent, privacy notices, data retention rules, and staff follow-up procedures.',
+        'Because recovery enquiries can involve sensitive health information, production forms should be reviewed for privacy, security, accessibility, and healthcare compliance before collecting visitor data.',
+      ],
+    },
+  ],
   'early-learning': [
     {
       heading: 'Early Learning Website Purpose',
@@ -290,6 +370,7 @@ export default function TemplateDetailContent({ template }) {
     (item) => item.id !== template.id && item.category !== template.category
   )
   const relatedTemplates = [...sameCategoryTemplates, ...fallbackTemplates].slice(0, 4)
+  const showFrameworkOffer = template.category !== 'AI Apps'
   const paypalPaymentUrl = process.env.NEXT_PUBLIC_PAYPAL_PAYMENT_URL
   const paymentOptions = [
     paypalPaymentUrl
@@ -489,20 +570,22 @@ export default function TemplateDetailContent({ template }) {
                     {t('common.requestPaidSupport')}
                   </Link>
 
-                  <div className="mt-6 rounded-xl border border-blue-100 bg-blue-50 p-5">
-                    <h3 className="text-lg font-bold text-slate-800">{t('detail.frameworkTitle')}</h3>
-                    <p className="mt-2 text-sm leading-6 text-gray-700">{t('detail.frameworkText')}</p>
-                    <div className="mt-4 grid grid-cols-3 gap-2">
-                      {['React', 'Angular', 'Vue.js'].map((framework) => (
-                        <div key={framework} className="rounded-lg bg-white px-3 py-2 text-center text-xs font-bold text-blue-700 shadow-sm">
-                          {framework}
-                        </div>
-                      ))}
+                  {showFrameworkOffer ? (
+                    <div className="mt-6 rounded-xl border border-blue-100 bg-blue-50 p-5">
+                      <h3 className="text-lg font-bold text-slate-800">{t('detail.frameworkTitle')}</h3>
+                      <p className="mt-2 text-sm leading-6 text-gray-700">{t('detail.frameworkText')}</p>
+                      <div className="mt-4 grid grid-cols-3 gap-2">
+                        {['React', 'Angular', 'Vue.js'].map((framework) => (
+                          <div key={framework} className="rounded-lg bg-white px-3 py-2 text-center text-xs font-bold text-blue-700 shadow-sm">
+                            {framework}
+                          </div>
+                        ))}
+                      </div>
+                      <Link href="/contact" className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
+                        {t('detail.frameworkButton')}
+                      </Link>
                     </div>
-                    <Link href="/contact" className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
-                      {t('detail.frameworkButton')}
-                    </Link>
-                  </div>
+                  ) : null}
 
                   <div className="mt-6 space-y-4 border-t pt-6">
                     <div>

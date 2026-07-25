@@ -24,6 +24,16 @@ Notes:
 - `npm run start` binds to `0.0.0.0` so it can receive traffic behind a server or reverse proxy.
 - The `postbuild` step copies `public` and `.next/static` into `.next/standalone` for self-contained server deployment.
 
+## Template folders
+
+- `public/templates/<template-id>/` is the single workspace for editing template projects and contains the live preview files served by the website.
+- `public/templates/<template-id>.zip` is the matching downloadable package.
+- Template IDs must match the entries in `data/templates.js`.
+- `_source-archive/` inside a template preserves an older source file only when it differs from the live version.
+
+Keep new template projects out of the repository root. Add and maintain them
+directly in `public/templates/`.
+
 ## VPS setup with VS Code
 
 Install the **Remote - SSH** extension in VS Code, then add this host to your local SSH config:
