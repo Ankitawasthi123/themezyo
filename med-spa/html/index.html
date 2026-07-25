@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow Med Spa - Reveal Your Best Skin</title>
+  <meta name="description" content="Personalized aesthetic treatments, skin analysis and natural-looking results at Glow Med Spa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="app.css">
+  <script defer src="app.js"></script>
+</head>
+<body class="antialiased">
+  <header class="site-header">
+    <div class="container-page relative flex min-h-[74px] items-center justify-between gap-5">
+      <a class="site-logo" href="index.html">GLOW<span class="text-[#e62f63]">.</span></a>
+      <nav id="main-nav" class="flex items-center gap-7">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About Us</a>
+        <a class="nav-link" href="treatments.html">Treatments</a>
+        <a class="nav-link" href="gallery.html">Results</a>
+        <a class="nav-link" href="membership.html">Membership</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <a class="btn-primary hidden lg:inline-flex" href="booking.html">Book Consultation</a>
+      <button data-menu-button aria-expanded="false" class="grid h-10 w-10 place-items-center rounded border border-[#efd9de] lg:hidden" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="overflow-hidden bg-[radial-gradient(circle_at_15%_12%,#fff_0,transparent_28%),linear-gradient(110deg,#fff7f7_0_62%,#fde8eb_62%_100%)]">
+      <div class="container-page grid min-h-[550px] items-center gap-8 py-10 lg:grid-cols-[1.05fr_.75fr_.46fr]">
+        <div class="relative z-10">
+          <span class="eyebrow">Medical-grade care, personalized for you</span>
+          <h1 class="mt-5 max-w-[620px] text-5xl font-semibold leading-[1.03] md:text-[68px]">Reveal Your Best Skin, <span class="text-[#e62f63]">Confidently</span></h1>
+          <p class="mt-5 max-w-xl text-[15px] leading-7 text-[#756a6d]">Advanced treatments. Real results. Personalized care for a more radiant you.</p>
+          <div class="mt-7 flex flex-wrap gap-3"><a class="btn-primary" href="booking.html">Book Free Consultation</a><a class="btn-outline" href="treatments.html">View Treatments</a></div>
+          <div class="mt-8 grid max-w-xl grid-cols-3 gap-4 text-xs">
+            <div><strong class="block text-lg">10,000+</strong><span class="text-[#756a6d]">Happy Clients</span></div>
+            <div><strong class="block text-lg">4.9/5</strong><span class="text-[#756a6d]">Google Rating</span></div>
+            <div><strong class="block text-lg">100%</strong><span class="text-[#756a6d]">Expert Certified</span></div>
+          </div>
+        </div>
+        <div class="relative min-h-[470px] self-end">
+          <div class="absolute inset-x-2 bottom-0 h-[420px] rounded-t-[48%] bg-[#f4cdd3]"></div>
+          <img class="absolute inset-0 h-full w-full object-cover object-top" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=850&q=90" alt="Woman with clear glowing skin">
+        </div>
+        <aside class="soft-card relative z-10 p-5">
+          <p class="section-kicker">Personal Skin Analysis</p>
+          <h2 class="mt-3 text-xl">Not Sure What Your Skin Needs?</h2>
+          <p class="mt-3 text-xs leading-5 text-[#756a6d]">Upload a photo and let our AI identify your top skin concerns.</p>
+          <div class="mt-5 rounded-lg border border-dashed border-[#e6a5b5] bg-[#fff5f6] p-4 text-center">
+            <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-white text-xl text-[#e62f63]">↑</div>
+            <b class="mt-2 block text-xs">Upload Your Photo</b>
+            <span class="text-[10px] text-[#8d7e82]">JPG, PNG up to 5MB</span>
+          </div>
+          <a class="btn-primary mt-4 w-full" href="booking.html">Analyze My Skin</a>
+          <p class="mt-4 text-center text-[10px] leading-4 text-[#8d7e82]">Your photo is private and never shared.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container-page relative z-20 -mt-5">
+      <div class="soft-card grid gap-6 p-6 md:grid-cols-[1fr_1fr_1.2fr]">
+        <div class="flex gap-4"><span class="icon-disc">1</span><div><b class="text-sm">Upload Photo</b><p class="mt-1 text-xs leading-5 text-[#756a6d]">Upload a clear photo of your face.</p></div></div>
+        <div class="flex gap-4"><span class="icon-disc">2</span><div><b class="text-sm">AI Analysis</b><p class="mt-1 text-xs leading-5 text-[#756a6d]">Our AI reviews your skin and identifies concerns.</p></div></div>
+        <div class="flex gap-4"><span class="icon-disc">3</span><div class="w-full"><b class="text-sm">Personalized Plan</b><p class="mt-1 text-xs leading-5 text-[#756a6d]">Get treatment suggestions tailored to you.</p><div class="mt-3 flex items-center justify-between rounded-lg bg-[#fff1f3] p-3"><span class="text-xs"><b>HydraFacial + Skin Brightening</b><br>Recommended treatment</span><strong class="text-[#e62f63]">$199</strong></div></div></div>
+      </div>
+    </section>
+
+    <section class="container-page py-16">
+      <div class="text-center"><p class="section-kicker">Popular Treatments</p><h2 class="mt-3 text-3xl font-semibold">Results-focused care for every concern</h2></div>
+      <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+        <a class="treatment-card" href="treatment-detail.html"><img class="h-36 w-full object-cover" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=85" alt="Botox"><div class="p-4"><h3 class="font-sans text-sm font-bold">Botox</h3><p class="mt-2 text-[11px] text-[#756a6d]">Reduce fine lines</p><b class="mt-3 block text-[11px]">Starting at $12/unit</b></div></a>
+        <a class="treatment-card" href="treatment-detail.html"><img class="h-36 w-full object-cover" src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=400&q=85" alt="Dermal fillers"><div class="p-4"><h3 class="font-sans text-sm font-bold">Dermal Fillers</h3><p class="mt-2 text-[11px] text-[#756a6d]">Restore volume</p><b class="mt-3 block text-[11px]">Starting at $699</b></div></a>
+        <a class="treatment-card" href="treatment-detail.html"><img class="h-36 w-full object-cover" src="https://images.unsplash.com/photo-1573461160327-b450ce3d8e7f?auto=format&fit=crop&w=400&q=85" alt="Laser hair removal"><div class="p-4"><h3 class="font-sans text-sm font-bold">Laser Hair Removal</h3><p class="mt-2 text-[11px] text-[#756a6d]">Smooth, hair-free skin</p><b class="mt-3 block text-[11px]">Starting at $99</b></div></a>
+        <a class="treatment-card" href="treatment-detail.html"><img class="h-36 w-full object-cover" src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&w=400&q=85" alt="HydraFacial"><div class="p-4"><h3 class="font-sans text-sm font-bold">HydraFacial</h3><p class="mt-2 text-[11px] text-[#756a6d]">Deep cleansing</p><b class="mt-3 block text-[11px]">Starting at $179</b></div></a>
+        <a class="treatment-card" href="treatment-detail.html"><img class="h-36 w-full object-cover" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=400&q=85" alt="Chemical peel"><div class="p-4"><h3 class="font-sans text-sm font-bold">Chemical Peel</h3><p class="mt-2 text-[11px] text-[#756a6d]">Improve texture</p><b class="mt-3 block text-[11px]">Starting at $149</b></div></a>
+        <a class="treatment-card" href="treatment-detail.html"><img class="h-36 w-full object-cover" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=400&q=85" alt="Skin tightening"><div class="p-4"><h3 class="font-sans text-sm font-bold">Skin Tightening</h3><p class="mt-2 text-[11px] text-[#756a6d]">Firm and lift</p><b class="mt-3 block text-[11px]">Starting at $299</b></div></a>
+      </div>
+      <div class="mt-7 text-center"><a class="btn-primary" href="treatments.html">View All Treatments</a></div>
+    </section>
+
+    <section class="bg-[#fff0f2] py-7">
+      <div class="container-page grid gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
+        <div><span class="icon-disc mx-auto">⌘</span><b class="mt-3 block text-xs">Advanced Technology</b></div>
+        <div><span class="icon-disc mx-auto">♡</span><b class="mt-3 block text-xs">Personalized Care</b></div>
+        <div><span class="icon-disc mx-auto">✦</span><b class="mt-3 block text-xs">Expert Professionals</b></div>
+        <div><span class="icon-disc mx-auto">✓</span><b class="mt-3 block text-xs">Proven Results</b></div>
+      </div>
+    </section>
+
+    <section class="container-page grid items-center gap-8 py-14 lg:grid-cols-[1.3fr_.7fr]">
+      <div class="soft-card p-8"><p class="section-kicker">What Our Clients Say</p><blockquote class="serif mt-4 text-2xl leading-relaxed">“Glow Med Spa changed my skin and my confidence. The staff is warm, honest and the results are beyond my expectations.”</blockquote><div class="mt-5 flex items-center gap-3"><img class="h-11 w-11 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Jennifer"><div><b class="text-sm">Jennifer R.</b><span class="block text-xs text-[#756a6d]">Miami, FL</span></div><span class="ml-auto text-[#e62f63]">★★★★★</span></div></div>
+      <div class="overflow-hidden rounded-xl bg-[#fde7ea]"><div class="grid grid-cols-[.8fr_1fr] items-center"><div class="p-6"><p class="text-[10px] font-bold uppercase text-[#e62f63]">New client special</p><h2 class="mt-2 text-2xl">Get 20% Off Your First Treatment</h2><a class="btn-primary mt-4" href="booking.html">Claim Offer</a></div><img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=400&q=85" alt=""></div></div>
+    </section>
+
+    <section class="bg-[#fde8eb] py-6"><div class="container-page flex flex-col items-center justify-between gap-4 md:flex-row"><div><h2 class="text-xl">Stay Glowing, Stay Updated</h2><p class="mt-1 text-xs text-[#756a6d]">Get exclusive offers, skincare tips and updates.</p></div><form class="flex w-full max-w-lg"><input class="field !rounded-r-none" type="email" placeholder="Enter your email"><button class="btn-primary !rounded-l-none">Stay Informed</button></form></div></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-page grid gap-8 py-10 md:grid-cols-2 lg:grid-cols-4">
+      <div><a class="site-logo" href="index.html">GLOW<span class="text-[#e62f63]">.</span></a><p class="mt-4 text-xs leading-6 text-[#756a6d]">Personalized aesthetic care for confident, natural-looking results.</p></div>
+      <div><b class="text-xs">Quick Links</b><div class="mt-4 grid gap-2 text-xs text-[#756a6d]"><a href="about.html">About Us</a><a href="treatments.html">Treatments</a><a href="gallery.html">Results</a><a href="pricing.html">Pricing</a></div></div>
+      <div><b class="text-xs">Information</b><div class="mt-4 grid gap-2 text-xs text-[#756a6d]"><a href="membership.html">Membership</a><a href="faq.html">FAQ</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div></div>
+      <div><b class="text-xs">Contact Us</b><p class="mt-4 text-xs leading-6 text-[#756a6d]">125 Liberty Street, Miami, FL 33101<br>(305) 456-7890<br>hello@glowmedspa.com</p></div>
+    </div>
+    <div class="border-t border-[#efd9de] py-4 text-center text-[10px] text-[#8d7e82]">© <span data-year></span> Glow Med Spa. All Rights Reserved.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+:root {
+  --ink: #06134a;
+  --muted: #536184;
+  --blue: #4f7df6;
+  --violet: #7759e8;
+  --cyan: #43c6de;
+  --coral: #ff7f55;
+  --lavender: #f0edff;
+  --soft: #f8fbff;
+  --line: #e4e9f6;
+  --shadow: 0 18px 50px rgba(30, 42, 92, .08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #fbfdff;
+  font-family: "Inter", Arial, sans-serif;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+.container { width: min(1220px, calc(100% - 32px)); margin-inline: auto; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid rgba(228,233,246,.85);
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(16px);
+}
+.header-inner { position: relative; display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 22px; }
+.brand { position: relative; display: inline-flex; min-width: max-content; flex-direction: column; justify-content: center; padding-left: 44px; font-size: 25px; font-weight: 900; line-height: 1; }
+.brand::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 33px;
+  height: 33px;
+  transform: translateY(-50%);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 24% 24%, #ff7f55 0 5px, transparent 6px),
+    radial-gradient(circle at 72% 26%, #4f7df6 0 5px, transparent 6px),
+    radial-gradient(circle at 28% 75%, #43c6de 0 5px, transparent 6px),
+    radial-gradient(circle at 75% 74%, #7759e8 0 5px, transparent 6px);
+}
+.brand::after { content: "Speech Therapy Center"; margin-top: 5px; color: var(--muted); font-size: 8px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+.main-nav { display: flex; align-items: center; gap: 22px; }
+.nav-link { font-size: 12px; font-weight: 800; white-space: nowrap; }
+.nav-link:hover, .nav-link.active { color: var(--blue); }
+
+.btn { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 8px; padding: 12px 22px; font-size: 12px; font-weight: 900; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { color: white; background: linear-gradient(135deg, var(--blue), var(--violet)); box-shadow: 0 16px 30px rgba(79,125,246,.2); }
+.btn-light { color: var(--blue); background: #eef4ff; }
+.btn-ghost { color: var(--ink); background: transparent; }
+.play-dot { display: inline-grid; width: 42px; height: 42px; margin-right: 10px; place-items: center; border-radius: 50%; color: white; background: linear-gradient(135deg, var(--blue), var(--violet)); }
+
+.menu-button { display: none; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); border-radius: 8px; background: white; }
+.menu-button span, .menu-button::before, .menu-button::after { content: ""; display: block; width: 18px; height: 2px; border-radius: 999px; background: var(--ink); transition: .2s ease; }
+.menu-button::before { transform: translateY(-6px); }
+.menu-button::after { transform: translateY(6px); }
+.menu-button[aria-expanded="true"] span { opacity: 0; }
+.menu-button[aria-expanded="true"]::before { transform: translateY(2px) rotate(45deg); }
+.menu-button[aria-expanded="true"]::after { transform: translateY(-2px) rotate(-45deg); }
+
+.hero {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 10% 16%, rgba(79,125,246,.09), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(255,127,85,.13), transparent 18%),
+    linear-gradient(110deg, #fff 0 57%, #f5f2ff 57% 100%);
+}
+.hero-grid { display: grid; min-height: 650px; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 42px; padding: 46px 0 30px; }
+h1, h2, h3 { margin: 0; line-height: 1.12; letter-spacing: 0; }
+h1 { max-width: 620px; font-size: clamp(44px, 5.4vw, 78px); font-weight: 900; }
+h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 900; }
+h3 { font-size: 18px; font-weight: 900; }
+.gradient-text { color: transparent; background: linear-gradient(135deg, var(--blue), var(--violet)); -webkit-background-clip: text; background-clip: text; }
+.lead { color: var(--muted); font-size: 16px; line-height: 1.9; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 26px; }
+.happy-strip { display: inline-flex; align-items: center; gap: 14px; margin-top: 28px; padding: 12px 18px; border-radius: 999px; background: white; box-shadow: var(--shadow); }
+.avatar-row { display: flex; }
+.avatar-row span { width: 28px; height: 28px; margin-left: -7px; border: 2px solid white; border-radius: 50%; background: linear-gradient(135deg, #ffd7c9, #b9cbff); }
+.avatar-row span:first-child { margin-left: 0; }
+.hero-image { min-height: 500px; border-radius: 0 0 0 54px; background: url("assets/images/hero-therapy.png") center / cover no-repeat; }
+
+.ai-strip { transform: translateY(-26px); }
+.ai-card { display: grid; grid-template-columns: 190px 1fr; align-items: center; overflow: hidden; border-radius: 20px; background: linear-gradient(135deg, #dfe7ff, #efe4ff); box-shadow: var(--shadow); }
+.robot { display: grid; min-height: 170px; place-items: center; font-size: 72px; }
+.ai-features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 18px; border-radius: 16px; background: rgba(255,255,255,.72); }
+.ai-feature { padding: 18px; border-right: 1px solid rgba(79,125,246,.16); }
+.ai-feature:last-child { border-right: 0; }
+.mini-icon { display: inline-grid; width: 42px; height: 42px; margin-bottom: 12px; place-items: center; border-radius: 12px; color: var(--blue); background: #eef4ff; font-weight: 900; }
+
+.section { padding: 72px 0; }
+.section-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.section-head p { margin: 12px 0 0; color: var(--muted); line-height: 1.7; }
+.grid { display: grid; gap: 20px; }
+.two-col { grid-template-columns: 1fr 1fr; }
+.three-col { grid-template-columns: repeat(3, 1fr); }
+.four-col { grid-template-columns: repeat(4, 1fr); }
+.five-col { grid-template-columns: repeat(5, 1fr); }
+.panel, .program-card, .age-card, .therapist-card, .form-panel, .footer-panel { border: 1px solid var(--line); border-radius: 18px; background: white; box-shadow: var(--shadow); }
+.panel-pad { padding: 28px; }
+.program-card { padding: 30px 22px; text-align: center; }
+.program-card .mini-icon { margin-inline: auto; }
+.program-card p, .age-card p, .therapist-card p, .tiny { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.age-card { overflow: hidden; text-align: center; }
+.age-card img { width: 100%; height: 150px; object-fit: cover; }
+.age-card:nth-child(1) img { object-position: 10% center; }
+.age-card:nth-child(2) img { object-position: 36% center; }
+.age-card:nth-child(3) img { object-position: 64% center; }
+.age-card:nth-child(4) img { object-position: 91% center; }
+.age-card div { padding: 18px; }
+.age-card .btn { width: 100%; min-height: 36px; padding: 8px 12px; }
+.benefit-band { color: white; background: linear-gradient(135deg, #4f7df6, #c069de); border-radius: 18px; padding: 32px; }
+.benefit-band .grid { grid-template-columns: repeat(5, 1fr); }
+.benefit-band p, .benefit-band h3 { color: white; }
+
+.help-card { display: grid; grid-template-columns: 68px 1fr 42px; align-items: center; gap: 18px; padding: 22px; }
+.help-card:nth-child(2) .mini-icon { color: #21a7bd; background: #effcff; }
+.help-card:nth-child(3) .mini-icon { color: var(--coral); background: #fff3ee; }
+.help-card:nth-child(4) .mini-icon { color: #ff4f7d; background: #fff0f5; }
+.ai-tool { display: grid; grid-template-columns: 1fr .8fr; gap: 22px; }
+.assistant-box { min-height: 330px; padding: 34px; background: linear-gradient(135deg, #ebe8ff, #f8faff); }
+.bot-face { display: grid; width: 140px; height: 140px; margin: 0 auto 24px; place-items: center; border-radius: 34px; color: white; background: linear-gradient(135deg, #101d6a, #7759e8); font-size: 54px; }
+.wave { height: 72px; margin-top: 26px; border-radius: 12px; background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(79,125,246,.75) 10px 13px, transparent 13px 22px); opacity: .65; }
+.exercise-box { text-align: center; }
+.mic { display: grid; width: 86px; height: 86px; margin: 24px auto; place-items: center; border-radius: 50%; color: white; background: linear-gradient(135deg, var(--blue), var(--violet)); font-size: 34px; box-shadow: 0 18px 40px rgba(79,125,246,.28); }
+
+.therapist-card { overflow: hidden; text-align: center; }
+.therapist-card img { width: 100%; height: 210px; object-fit: cover; }
+.therapist-card div { padding: 16px; }
+.testimonial { display: grid; grid-template-columns: 1fr .9fr; align-items: center; overflow: hidden; margin-top: 28px; background: linear-gradient(135deg, #eef8ff, #fff); }
+.testimonial img { height: 240px; width: 100%; object-fit: cover; }
+.testimonial blockquote { margin: 0; padding: 32px; color: var(--ink); font-weight: 800; line-height: 1.7; }
+.cta-photo { display: grid; grid-template-columns: .85fr 1fr; align-items: center; overflow: hidden; margin-top: 34px; color: white; background: linear-gradient(135deg, #4f7df6, #b869dc); }
+.cta-photo img { width: 100%; height: 270px; object-fit: cover; }
+.cta-photo div { padding: 36px; }
+
+.assessment-grid { display: grid; grid-template-columns: 1fr 250px; gap: 22px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.field { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font: inherit; outline: none; }
+.field:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(79,125,246,.1); }
+textarea.field { min-height: 122px; resize: vertical; }
+.side-card { padding: 26px; border-radius: 18px; background: linear-gradient(135deg, #eef8ff, #f4efff); text-align: center; }
+
+.footer-panel { padding: 34px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr repeat(4, 1fr); gap: 30px; }
+.footer-grid a, .footer-grid p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.copyright { padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+
+.page-hero { padding: 76px 0; color: white; background: linear-gradient(135deg, rgba(6,19,74,.9), rgba(119,89,232,.66)), url("assets/images/hero-therapy.png") center / cover no-repeat; }
+.page-hero .lead { color: rgba(255,255,255,.82); }
+
+@media (max-width: 1100px) {
+  .main-nav { position: absolute; inset: 74px 0 auto; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: white; box-shadow: var(--shadow); }
+  .main-nav.open { display: flex; }
+  .nav-link { padding: 13px 14px; border-radius: 8px; font-size: 14px; }
+  .nav-link:hover, .nav-link.active { background: var(--soft); }
+  .header-cta { display: none; }
+  .menu-button { display: grid; }
+  .hero-grid, .two-col, .ai-tool, .testimonial, .cta-photo, .assessment-grid { grid-template-columns: 1fr; }
+  .hero-image { min-height: 430px; border-radius: 28px; }
+  .ai-card { grid-template-columns: 1fr; }
+  .four-col, .five-col, .footer-grid, .benefit-band .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .container { width: min(100% - 24px, 1220px); }
+  .brand { padding-left: 38px; font-size: 21px; }
+  .hero-grid { min-height: auto; padding-top: 42px; }
+  .section { padding: 54px 0; }
+  .ai-strip { transform: none; padding-top: 20px; }
+  .ai-features, .three-col, .four-col, .five-col, .footer-grid, .benefit-band .grid, .form-grid { grid-template-columns: 1fr; }
+  .ai-feature { border-right: 0; border-bottom: 1px solid rgba(79,125,246,.16); }
+  .ai-feature:last-child { border-bottom: 0; }
+  .panel-pad, .footer-panel { padding: 22px; }
+  .hero-image { min-height: 320px; }
+}
