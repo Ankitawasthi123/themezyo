@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import TemplateDetailContent from '../../../components/TemplateDetailContent'
 import { getTemplateById, templates } from '../../../data/templates'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themezyo.com'
 
 function createTemplateKeywords(template) {
   const category = template.category
@@ -85,5 +88,48 @@ export default async function TemplateDetailPage({ params }){
     notFound()
   }
 
-  return <TemplateDetailContent template={template} />
+  const pageUrl = `${siteUrl}/templates/${template.id}`
+  const templateImage = template.thumbnail || template.images?.[0]
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    '@id': `${pageUrl}#template`,
+    name: template.title,
+    headline: template.hero?.headline || template.title,
+    description: template.description || template.summary,
+    url: pageUrl,
+    image: templateImage ? `${siteUrl}${templateImage}` : undefined,
+    genre: template.category,
+    keywords: createTemplateKeywords(template).join(', '),
+    encodingFormat: template.format || 'text/html',
+    isAccessibleForFree: template.price === 'Free',
+    dateModified: template.updated
+      ? new Date(`${template.updated} 1`).toISOString().slice(0, 10)
+      : undefined,
+    inLanguage: 'en',
+    creator: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Themezyo',
+      url: siteUrl,
+    },
+    publisher: {
+      '@id': `${siteUrl}/#organization`,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+  }
+
+  return (
+    <>
+      <Script
+        id={`template-structured-data-${template.id}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <TemplateDetailContent template={template} />
+    </>
+  )
 }

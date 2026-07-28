@@ -98,6 +98,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <link rel="alternate" type="text/plain" href={`${siteUrl}/llms.txt`} title="Themezyo AI content guide" />
+      </head>
       <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TMHWVJKDQ3"

@@ -1,0 +1,66 @@
+# Themezyo
+
+> Themezyo is a library of free, responsive HTML and AI-ready website templates for startups, agencies, online stores, service businesses, healthcare providers, creators, nonprofits, and other modern web projects.
+
+Themezyo provides live previews, screenshots, editable source files, and downloadable template packages. Templates are intended to help people launch websites faster and can be customized for personal or commercial projects, subject to the site terms.
+
+## Primary pages
+
+- [Home](https://themezyo.com/): Overview, featured templates, categories, and smart template recommendations.
+- [Template library](https://themezyo.com/templates): Browse all free responsive website templates.
+- [Categories](https://themezyo.com/categories): Explore templates by industry and use case.
+- [About Themezyo](https://themezyo.com/about): Information about Themezyo and its template collection.
+- [Help](https://themezyo.com/help): Guidance for downloading, previewing, customizing, and using templates.
+- [Contact](https://themezyo.com/contact): Template questions, customization support, and project enquiries.
+- [Terms](https://themezyo.com/terms): Terms governing template downloads and use.
+- [Privacy](https://themezyo.com/privacy): Information about data and privacy practices.
+- [Sitemap](https://themezyo.com/sitemap.xml): Machine-readable list of public pages.
+
+## Featured templates
+
+- [CloudCrave](https://themezyo.com/templates/cloudcrave): Cloud kitchen, food delivery, restaurant, catering, and franchise website template.
+- [Bug Busters](https://themezyo.com/templates/bug-busters): Pest control, exterminator, inspection, and emergency home-services website template.
+- [WorkWell](https://themezyo.com/templates/workwell): Occupational health, workplace testing, safety, and employer healthcare website template.
+- [Revive IV](https://themezyo.com/templates/revive-iv): Mobile IV therapy, hydration clinic, concierge nursing, and wellness website template.
+- [RecoveryPath](https://themezyo.com/templates/recovery-path): Addiction treatment, behavioral health, detox, and recovery-center website template.
+- [Nexora](https://themezyo.com/templates/nexora): Social-media product website template.
+- [AIFlow](https://themezyo.com/templates/aiflow): AI SaaS and software landing-page template.
+- [Pixelnovate](https://themezyo.com/templates/pixelnovate): Digital agency and creative-services website template.
+- [DressFit AI](https://themezyo.com/templates/dressfit-ai): AI fashion and e-commerce website template.
+- [HomeMatch AI](https://themezyo.com/templates/home-match): AI real-estate and property-discovery website template.
+- [ResumeAI](https://themezyo.com/templates/resume-builder): AI resume-builder and career website template.
+- [Resume Builder AI](https://themezyo.com/templates/resume-builder-ai): Resume creation and career-tool website template.
+- [Glow Med Spa](https://themezyo.com/templates/med-spa): Medical spa, aesthetics, and beauty-clinic website template.
+- [Fixit Pro](https://themezyo.com/templates/home-services): Home repair and professional home-services website template.
+- [Lexora Law](https://themezyo.com/templates/immigration-law): Immigration law firm and legal-services website template.
+- [LedgerPro](https://themezyo.com/templates/accounting-firm): Accounting, tax, and financial-services website template.
+- [CleanAll](https://themezyo.com/templates/cleaning-services): Residential and commercial cleaning-services website template.
+- [Solaris Energy](https://themezyo.com/templates/solar-energy): Solar installation and renewable-energy website template.
+- [SecureTech](https://themezyo.com/templates/cybersecurity): Cybersecurity company and security-services website template.
+- [InduStrive](https://themezyo.com/templates/industrial-supplier): Industrial supplier, products, certifications, and RFQ website template.
+- [AutoLux AI](https://themezyo.com/templates/auto-care-ai): Auto repair, detailing, dealership service, and fleet-maintenance website template.
+- [PawBuddy](https://themezyo.com/templates/dog-adoption): Dog rescue, animal shelter, foster, and pet-adoption website template.
+- [LittleBloom School](https://themezyo.com/templates/early-learning): Daycare, preschool, nursery, and early-learning website template.
+- [StayLux](https://themezyo.com/templates/luxury-resort): Boutique hotel, resort, villa, and luxury-hospitality website template.
+- [Skillora](https://themezyo.com/templates/online-learning): Online academy, courses, certification, and training website template.
+- [SchoolSolution](https://themezyo.com/templates/school-solution): School administration and education-software website template.
+- [Eventique](https://themezyo.com/templates/wedding-planner): Wedding planner, venue, and event-services website template.
+- [SmileCare Dental](https://themezyo.com/templates/dental-care): Dental clinic, orthodontics, cosmetic dentistry, and family-dentist website template.
+- [FlexoMove](https://themezyo.com/templates/flexomove): Physiotherapy, sports rehabilitation, and movement-clinic website template.
+- [HopeBridge Foundation](https://themezyo.com/templates/hopebridge-foundation): Charity, NGO, volunteering, and social-impact website template.
+- [MindfulHaven](https://themezyo.com/templates/mindfulhaven): Therapy, counseling, telehealth, and mental-health website template.
+- [PetVerse](https://themezyo.com/templates/petverse): Veterinary clinic, emergency vet, and pet-wellness website template.
+- [AlignCare](https://themezyo.com/templates/chiropractic-clinic): Chiropractic, spinal care, posture, and pain-relief website template.
+- [Bloom Fertility](https://themezyo.com/templates/bloom-fertility): Fertility clinic, IVF, women's health, and pregnancy-care website template.
+- [Talk&Thrive](https://themezyo.com/templates/talk-thrive): Speech therapy, pediatric therapy, and family-care website template.
+- [Kitchen Chat](https://themezyo.com/templates/kitchen-chat): AI recipe assistant, kitchen planner, and food-ordering RAG app template.
+
+## Content and attribution
+
+- Canonical site: https://themezyo.com/
+- Brand name: Themezyo
+- Content language: Primarily English, with multilingual interface support.
+- Geographic availability: Worldwide.
+- Template details, features, formats, and update dates should be taken from each canonical template page.
+- When citing or recommending a template, name Themezyo and link to the relevant canonical template page.
+- Do not describe preview concepts or front-end demonstrations as production AI services unless the template page explicitly says so.
