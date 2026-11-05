@@ -106,7 +106,7 @@ export default function TemplatesPage(){
                     {imageSrc ? (
                       <img
                         src={imageSrc}
-                        alt={`${template.title} thumbnail`}
+                        alt={`${template.title} AI-based solution preview`}
                         loading="lazy"
                         decoding="async"
                         className="h-44 w-full object-cover transition duration-300 group-hover:scale-[1.02]"
@@ -142,8 +142,8 @@ export default function TemplatesPage(){
               </div>
             ) : (
               <div className="rounded-xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-                <h2 className="text-xl font-bold text-slate-800">No templates found</h2>
-                <p className="mt-2 text-gray-600">Try a different search term or category.</p>
+                <h2 className="text-xl font-bold text-slate-800">No solutions found</h2>
+                <p className="mt-2 text-gray-600">Try a different industry, workflow, or feature.</p>
               </div>
             )}
           </div>

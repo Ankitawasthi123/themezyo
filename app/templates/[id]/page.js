@@ -5,23 +5,22 @@ import { getTemplateById, templates } from '../../../data/templates'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themezyo.com'
 
-function createTemplateKeywords(template) {
+function createSolutionKeywords(template) {
   const category = template.category
   const normalizedCategory = String(category || '').toLowerCase()
-  const templateType = getTemplateType(template)
+  const solutionType = getSolutionType(template)
 
   return [
-    templateType,
+    solutionType,
     category,
-    `${category} website template`,
-    `${category} HTML template`,
-    `free ${normalizedCategory} website template`,
-    `free ${normalizedCategory} HTML template`,
-    `responsive ${normalizedCategory} website template`,
-    `responsive ${normalizedCategory} HTML template`,
-    `download ${normalizedCategory} website template`,
-    `download ${normalizedCategory} HTML template`,
-    'free HTML website template',
+    `${category} AI solution`,
+    `AI-based ${normalizedCategory} solution`,
+    `${normalizedCategory} digital product idea`,
+    `${normalizedCategory} application solution`,
+    `${normalizedCategory} automation solution`,
+    `custom ${normalizedCategory} software development`,
+    'AI application development',
+    'end-to-end digital product development',
   ]
     .filter(Boolean)
     .map((keyword) => String(keyword).trim())
@@ -29,8 +28,8 @@ function createTemplateKeywords(template) {
     .slice(0, 10)
 }
 
-function getTemplateType(template) {
-  return template.layoutType || template.category
+function getSolutionType(template) {
+  return template.layoutType || `${template.category} AI-based solution`
 }
 
 export function generateStaticParams() {
@@ -43,23 +42,23 @@ export async function generateMetadata({ params }) {
 
   if (!template) {
     return {
-      title: 'Template Not Found',
-      description: 'The requested Themezyo template could not be found.',
+      title: 'Solution Not Found',
+      description: 'The requested Themezyo AI-based solution could not be found.',
     }
   }
 
-  const title = `${template.title} - ${template.category} HTML Template`
-  const description = template.description || template.summary
+  const title = `${template.title} - ${template.category} AI-Based Solution`
+  const description = `${template.description || template.summary} Explore the solution workflow, possible production features, and end-to-end delivery options.`
   const image = template.thumbnail || template.images?.[0]
-  const templateType = getTemplateType(template)
+  const solutionType = getSolutionType(template)
 
   return {
     title,
     description,
-    keywords: createTemplateKeywords(template),
+    keywords: createSolutionKeywords(template),
     other: {
-      'template-type': templateType,
-      'template-category': template.category,
+      'solution-type': solutionType,
+      'solution-category': template.category,
     },
     alternates: {
       canonical: `/templates/${template.id}`,
@@ -69,7 +68,7 @@ export async function generateMetadata({ params }) {
       description,
       url: `/templates/${template.id}`,
       type: 'website',
-      images: image ? [{ url: image, alt: `${template.title} preview screenshot` }] : undefined,
+      images: image ? [{ url: image, alt: `${template.title} AI-based solution preview` }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
@@ -96,21 +95,23 @@ export default async function TemplateDetailPage({ params }){
         '@id': `${pageUrl}#primary-image`,
         url: `${siteUrl}${templateImage}`,
         contentUrl: `${siteUrl}${templateImage}`,
-        caption: `${template.title} ${template.category} HTML template preview`,
+        caption: `${template.title} ${template.category} AI-based solution preview`,
         representativeOfPage: true,
       }
     : undefined
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    '@id': `${pageUrl}#template`,
+    '@id': `${pageUrl}#solution`,
     name: template.title,
     headline: template.hero?.headline || template.title,
     description: template.description || template.summary,
     url: pageUrl,
     image: primaryImage,
     genre: template.category,
-    keywords: createTemplateKeywords(template).join(', '),
+    keywords: createSolutionKeywords(template).join(', '),
+    about: `${template.category} AI-based solution and end-to-end product concept`,
+    educationalUse: 'Solution research, product planning, prototyping, and implementation reference',
     encodingFormat: template.format || 'text/html',
     isAccessibleForFree: template.price === 'Free',
     dateModified: template.updated

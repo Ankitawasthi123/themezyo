@@ -78,6 +78,50 @@ const categoryIntent = {
   Travel: 'present stay, room, experience, booking, offer, concierge, and guest planning content sections',
 }
 
+const categoryDelivery = {
+  Automotive: ['Service booking and customer accounts', 'Vehicle diagnosis and repair tracking', 'Payments, estimates and notifications', 'Workshop dashboard and integrations'],
+  Career: ['User profiles and secure accounts', 'Resume or application workflows', 'AI writing and matching tools', 'Subscriptions and admin dashboard'],
+  'Cleaning Services': ['Instant quote and recurring bookings', 'Service-area and team scheduling', 'Customer portal and online payments', 'CRM, reminders and operations dashboard'],
+  Cybersecurity: ['Assessment and lead qualification', 'Secure client and reporting portal', 'Monitoring or ticketing integrations', 'Role-based administration and audit logs'],
+  'Digital Agency': ['Conversion-focused marketing website', 'CMS-managed work and case studies', 'Client intake and project portal', 'CRM, analytics and automation'],
+  'E-commerce': ['Product catalog and intelligent search', 'Cart, checkout and secure payments', 'Customer accounts and order tracking', 'Inventory, shipping and admin operations'],
+  Education: ['Course catalog and enrollment', 'Student learning dashboard', 'Assessments, progress and certificates', 'Payments, content management and admin'],
+  Energy: ['Savings calculator and lead qualification', 'Survey and installation workflow', 'Financing and document collection', 'Customer project tracking portal'],
+  Events: ['Package discovery and availability', 'Consultation and booking workflow', 'Payments, contracts and guest tools', 'Event operations dashboard'],
+  Finance: ['Secure client onboarding', 'Document collection and workflows', 'Advisory tools and appointment booking', 'Client portal, billing and reporting'],
+  Healthcare: ['Service discovery and appointment requests', 'Secure patient intake and consent', 'Provider, schedule and resource management', 'Compliant integrations and staff dashboard'],
+  'Health & Beauty': ['Treatment discovery and consultation', 'Online booking and memberships', 'Customer profiles and reminders', 'Payments, inventory and staff dashboard'],
+  'Home Services': ['Estimate and service booking flows', 'Service-area and technician scheduling', 'Customer updates, financing and payments', 'CRM and field-operations dashboard'],
+  Industrial: ['Product catalog and specification search', 'RFQ and procurement workflows', 'Customer and distributor portal', 'ERP, inventory and sales integrations'],
+  Legal: ['Matter qualification and consultation booking', 'Secure client intake and documents', 'Case-status and communication portal', 'CRM, billing and practice integrations'],
+  Nonprofit: ['Donation and recurring-giving flows', 'Volunteer, program and event registration', 'Impact content and supporter accounts', 'CRM, email and operations dashboard'],
+  'Real Estate': ['Property search and saved listings', 'Buyer, seller and agent workflows', 'Viewing requests and lead automation', 'MLS, maps, CRM and admin dashboard'],
+  Restaurant: ['Menu, ordering and delivery journey', 'Cart, checkout and secure payments', 'Catering, reservations and loyalty tools', 'Kitchen, order and location management'],
+  SaaS: ['Production web application and accounts', 'Subscription billing and plan controls', 'Product dashboard and core workflows', 'APIs, analytics and administration'],
+  'Social Media': ['Profiles, feeds and content creation', 'Messaging and notifications', 'Moderation, privacy and safety controls', 'Creator analytics and admin tools'],
+  Travel: ['Live availability and booking journey', 'Guest accounts and trip management', 'Payments, offers and concierge requests', 'Property and reservation integrations'],
+  'AI Apps': ['Production AI workflow and interface', 'Model, data and retrieval integration', 'Authentication, usage limits and billing', 'Evaluation, monitoring and safeguards'],
+}
+
+function getProjectDelivery(template) {
+  const searchableText = [template.title, template.summary, template.description, ...(template.features || []), ...(template.sections || [])]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+  const possibilities = [...(categoryDelivery[template.category] || [
+    'Responsive production website or application',
+    'Backend, database and secure user accounts',
+    'Business integrations and automated workflows',
+    'Deployment, analytics and ongoing support',
+  ])]
+
+  if (/\b(ai|artificial intelligence|chatbot|recommendation|rag|diagnosis)\b/.test(searchableText) && template.category !== 'AI Apps') {
+    possibilities[3] = 'Practical AI features with evaluation and safeguards'
+  }
+
+  return possibilities.slice(0, 4)
+}
+
 const templateSpecificSections = {
   cloudcrave: [
     {
@@ -243,6 +287,7 @@ function createDetailSections(template, options) {
   const updated = options.updated
   const support = options.support
   const layoutType = options.layoutType
+  const solutionCategory = template.category === 'AI Apps' ? 'AI application' : template.category.toLowerCase()
   const audience = categoryAudience[template.category] || 'founders, developers, designers, agencies, and business teams'
   const intent = categoryIntent[template.category] || 'present the offer clearly, build trust, and guide visitors toward the next action'
   const pageCount = template.stats?.find((stat) => stat.label === 'Pages')?.value
@@ -254,7 +299,7 @@ function createDetailSections(template, options) {
   const sectionDetails = sections.map((section) => ({
     heading: `${section} Details`,
     paragraphs: [
-      `${section} is part of the ${template.title} experience and gives the template more topical depth for the ${template.category} audience. This area can be rewritten with original brand language, local service information, product-specific terms, customer objections, and proof points that match the final website.`,
+      `${section} is part of the ${template.title} solution experience and gives the concept more practical depth for the ${template.category} audience. This area can be adapted with original brand language, local service information, product-specific terms, customer objections, and proof points that match the production product.`,
       `For SEO, this section should answer a real searcher question instead of only repeating keywords. Add useful copy, descriptive headings, and internal links so Google and AI search systems can understand how ${section.toLowerCase()} supports the overall ${layoutType}.`,
     ],
   }))
@@ -270,7 +315,7 @@ function createDetailSections(template, options) {
     {
       heading: `About ${template.title}`,
       paragraphs: [
-        `${template.title} is a ${layoutType} built for ${audience}. The template gives visitors a clear first impression, organizes the most important information, and creates a practical starting point for a polished website without forcing a team to design every page from scratch.`,
+        `${template.title} is an AI-based ${solutionCategory} solution idea designed for ${audience}. It demonstrates the user journey, organizes the most important workflows, and provides a practical foundation for planning a complete digital product.`,
         template.description || template.summary,
         template.hero?.subtext || `${template.title} focuses on clear navigation, useful content blocks, responsive presentation, and conversion-friendly page structure for real project launches.`,
       ].filter(Boolean),
@@ -278,7 +323,7 @@ function createDetailSections(template, options) {
     {
       heading: 'Best Fit',
       paragraphs: [
-        `This ${template.category} template is useful when you need a fast, clean, and editable web presence for a real business idea. It is suited for teams that want a ready layout, but still need enough flexibility to adjust copy, colors, images, calls to action, and page order.`,
+        `This ${template.category} AI-based solution idea is useful when you need to validate a real business workflow, demonstrate the user experience, and define what a production application could include.`,
         `The primary goal of this category is to ${intent}. ${template.title} gives that journey a structured front end, so visitors can understand the offer quickly and keep moving through the page instead of stopping at a thin description.`,
         `The design works well for prototypes, client demos, static website starters, portfolio pieces, internal experiments, and landing pages that need to explain an offer clearly. Developers can also use it as a front-end base before adding their own backend, CMS, payments, accounts, or application logic.`,
       ],
@@ -288,18 +333,18 @@ function createDetailSections(template, options) {
       heading: 'Pages And Sections',
       paragraphs: [
         pageCount
-          ? `${template.title} includes ${pageCount} page${pageCount === '1' ? '' : 's'} covering ${sectionText}. This gives the template enough depth for a realistic website journey instead of a single thin landing page.`
+          ? `${template.title} includes ${pageCount} workflow page${pageCount === '1' ? '' : 's'} covering ${sectionText}. This gives the solution enough depth to demonstrate a realistic product journey instead of a single thin landing page.`
           : `${template.title} includes a practical page structure covering ${sectionText}.`,
         screenshotCount
-          ? `The template also includes ${screenshotCount} preview screenshot${screenshotCount === '1' ? '' : 's'} so visitors can inspect the visual direction before downloading.`
-          : 'Preview assets help visitors understand the template style before they download and customize it.',
+          ? `The solution also includes ${screenshotCount} preview screenshot${screenshotCount === '1' ? '' : 's'} so visitors can inspect its workflow and visual direction.`
+          : 'Preview assets help visitors understand the solution workflow and visual direction.',
         `The included sections are arranged to help users scan the offer, understand the value, compare important details, and move toward a front-end contact, signup, booking-style, purchase-style, download, or enquiry section depending on the project type.`,
       ],
     },
     {
       heading: 'Key Features',
       paragraphs: [
-        `Important features in this template include ${featureText}. These features make the design easier to adapt for a focused product, service, organization, or campaign.`,
+        `Important possibilities in this solution include ${featureText}. These capabilities show how the idea can support a focused product, service, organization, or operational workflow.`,
         `Each feature is written as editable front-end content, so you can replace demo text with your own service details, pricing notes, product benefits, testimonials, FAQs, operational workflows, and brand language.`,
       ],
     },
@@ -309,13 +354,13 @@ function createDetailSections(template, options) {
       heading: 'Design Quality',
       paragraphs: [
         `${template.title} uses a modern responsive layout with clear spacing, readable typography, structured content blocks, and mobile-friendly behavior. The visual system is intended to feel professional while staying simple enough for fast editing.`,
-        `The template avoids locking you into one narrow use case. You can keep the existing structure, remove sections you do not need, duplicate useful blocks, or rebuild the page flow around your own user journey.`,
+        `The solution concept does not lock a production build into one narrow implementation. Its workflows can be prioritized, extended, integrated, or redesigned around your users and business requirements.`,
       ],
     },
     {
       heading: 'SEO And AI Search Readiness',
       paragraphs: [
-        `This page includes descriptive content around the template purpose, category, layout, features, included files, and recommended use cases. That helps traditional search engines and AI answer engines understand what ${template.title} is and who it is for.`,
+        `This page includes descriptive content around the solution purpose, category, workflows, possible features, prototype files, and recommended use cases. That helps traditional search engines and AI answer engines understand what ${template.title} is and who it is for.`,
         `For best indexing results, customize the downloaded template with original business copy, specific service names, helpful headings, accurate image alt text, local contact details where relevant, and clear page titles. Unique content is more useful than repeated keywords and gives Google stronger context.`,
         `AI search systems also benefit from plain language descriptions, consistent terminology, and page sections that answer real user questions. The more specific the final content is to your product or business, the better it can be understood and summarized.`,
       ],
@@ -323,7 +368,7 @@ function createDetailSections(template, options) {
     {
       heading: 'Customization Notes',
       paragraphs: [
-        `The template is delivered in ${format}, making it straightforward to edit with a normal code editor. You can change colors, typography, images, navigation labels, page links, button text, and section order without needing a large framework migration first.`,
+        `The source prototype is delivered in ${format}, making it straightforward to inspect and edit with a normal code editor. It demonstrates the solution experience while production technology can be selected around the final scope.`,
         `If you want to turn this into a production website, replace placeholder copy with real brand messaging, compress final images, connect any forms or actions to your own backend, review accessibility labels, add analytics only where needed, and test every page on mobile and desktop before launch.`,
         `For stronger organic reach, rewrite every demo paragraph with specific language from your niche. Include service areas, product categories, customer types, common questions, trust signals, and clear comparison points where they naturally belong.`,
       ],
@@ -339,7 +384,7 @@ function createDetailSections(template, options) {
       heading: 'Launch Guidance',
       paragraphs: [
         `Before publishing a website based on ${template.title}, review each page for accuracy, update metadata, add real contact or business details, connect any form behavior you need, and verify that all buttons point to the right destinations.`,
-        `The template was last updated in ${updated}. ${support} if you need help converting the design into React, Angular, Vue.js, Next.js, or another production setup.`,
+        `The solution prototype was last updated in ${updated}. ${support} if you want to turn the concept into a complete production project with frontend, backend, integrations, deployment, and ongoing support.`,
       ],
     },
   ]
@@ -349,7 +394,7 @@ export default function TemplateDetailContent({ template }) {
   const { t } = useI18n()
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const summary = template.description || template.summary
-  const layoutType = template.layoutType || `${template.category} website template`
+  const layoutType = template.layoutType || `${template.category} AI-based solution idea`
   const sections = template.sections || template.features?.slice(0, 4) || []
   const stats = template.stats || [
     { label: 'Rating', value: `${template.rating}` },
@@ -370,7 +415,8 @@ export default function TemplateDetailContent({ template }) {
     (item) => item.id !== template.id && item.category !== template.category
   )
   const relatedTemplates = [...sameCategoryTemplates, ...fallbackTemplates].slice(0, 4)
-  const showFrameworkOffer = template.category !== 'AI Apps'
+  const projectDelivery = getProjectDelivery(template)
+  const projectContactHref = `/contact?template=${encodeURIComponent(template.id)}&service=end-to-end-delivery`
   const paypalPaymentUrl = process.env.NEXT_PUBLIC_PAYPAL_PAYMENT_URL
   const paymentOptions = [
     paypalPaymentUrl
@@ -453,6 +499,34 @@ export default function TemplateDetailContent({ template }) {
               <div className="lg:col-span-2">
                 <TemplateImageSlider template={template} />
 
+                <section className="mb-8 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm" aria-labelledby="website-features-title">
+                  <div className="flex flex-col gap-3 border-b border-gray-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Available project enhancements</p>
+                      <h2 id="website-features-title" className="mt-1 text-xl font-extrabold text-slate-800">We can provide these features</h2>
+                      <p className="mt-1 max-w-2xl text-xs leading-5 text-gray-600">These are optional customization and development services based on your project requirements; they are not automatically included in the free download.</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs font-semibold text-gray-600">
+                      <span className="h-5 w-5 rounded-full border-2 border-white shadow" style={{ backgroundColor: template.color || '#2563eb' }} />
+                      Custom branding available
+                    </div>
+                  </div>
+                  <div className="grid gap-px bg-gray-100 sm:grid-cols-2 xl:grid-cols-4">
+                    {[
+                      ['Responsive refinement', 'We can optimize every screen and interaction for desktop, tablet, and mobile.'],
+                      ['Multilingual setup', 'We can add language switching, translated routes, and localized content structure.'],
+                      ['Color and branding', 'We can apply your colors, typography, imagery, logo, and visual guidelines.'],
+                      ['Custom development', `We can extend the ${format} foundation with the features your project needs.`],
+                    ].map(([title, description], index) => (
+                      <article key={title} className="bg-white p-5">
+                        <div className="grid h-9 w-9 place-items-center rounded-lg bg-blue-50 text-sm font-extrabold text-blue-700">{index + 1}</div>
+                        <h3 className="mt-3 text-sm font-bold text-slate-800">{title}</h3>
+                        <p className="mt-1 text-xs leading-5 text-gray-600">{description}</p>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+
                 <div
                   className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
                   data-scroll-reveal="off"
@@ -515,10 +589,10 @@ export default function TemplateDetailContent({ template }) {
 
                   <section className="mt-10 border-t border-gray-200 pt-8">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">
-                      {t('detail.longDescriptionEyebrow', 'Template details')}
+                      {t('detail.longDescriptionEyebrow', 'Solution details')}
                     </p>
                     <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">
-                      {t('detail.longDescriptionTitle', 'Detailed template description')}
+                      {t('detail.longDescriptionTitle', 'How this AI-based solution can work')}
                     </h2>
                     <div className="mt-6 space-y-8">
                       {detailSections.map((detailSection) => (
@@ -580,22 +654,31 @@ export default function TemplateDetailContent({ template }) {
                     {t('common.requestPaidSupport')}
                   </Link>
 
-                  {showFrameworkOffer ? (
-                    <div className="mt-6 rounded-xl border border-blue-100 bg-blue-50 p-5">
-                      <h3 className="text-lg font-bold text-slate-800">{t('detail.frameworkTitle')}</h3>
-                      <p className="mt-2 text-sm leading-6 text-gray-700">{t('detail.frameworkText')}</p>
-                      <div className="mt-4 grid grid-cols-3 gap-2">
-                        {['React', 'Angular', 'Vue.js'].map((framework) => (
-                          <div key={framework} className="rounded-lg bg-white px-3 py-2 text-center text-xs font-bold text-blue-700 shadow-sm">
-                            {framework}
+                  <div className="mt-6 overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-sky-50">
+                    <div className="p-5">
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Possible for this project</p>
+                      <h3 className="mt-2 text-lg font-bold text-slate-800">End-to-end project delivery</h3>
+                      <p className="mt-2 text-sm leading-6 text-gray-700">
+                        We can turn {template.title} into a complete, production-ready {template.category.toLowerCase()} project based on your users, workflow, integrations, budget, and launch goals.
+                      </p>
+                      <div className="mt-4 space-y-2">
+                        {projectDelivery.map((possibility) => (
+                          <div key={possibility} className="flex items-start gap-2 rounded-lg bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 shadow-sm">
+                            <svg className="mt-0.5 h-4 w-4 flex-none text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            <span>{possibility}</span>
                           </div>
                         ))}
                       </div>
-                      <Link href="/contact" className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
-                        {t('detail.frameworkButton')}
+                    </div>
+                    <div className="border-t border-blue-100 bg-white/70 p-4">
+                      <p className="text-xs leading-5 text-gray-600">Final scope and feasibility are confirmed after reviewing your requirements.</p>
+                      <Link href={projectContactHref} className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
+                        Discuss this project
                       </Link>
                     </div>
-                  ) : null}
+                  </div>
 
                   <div className="mt-6 space-y-4 border-t pt-6">
                     <div>
@@ -626,10 +709,10 @@ export default function TemplateDetailContent({ template }) {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">
-                      {t('detail.relatedEyebrow', 'More templates')}
+                      {t('detail.relatedEyebrow', 'More solutions')}
                     </p>
                     <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">
-                      {t('detail.relatedTitle', 'Related templates')}
+                      {t('detail.relatedTitle', 'Related AI-based solutions')}
                     </h2>
                   </div>
                   <Link className="text-sm font-semibold text-blue-600 hover:text-blue-700" href="/templates">

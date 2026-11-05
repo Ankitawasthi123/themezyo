@@ -28,7 +28,7 @@ export default function CategoriesPage(){
   const { t } = useI18n()
   const categories = getTemplateCategories().map((category) => ({
     ...category,
-    desc: categoryMeta[category.title]?.desc || `Templates for ${category.title} projects.`,
+    desc: categoryMeta[category.title]?.desc || `AI-based solution concepts for ${category.title} projects.`,
     icon: categoryMeta[category.title]?.icon || '/icons/landing.svg',
   }))
 

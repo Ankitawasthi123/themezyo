@@ -4,14 +4,14 @@ import { templates } from '../../data/templates'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://themezyo.com'
 
 export const metadata = {
-  title: 'Free HTML Website Templates and AI-Based Ideas',
-  description: 'Browse and download free responsive HTML website templates and AI-based project ideas for startups, SaaS products, agencies, online stores, real estate platforms, and creator websites.',
+  title: 'AI-Based Solutions and Digital Product Ideas',
+  description: 'Explore AI-based solution concepts for healthcare, SaaS, commerce, services, education, finance, real estate, and other industries, with workflows, previews, source prototypes, and end-to-end delivery options.',
   alternates: {
     canonical: '/templates',
   },
   openGraph: {
-    title: 'Free HTML Website Templates and AI-Based Ideas | Themezyo',
-    description: 'Explore free responsive HTML templates and AI-based project ideas with live previews, project screenshots, source files, and ready-to-use pages.',
+    title: 'AI-Based Solutions and Digital Product Ideas | Themezyo',
+    description: 'Explore industry-focused AI solutions, application concepts, workflow previews, source prototypes, and custom end-to-end product delivery.',
     url: '/templates',
   },
 }
@@ -22,8 +22,8 @@ export default function TemplatesLayout({ children }) {
     '@type': 'CollectionPage',
     '@id': `${siteUrl}/templates#collection`,
     url: `${siteUrl}/templates`,
-    name: 'Themezyo free HTML website templates',
-    description: 'A collection of free responsive HTML website templates with live previews and downloadable source files.',
+    name: 'Themezyo AI-based solutions',
+    description: 'A collection of industry-focused AI solution concepts with product workflows, previews, source prototypes, and end-to-end delivery possibilities.',
     isPartOf: {
       '@id': `${siteUrl}/#website`,
     },
@@ -35,7 +35,7 @@ export default function TemplatesLayout({ children }) {
         position: index + 1,
         item: {
           '@type': 'CreativeWork',
-          '@id': `${siteUrl}/templates/${template.id}#template`,
+          '@id': `${siteUrl}/templates/${template.id}#solution`,
           name: template.title,
           url: `${siteUrl}/templates/${template.id}`,
           description: template.description || template.summary,

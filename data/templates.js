@@ -1,4 +1,4 @@
-export const templates = [
+const rawTemplates = [
   {
     id: 'cloudcrave',
     isNew: true,
@@ -1597,6 +1597,49 @@ export const templates = [
     includes: ['Next.js source files', 'TypeScript config', 'Package lock', 'Sanitized env example', 'Preview screenshot', 'Zip download'],
   },
 ]
+
+function replaceLegacyTemplatePositioning(text = '') {
+  return String(text)
+    .replace(/\bsource-code AI app template\b/gi, 'AI-based application solution idea')
+    .replace(/\bsource template\b/gi, 'solution prototype')
+    .replace(/\bHTML template\b/gi, 'AI-based solution idea')
+    .replace(/\bwebsite template\b/gi, 'AI-based website solution idea')
+    .replace(/\btemplate\b/gi, 'solution concept')
+}
+
+function createSolutionSummary(solution) {
+  const category = solution.category === 'AI Apps' ? 'AI application' : String(solution.category || 'digital product').toLowerCase()
+  const existingSummary = replaceLegacyTemplatePositioning(solution.summary)
+
+  if (existingSummary) {
+    return existingSummary.replace(
+      new RegExp(`^${solution.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} is (?:an? )?.*?solution (?:idea|concept) (?:built |designed )?for`, 'i'),
+      `${solution.title} is an AI-based ${category} solution idea designed for`
+    )
+  }
+
+  return `${solution.title} is an AI-based ${category} solution idea with practical user journeys, product workflows, and implementation possibilities.`
+}
+
+function createSolutionDescription(solution) {
+  const category = solution.category === 'AI Apps' ? 'AI application' : String(solution.category || 'digital product').toLowerCase()
+  const featureText = (solution.features || []).slice(0, 5).join(', ')
+
+  return `${solution.title} is an AI-based ${category} solution idea${featureText ? ` featuring ${featureText}` : ''}. Explore the workflow prototype and possible end-to-end production delivery.`
+}
+
+export const templates = rawTemplates.map((solution) => ({
+  ...solution,
+  layoutType: `${solution.category} AI-based solution idea`,
+  summary: createSolutionSummary(solution),
+  description: createSolutionDescription(solution),
+  hero: solution.hero
+    ? {
+        ...solution.hero,
+        subtext: replaceLegacyTemplatePositioning(solution.hero.subtext),
+      }
+    : solution.hero,
+}))
 
 export function getTemplateById(id) {
   return templates.find((template) => template.id === String(id))

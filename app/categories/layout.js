@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Website Template Categories',
-  description: 'Explore responsive website templates for SaaS, digital agencies, e-commerce, real estate, careers, social media, and other modern business projects.',
+  title: 'AI-Based Solutions by Industry',
+  description: 'Explore AI-based solution concepts for SaaS, healthcare, commerce, real estate, education, finance, services, social platforms, and other industries.',
   alternates: {
     canonical: '/categories',
   },

@@ -139,7 +139,7 @@ export default function SmartTemplatePicker() {
                     onClick={() => setSelectedCategory('all')}
                     className={`rounded-lg border px-3 py-2 text-left text-sm font-bold transition ${selectedCategory === 'all' ? 'border-blue-600 bg-blue-600 text-white' : 'border-blue-100 bg-white text-gray-700 hover:bg-blue-50'}`}
                   >
-                    All templates
+                    All solutions
                   </button>
                   {categories.slice(0, 7).map((category) => (
                     <button
@@ -162,11 +162,11 @@ export default function SmartTemplatePicker() {
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-600">Best matches</p>
                   <h3 className="mt-2 text-2xl font-extrabold text-slate-800">Recommended Matches</h3>
                   <p className="mt-2 text-sm leading-6 text-gray-600">
-                    Use these as ready templates, project starters, or AI-based ideas for a larger custom build.
+                    Explore these as AI-based solution concepts, product workflows, source prototypes, and starting points for end-to-end delivery.
                   </p>
                 </div>
                 <Link href="/templates" className="text-sm font-bold text-blue-600 transition hover:text-blue-700">
-                  View all templates
+                  View all AI solutions
                 </Link>
               </div>
 
@@ -245,7 +245,7 @@ export default function SmartTemplatePicker() {
                 <div className="mt-6 rounded-xl border border-blue-100 bg-white p-6">
                   <h4 className="text-xl font-extrabold text-slate-800">No exact match found</h4>
                   <p className="mt-2 text-sm leading-6 text-gray-600">
-                    Try a broader keyword or switch Project type to All templates.
+                    Try a broader keyword or switch Project type to All solutions.
                   </p>
                   <button
                     type="button"
