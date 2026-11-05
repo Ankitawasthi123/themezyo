@@ -5,6 +5,21 @@ import { defaultLanguage, dictionaries, getNestedValue, languages } from '../lib
 
 const I18nContext = createContext(null)
 
+function detectPreferredLanguage() {
+  const browserLocales = navigator.languages?.length
+    ? navigator.languages
+    : [navigator.language]
+
+  for (const locale of browserLocales) {
+    const languageCode = locale?.toLowerCase().split('-')[0]
+    if (languages.some((item) => item.code === languageCode)) {
+      return languageCode
+    }
+  }
+
+  return defaultLanguage
+}
+
 export function I18nProvider({ children }) {
   const [language, setLanguageState] = useState(defaultLanguage)
 
@@ -12,7 +27,10 @@ export function I18nProvider({ children }) {
     const storedLanguage = window.localStorage.getItem('themezyo-language')
     if (storedLanguage && languages.some((item) => item.code === storedLanguage)) {
       setLanguageState(storedLanguage)
+      return
     }
+
+    setLanguageState(detectPreferredLanguage())
   }, [])
 
   const languageMeta = languages.find((item) => item.code === language) || languages[0]
