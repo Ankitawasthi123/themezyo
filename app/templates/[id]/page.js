@@ -90,6 +90,16 @@ export default async function TemplateDetailPage({ params }){
 
   const pageUrl = `${siteUrl}/templates/${template.id}`
   const templateImage = template.thumbnail || template.images?.[0]
+  const primaryImage = templateImage
+    ? {
+        '@type': 'ImageObject',
+        '@id': `${pageUrl}#primary-image`,
+        url: `${siteUrl}${templateImage}`,
+        contentUrl: `${siteUrl}${templateImage}`,
+        caption: `${template.title} ${template.category} HTML template preview`,
+        representativeOfPage: true,
+      }
+    : undefined
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
@@ -98,7 +108,7 @@ export default async function TemplateDetailPage({ params }){
     headline: template.hero?.headline || template.title,
     description: template.description || template.summary,
     url: pageUrl,
-    image: templateImage ? `${siteUrl}${templateImage}` : undefined,
+    image: primaryImage,
     genre: template.category,
     keywords: createTemplateKeywords(template).join(', '),
     encodingFormat: template.format || 'text/html',
@@ -119,6 +129,7 @@ export default async function TemplateDetailPage({ params }){
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': pageUrl,
+      primaryImageOfPage: primaryImage,
     },
   }
 
