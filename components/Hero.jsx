@@ -6,7 +6,7 @@ import { useState } from 'react'
 import AiCanvasBackground from './AiCanvasBackground'
 import { useI18n } from './I18nProvider'
 import { readJsonResponse } from '../lib/readJsonResponse'
-import { getTemplateCategories, getTemplatePageCount, templates } from '../data/templates'
+import { getTemplateCategories } from '../data/templates'
 
 const ideaInitialValues = {
   name: '',
@@ -21,14 +21,12 @@ export default function Hero(){
   const [isIdeaModalOpen, setIsIdeaModalOpen] = useState(false)
   const [isIdeaSubmitted, setIsIdeaSubmitted] = useState(false)
   const [ideaSubmitError, setIdeaSubmitError] = useState('')
-  const templateCount = templates.length
-  const pageCount = getTemplatePageCount()
   const popularCategories = getTemplateCategories().slice(0, 6)
   const proofPoints = [
-    { value: `${templateCount}+`, label: 'Free templates' },
-    { value: `${pageCount}+`, label: 'Included pages' },
-    { value: 'Live', label: 'Browser previews' },
-    { value: 'ZIP', label: 'Source downloads' },
+    { value: '01', label: 'Product strategy' },
+    { value: '02', label: 'Full-stack build' },
+    { value: '03', label: 'AI integration' },
+    { value: '04', label: 'Launch & support' },
   ]
 
   function openIdeaModal() {
@@ -117,7 +115,7 @@ export default function Hero(){
               ))}
             </div>
             <div className="mx-auto mt-7 max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Popular template categories</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Application experience by industry</p>
               <div className="mt-3 flex flex-wrap justify-center gap-2">
                 {popularCategories.map((category) => (
                   <Link

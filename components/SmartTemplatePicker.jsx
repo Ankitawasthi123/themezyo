@@ -89,16 +89,16 @@ export default function SmartTemplatePicker() {
         <div className="overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/70 to-emerald-50/70">
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.35fr]">
             <div className="border-b border-blue-100 p-6 sm:p-8 lg:border-b-0 lg:border-r">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Smart picker</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Solution explorer</p>
               <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">
-                Find the Right Template
+                Find the Right Starting Point
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
-                Tell us what you are building and the picker will recommend matching templates and AI-based website ideas from the Themezyo collection.
+                Tell us what you want to build. We will match you with relevant application concepts, user flows, and reference implementations from our library.
               </p>
               <div className="mt-4 rounded-xl border border-blue-100 bg-white p-4">
                 <p className="text-sm leading-6 text-gray-700">
-                  Need more than a template? You can request a custom project with frontend, backend, and AI integration work based on your requirements.
+                  We can turn the selected direction into a complete product with UX, frontend, backend, databases, authentication, AI workflows, integrations, deployment, and support.
                 </p>
                 <Link href="/contact" className="mt-3 inline-flex rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700">
                   Request Custom Project

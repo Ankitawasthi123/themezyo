@@ -32,7 +32,10 @@ export default function ScrollReveal() {
           'footer',
         ].join(',')
       )
-    ).filter((item, index, items) => items.indexOf(item) === index)
+    ).filter(
+      (item, index, items) =>
+        items.indexOf(item) === index && !item.closest('[data-scroll-reveal="off"]')
+    )
 
     revealItems.forEach((item, index) => {
       item.classList.add('scroll-reveal')

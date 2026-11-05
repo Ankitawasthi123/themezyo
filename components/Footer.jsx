@@ -95,6 +95,7 @@ export default function Footer(){
               <h5 className="text-sm font-extrabold uppercase tracking-[0.14em] text-slate-800">{t('footer.quick')}</h5>
               <ul className="mt-4 space-y-3 text-sm text-gray-600">
                 <li><Link href="/" className="transition hover:text-blue-600">{t('nav.home')}</Link></li>
+                <li><Link href="/services" className="transition hover:text-blue-600">{t('nav.services')}</Link></li>
                 <li><Link href="/templates" className="transition hover:text-blue-600">{t('nav.templates')}</Link></li>
                 <li><Link href="/categories" className="transition hover:text-blue-600">{t('nav.categories')}</Link></li>
                 <li><Link href="/templates?category=SaaS" className="transition hover:text-blue-600">SaaS Templates</Link></li>
@@ -129,11 +130,11 @@ export default function Footer(){
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-gray-500">&copy; 2026 Themezyo. {t('footer.rights')}</p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/templates" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700">
-                Browse Templates
+              <Link href="/services" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700">
+                Explore Services
               </Link>
               <Link href="/contact" className="rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
-                Request Customization
+                Start a Project
               </Link>
             </div>
           </div>

@@ -11,7 +11,7 @@ export function GET() {
   const content = [
     '# Themezyo',
     '',
-    'Themezyo is a library of free responsive HTML and AI-ready website templates.',
+    'Themezyo provides end-to-end web, mobile, and AI application development, alongside a library of reference templates and project concepts.',
     '',
     '## Primary pages',
     `- [Home](${siteUrl}/)`,

@@ -12,7 +12,10 @@ export default function TemplatesGrid(){
     <section className="py-14 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <h3 className="text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">{t('templatesPage.handpicked')}</h3>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">Reference applications</p>
+            <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">Explore What We Can Build</h3>
+          </div>
           <Link className="text-sm font-semibold text-blue-600 hover:text-blue-700" href="/templates">{t('common.viewAllTemplates')}</Link>
         </div>
 

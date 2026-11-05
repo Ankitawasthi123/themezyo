@@ -348,7 +348,7 @@ function createDetailSections(template, options) {
 export default function TemplateDetailContent({ template }) {
   const { t } = useI18n()
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
-  const summary = template.summary || template.description
+  const summary = template.description || template.summary
   const layoutType = template.layoutType || `${template.category} website template`
   const sections = template.sections || template.features?.slice(0, 4) || []
   const stats = template.stats || [
@@ -453,13 +453,23 @@ export default function TemplateDetailContent({ template }) {
               <div className="lg:col-span-2">
                 <TemplateImageSlider template={template} />
 
-                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+                <div
+                  className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
+                  data-scroll-reveal="off"
+                >
                   <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">{template.title}</h1>
                   <div className="mt-4 flex flex-wrap items-center gap-4">
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-700">{template.category}</span>
                   </div>
 
-                  <p className="mt-6 text-gray-700 leading-relaxed">{summary}</p>
+                  {summary ? (
+                    <section className="mt-6 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                      <h2 className="text-xl font-bold text-slate-800">
+                        {t('detail.description', 'Description')}
+                      </h2>
+                      <p className="mt-3 leading-7 text-gray-700">{summary}</p>
+                    </section>
+                  ) : null}
 
                   {template.hero ? (
                     <div className="mt-8 rounded-xl border border-gray-200 bg-slate-50 p-6">

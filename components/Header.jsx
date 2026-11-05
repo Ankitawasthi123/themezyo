@@ -9,6 +9,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navItems = [
     { href: '/', label: t('nav.home') },
+    { href: '/services', label: t('nav.services') },
     { href: '/templates', label: t('nav.templates') },
     { href: '/categories', label: t('nav.categories') },
     { href: '/about', label: t('nav.about') },
@@ -52,7 +53,7 @@ export default function Header() {
             ) : null}
             <Link href="/help" className="hidden text-sm font-medium text-gray-600 transition hover:text-blue-600 md:inline">{t('nav.docs')}</Link>
             <Link href="/contact" className="hidden text-sm font-medium text-gray-600 transition hover:text-blue-600 md:inline">{t('nav.support')}</Link>
-            <Link className="hidden items-center rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:shadow-md sm:inline-flex" href="/templates">{t('nav.downloadFree')}</Link>
+            <Link className="hidden items-center rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:shadow-md sm:inline-flex" href="/services">{t('nav.downloadFree')}</Link>
             <button
               type="button"
               onClick={() => setIsMenuOpen((current) => !current)}

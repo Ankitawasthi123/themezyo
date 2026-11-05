@@ -2,13 +2,11 @@
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import { getTemplateCategories, templates } from '../../data/templates'
 import { useI18n } from '../../components/I18nProvider'
 
 export default function AboutPage(){
   const { t } = useI18n()
   const values = t('about.values')
-  const categoryCount = getTemplateCategories().length
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -30,16 +28,16 @@ export default function AboutPage(){
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="text-4xl font-extrabold text-blue-600">{templates.length}</div>
-                <p className="mt-2 text-gray-700 font-semibold">{t('hero.templates')}</p>
+                <div className="text-2xl font-extrabold text-blue-600">Full Stack</div>
+                <p className="mt-2 text-gray-700 font-semibold">Web and mobile-ready products</p>
               </div>
               <div className="rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="text-4xl font-extrabold text-blue-600">{categoryCount}</div>
-                <p className="mt-2 text-gray-700 font-semibold">{t('nav.categories')}</p>
+                <div className="text-2xl font-extrabold text-blue-600">AI Native</div>
+                <p className="mt-2 text-gray-700 font-semibold">Practical intelligence and automation</p>
               </div>
               <div className="rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="text-4xl font-extrabold text-blue-600">Free</div>
-                <p className="mt-2 text-gray-700 font-semibold">{t('common.templates')}</p>
+                <div className="text-2xl font-extrabold text-blue-600">End to End</div>
+                <p className="mt-2 text-gray-700 font-semibold">From discovery through support</p>
               </div>
             </div>
 

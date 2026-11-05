@@ -7,10 +7,10 @@ export default function Features(){
   const labels = t('features.items')
   const icons = ['/icons/responsive.svg', '/icons/customize.svg', '/icons/performance.svg', '/icons/updates.svg']
   const details = [
-    ['Desktop, tablet, and mobile-friendly structure', 'Layouts are prepared for common screen sizes so you can start from a practical responsive base.'],
-    ['Editable HTML, CSS, and JavaScript files', 'Change copy, colors, images, links, sections, and page order without being locked into a heavy setup.'],
-    ['Live previews and real screenshots', 'Review the template before downloading so you know the page style, structure, and visual direction.'],
-    ['New templates added over time', 'The library is organized around real website use cases, with more categories and page concepts planned.'],
+    ['Product strategy and experience design', 'We shape requirements, user journeys, architecture, and interfaces around a measurable business outcome.'],
+    ['Frontend, backend, and cloud delivery', 'We build responsive interfaces, APIs, databases, authentication, integrations, deployment, and monitoring.'],
+    ['Useful AI inside the workflow', 'Add assistants, recommendations, search, document intelligence, generation, or automation where they create real value.'],
+    ['Iteration after launch', 'Improve the product using feedback, analytics, model evaluation, performance reviews, and new feature releases.'],
   ]
   const items = labels.map(([title, desc], index) => ({
     title,
@@ -20,20 +20,20 @@ export default function Features(){
     detailText: details[index]?.[1],
   }))
   const workflow = [
-    ['1', 'Preview', 'Open screenshots and live browser pages.'],
-    ['2', 'Download', 'Get the editable source package.'],
-    ['3', 'Customize', 'Replace demo content with your brand.'],
-    ['4', 'Launch', 'Connect your own forms, hosting, and backend if needed.'],
+    ['1', 'Discover', 'Define users, requirements, data, and success measures.'],
+    ['2', 'Design', 'Plan the architecture, workflows, and product experience.'],
+    ['3', 'Build', 'Develop the full stack and integrate the right AI models.'],
+    ['4', 'Launch', 'Deploy, monitor, support, and improve the application.'],
   ]
 
   return (
     <section className="bg-gray-50 py-14 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">What is included</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">End-to-end delivery</p>
           <h3 className="text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">{t('features.title')}</h3>
           <p className="mt-3 leading-7 text-gray-600">
-            Themezyo gives you practical front-end website starters: preview pages, screenshots, downloadable source files, and layouts you can edit for your own project. Start with a finished design direction, then adapt it at your pace.
+            From the first product decision to production deployment, Themezyo brings design, engineering, AI, and ongoing support into one delivery process.
           </p>
         </div>
 

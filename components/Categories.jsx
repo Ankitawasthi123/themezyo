@@ -41,10 +41,10 @@ export default function Categories(){
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">Browse by use case</p>
-            <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">{t('categories.title')}</h3>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">Solutions by use case</p>
+            <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">AI Applications for Real Business Workflows</h3>
             <p className="mt-3 leading-7 text-gray-600">
-              Start with the type of website you want to build. Each category groups templates by real project needs, so you can jump straight to designs with relevant pages, screenshots, previews, and editable source files.
+              Explore product directions across industries. Each category demonstrates relevant screens and workflows that can be developed into a complete application with data, automation, integrations, and AI capabilities.
             </p>
           </div>
           <Link className="inline-flex self-start rounded-lg border border-blue-200 px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-50 sm:self-auto" href="/categories">{t('common.viewAllCategories')}</Link>

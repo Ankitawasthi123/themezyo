@@ -21,7 +21,7 @@ export default function PrivacyPage() {
           <div className="mt-8 space-y-7 text-gray-700">
             <section>
               <h2 className="text-xl font-bold text-slate-800">Information we collect</h2>
-              <p className="mt-2 leading-7">We collect information you submit through contact, newsletter, and template request forms, such as your name, email address, subject, and message.</p>
+              <p className="mt-2 leading-7">We collect information you submit through contact, newsletter, and project enquiry forms, such as your name, email address, subject, and message.</p>
             </section>
             <section>
               <h2 className="text-xl font-bold text-slate-800">How we use information</h2>

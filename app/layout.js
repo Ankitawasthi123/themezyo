@@ -11,7 +11,7 @@ export const metadata = {
     default: 'Themezyo - Free Responsive HTML & AI Website Templates',
     template: '%s | Themezyo',
   },
-  description: 'Download free responsive HTML and AI website templates for SaaS startups, agencies, online stores, real estate platforms, creators, and global businesses.',
+  description: 'Design, build, and launch end-to-end web and mobile applications with full-stack engineering, practical AI integration, deployment, and ongoing support.',
   keywords: [
     'Themezyo',
     'Themezyo templates',
@@ -60,13 +60,13 @@ export const metadata = {
     locale: 'en_US',
     alternateLocale: ['en_CA', 'en_GB', 'en_AE'],
     title: 'Themezyo - Free Responsive HTML & AI Website Templates',
-    description: 'Explore free responsive website templates with live previews, screenshots, source files, and downloads for modern global projects.',
+    description: 'Build complete web and mobile products with full-stack engineering, useful AI capabilities, integrations, deployment, and ongoing support.',
     url: '/',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Themezyo - Free Responsive HTML & AI Website Templates',
-    description: 'Explore free responsive website templates for startups, agencies, online stores, creators, and product teams.',
+    description: 'End-to-end application development for startups, businesses, creators, and product teams.',
   },
 }
 
@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
         '@id': `${siteUrl}/#organization`,
         name: 'Themezyo',
         url: siteUrl,
-        description: 'Free responsive HTML and AI website templates for global creators, startups, agencies, and businesses.',
+        description: 'End-to-end web, mobile, and AI application development for startups, teams, and businesses.',
         areaServed: 'Worldwide',
       },
       {
@@ -87,7 +87,7 @@ export default function RootLayout({ children }) {
         '@id': `${siteUrl}/#website`,
         url: siteUrl,
         name: 'Themezyo',
-        description: 'Free responsive HTML and AI website templates for modern web projects.',
+        description: 'Full-stack application development with practical AI integration, deployment, and ongoing support.',
         inLanguage: ['en', 'fr', 'ar', 'de'],
         publisher: {
           '@id': `${siteUrl}/#organization`,

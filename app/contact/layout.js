@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Contact',
-  description: 'Contact Themezyo for template questions, paid setup help, customization support, and project inquiries.',
+  description: 'Contact Themezyo about websites, mobile apps, full-stack platforms, AI integrations, automation, modernization, or product support.',
   alternates: {
     canonical: '/contact',
   },

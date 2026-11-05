@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'About',
-  description: 'Learn about Themezyo and our collection of free AI-ready website templates for creators, founders, agencies, and product teams.',
+  description: 'Learn how Themezyo designs, develops, integrates, and launches end-to-end web applications with practical AI capabilities.',
   alternates: {
     canonical: '/about',
   },

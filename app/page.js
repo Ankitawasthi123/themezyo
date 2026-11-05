@@ -8,8 +8,8 @@ import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 
 export const metadata = {
-  title: 'Launch Faster With Ready-to-Use Templates',
-  description: 'Browse free responsive HTML templates for SaaS startups, agencies, e-commerce stores, real estate platforms, resume builders, and creator businesses.',
+  title: 'End-to-End AI Application Development',
+  description: 'Build production-ready web applications with product strategy, UX, frontend, backend, AI integration, deployment, and ongoing support from Themezyo.',
   alternates: {
     canonical: '/',
   },  
