@@ -6,6 +6,7 @@ import Header from './Header'
 import Footer from './Footer'
 import TemplateImageSlider from './TemplateImageSlider'
 import { useI18n } from './I18nProvider'
+import { localizeTemplateCategory, localizeTemplateDescription } from '../lib/templateLocalization'
 import { templates } from '../data/templates'
 
 const analyticsTimeout = 600
@@ -120,6 +121,185 @@ function getProjectDelivery(template) {
   }
 
   return possibilities.slice(0, 4)
+}
+
+const localizedCategoryNames = {
+  fr: {
+    Automotive: 'automobile', Career: 'carrière', 'Cleaning Services': 'services de nettoyage', Cybersecurity: 'cybersécurité',
+    'Digital Agency': 'agence numérique', 'E-commerce': 'commerce électronique', Education: 'éducation', Energy: 'énergie',
+    Events: 'événementiel', Finance: 'finance', Healthcare: 'santé', 'Health & Beauty': 'santé et beauté',
+    'Home Services': 'services à domicile', Industrial: 'industrie', Legal: 'services juridiques', Nonprofit: 'organisations à but non lucratif',
+    'Real Estate': 'immobilier', Restaurant: 'restauration', SaaS: 'SaaS', 'Social Media': 'réseaux sociaux', Travel: 'voyage', 'AI Apps': 'applications IA',
+  },
+  de: {
+    Automotive: 'Automobil', Career: 'Karriere', 'Cleaning Services': 'Reinigungsdienste', Cybersecurity: 'Cybersicherheit',
+    'Digital Agency': 'Digitalagentur', 'E-commerce': 'E-Commerce', Education: 'Bildung', Energy: 'Energie', Events: 'Veranstaltungen',
+    Finance: 'Finanzen', Healthcare: 'Gesundheit', 'Health & Beauty': 'Gesundheit und Schönheit', 'Home Services': 'Hausdienstleistungen',
+    Industrial: 'Industrie', Legal: 'Rechtsdienstleistungen', Nonprofit: 'gemeinnützige Organisationen', 'Real Estate': 'Immobilien',
+    Restaurant: 'Gastronomie', SaaS: 'SaaS', 'Social Media': 'soziale Medien', Travel: 'Reisen', 'AI Apps': 'KI-Anwendungen',
+  },
+  ar: {
+    Automotive: 'السيارات', Career: 'المسار المهني', 'Cleaning Services': 'خدمات التنظيف', Cybersecurity: 'الأمن السيبراني',
+    'Digital Agency': 'الوكالات الرقمية', 'E-commerce': 'التجارة الإلكترونية', Education: 'التعليم', Energy: 'الطاقة', Events: 'الفعاليات',
+    Finance: 'التمويل', Healthcare: 'الرعاية الصحية', 'Health & Beauty': 'الصحة والجمال', 'Home Services': 'الخدمات المنزلية',
+    Industrial: 'الصناعة', Legal: 'الخدمات القانونية', Nonprofit: 'المنظمات غير الربحية', 'Real Estate': 'العقارات',
+    Restaurant: 'المطاعم', SaaS: 'البرمجيات كخدمة', 'Social Media': 'وسائل التواصل الاجتماعي', Travel: 'السفر', 'AI Apps': 'تطبيقات الذكاء الاصطناعي',
+  },
+}
+
+function getLocalizedSolutionCopy(template, language) {
+  if (language === 'en') {
+    return {
+      description: template.description || template.summary,
+      layoutType: template.layoutType || `${template.category} AI-based solution idea`,
+    }
+  }
+
+  const category = localizedCategoryNames[language]?.[template.category] || template.category
+  const copy = {
+    fr: {
+      description: `${template.title} est une idée de solution ${category} basée sur l’IA. Elle présente les parcours utilisateur, les fonctionnalités possibles et un prototype source pouvant servir de base à une réalisation complète.`,
+      layoutType: `Idée de solution ${category} basée sur l’IA`,
+    },
+    de: {
+      description: `${template.title} ist eine KI-basierte Lösungsidee für ${category}. Sie zeigt Nutzerabläufe, mögliche Funktionen und einen Quellprototyp als Grundlage für eine vollständige Produktentwicklung.`,
+      layoutType: `KI-basierte Lösungsidee für ${category}`,
+    },
+    ar: {
+      description: `${template.title} هي فكرة حل قائم على الذكاء الاصطناعي لقطاع ${category}. تعرض رحلة المستخدم والميزات الممكنة ونموذجاً أولياً للمصدر يمكن تطويره إلى منتج متكامل.`,
+      layoutType: `فكرة حل قائمة على الذكاء الاصطناعي لقطاع ${category}`,
+    },
+  }
+
+  return copy[language] || copy.en
+}
+
+function createLocalizedDetailSections(template, language, options) {
+  if (language === 'en') return createDetailSections(template, options)
+
+  const category = localizedCategoryNames[language]?.[template.category] || template.category
+  const pageCount = template.stats?.find((stat) => stat.label === 'Pages')?.value
+  const countText = pageCount || 'plusieurs'
+  const copy = {
+    fr: [
+      ['Présentation de la solution', [
+        `${template.title} est une idée de solution ${category} basée sur l’IA, conçue pour transformer un besoin métier en parcours numérique clair et exploitable.`,
+        `Le concept montre comment les utilisateurs peuvent découvrir le service, accomplir les actions principales et progresser vers un résultat concret dans une expérience cohérente.`,
+      ]],
+      ['Parcours et expérience utilisateur', [
+        `Le prototype comprend ${countText} écrans ou pages de travail qui illustrent la navigation, les étapes importantes, les appels à l’action et les informations nécessaires à la prise de décision.`,
+        `La structure peut être adaptée à votre marque, votre pays, votre modèle économique, vos utilisateurs et vos processus internes.`,
+      ]],
+      ['Possibilités liées à l’IA', [
+        `Selon le projet, la réalisation peut intégrer des assistants, des recommandations, la recherche intelligente, la génération de contenu, l’analyse de données ou l’automatisation de tâches.`,
+        `Les fonctions d’IA en production doivent être reliées à des données fiables, des règles métier, des évaluations de qualité, une supervision et des protections adaptées au risque.`,
+      ]],
+      ['Prototype source', [
+        `Le téléchargement en ${options.format} sert de prototype modifiable et de référence d’implémentation. Il ne constitue pas automatiquement un système de production complet.`,
+        `Il permet d’examiner la direction visuelle et le parcours avant de définir l’architecture, le backend, les comptes, les paiements, les intégrations et l’hébergement nécessaires.`,
+      ]],
+      ['Livraison de bout en bout', [
+        `Themezyo peut transformer cette idée en produit complet avec stratégie, UX, frontend, backend, données, intégrations, IA, tests, déploiement et support continu.`,
+        `La faisabilité, le calendrier et le budget sont confirmés après examen des utilisateurs, des flux, des données, des contraintes et des objectifs de lancement.`,
+      ]],
+    ],
+    de: [
+      ['Lösungsübersicht', [
+        `${template.title} ist eine KI-basierte Lösungsidee für ${category}, die einen geschäftlichen Bedarf in einen klaren und umsetzbaren digitalen Ablauf überführt.`,
+        `Das Konzept zeigt, wie Nutzer das Angebot entdecken, zentrale Aufgaben erledigen und innerhalb einer konsistenten Produkterfahrung zu einem konkreten Ergebnis gelangen.`,
+      ]],
+      ['Nutzerablauf und Produkterfahrung', [
+        `Der Prototyp umfasst ${pageCount || 'mehrere'} Arbeitsseiten oder Ansichten für Navigation, wichtige Schritte, Handlungsaufforderungen und entscheidungsrelevante Informationen.`,
+        `Die Struktur kann an Marke, Land, Geschäftsmodell, Nutzergruppen und interne Prozesse angepasst werden.`,
+      ]],
+      ['Mögliche KI-Funktionen', [
+        `Je nach Projekt kann die Umsetzung Assistenten, Empfehlungen, intelligente Suche, Inhaltsgenerierung, Datenanalyse oder Workflow-Automatisierung enthalten.`,
+        `Produktive KI-Funktionen benötigen verlässliche Daten, Geschäftsregeln, Qualitätsprüfungen, Überwachung und angemessene Schutzmaßnahmen.`,
+      ]],
+      ['Quellprototyp', [
+        `Der Download in ${options.format} ist ein bearbeitbarer Prototyp und eine Implementierungsreferenz, jedoch nicht automatisch ein vollständiges Produktionssystem.`,
+        `Er hilft bei der Prüfung von Gestaltung und Nutzerablauf, bevor Architektur, Backend, Konten, Zahlungen, Integrationen und Hosting festgelegt werden.`,
+      ]],
+      ['End-to-End-Umsetzung', [
+        `Themezyo kann diese Idee mit Strategie, UX, Frontend, Backend, Daten, Integrationen, KI, Tests, Bereitstellung und laufendem Support zu einem vollständigen Produkt entwickeln.`,
+        `Machbarkeit, Zeitplan und Budget werden nach Prüfung von Nutzern, Abläufen, Daten, Einschränkungen und Einführungszielen bestätigt.`,
+      ]],
+    ],
+    ar: [
+      ['نظرة عامة على الحل', [
+        `${template.title} هي فكرة حل قائمة على الذكاء الاصطناعي لقطاع ${category}، وتهدف إلى تحويل احتياج العمل إلى تجربة رقمية واضحة وقابلة للتنفيذ.`,
+        `يوضح المفهوم كيف يكتشف المستخدمون الخدمة وينفذون المهام الأساسية ويتقدمون نحو نتيجة عملية ضمن تجربة منتج مترابطة.`,
+      ]],
+      ['رحلة المستخدم وتجربة المنتج', [
+        `يتضمن النموذج الأولي ${pageCount || 'عدة'} صفحات أو شاشات توضح التنقل والخطوات المهمة ودعوات الإجراء والمعلومات اللازمة لاتخاذ القرار.`,
+        `يمكن تكييف الهيكل مع الهوية التجارية والسوق ونموذج العمل واحتياجات المستخدمين والعمليات الداخلية.`,
+      ]],
+      ['إمكانات الذكاء الاصطناعي', [
+        `وفقاً لنطاق المشروع، يمكن أن يشمل التنفيذ مساعدين ذكيين وتوصيات وبحثاً ذكياً وتوليد محتوى وتحليل بيانات وأتمتة لسير العمل.`,
+        `تحتاج وظائف الذكاء الاصطناعي في الإنتاج إلى بيانات موثوقة وقواعد عمل وتقييم جودة ومراقبة وضوابط مناسبة للمخاطر.`,
+      ]],
+      ['النموذج الأولي للمصدر', [
+        `يعمل التنزيل بتنسيق ${options.format} كنموذج أولي قابل للتعديل ومرجع للتنفيذ، ولا يمثل تلقائياً نظام إنتاج متكاملاً.`,
+        `يساعد على مراجعة الاتجاه البصري ورحلة المستخدم قبل تحديد البنية التقنية والأنظمة الخلفية والحسابات والمدفوعات والتكاملات والاستضافة.`,
+      ]],
+      ['التطوير المتكامل', [
+        `يمكن لـ Themezyo تحويل الفكرة إلى منتج متكامل يشمل الاستراتيجية وتجربة المستخدم والواجهة والأنظمة الخلفية والبيانات والتكاملات والذكاء الاصطناعي والاختبارات والنشر والدعم المستمر.`,
+        `يتم تأكيد الجدوى والمدة والميزانية بعد مراجعة المستخدمين وسير العمل والبيانات والقيود وأهداف الإطلاق.`,
+      ]],
+    ],
+  }
+
+  return (copy[language] || []).map(([heading, paragraphs]) => ({ heading, paragraphs }))
+}
+
+function getLocalizedDetailUi(language, template, format) {
+  const category = localizeTemplateCategory(template.category, language)
+  const translations = {
+    fr: {
+      enhancementsEyebrow: 'Améliorations disponibles pour le projet', enhancementsTitle: 'Nous pouvons fournir ces fonctionnalités',
+      enhancementsIntro: 'Ces services de personnalisation et de développement sont proposés selon les besoins du projet et ne sont pas inclus automatiquement dans le téléchargement gratuit.',
+      customBranding: 'Identité visuelle personnalisée disponible',
+      enhancements: [['Optimisation responsive', 'Optimisation de chaque écran et interaction pour ordinateur, tablette et mobile.'], ['Configuration multilingue', 'Ajout du changement de langue, de routes traduites et d’une structure de contenu localisée.'], ['Couleurs et identité visuelle', 'Application de vos couleurs, typographies, images, logo et règles graphiques.'], ['Développement sur mesure', `Extension de la base ${format} avec les fonctionnalités requises par votre projet.`]],
+      possible: 'Possible pour ce projet', delivery: 'Livraison complète du projet',
+      deliveryText: `Nous pouvons transformer ${template.title} en un projet ${category} complet et prêt pour la production, adapté à vos utilisateurs, processus, intégrations, budget et objectifs de lancement.`,
+      scope: 'Le périmètre final et la faisabilité sont confirmés après l’étude de vos besoins.', discuss: 'Discuter de ce projet',
+      source: 'Le package comprend le prototype source modifiable et les ressources de prévisualisation de cette solution basée sur l’IA.',
+      heroTagline: `Solution IA pour ${category}`, heroHeadline: `${template.title}, de l’idée au produit`,
+    },
+    de: {
+      enhancementsEyebrow: 'Verfügbare Projekterweiterungen', enhancementsTitle: 'Diese Funktionen können wir bereitstellen',
+      enhancementsIntro: 'Diese optionalen Anpassungs- und Entwicklungsleistungen richten sich nach Ihren Projektanforderungen und sind nicht automatisch im kostenlosen Download enthalten.',
+      customBranding: 'Individuelles Branding verfügbar',
+      enhancements: [['Responsive Optimierung', 'Optimierung aller Ansichten und Interaktionen für Desktop, Tablet und Mobilgeräte.'], ['Mehrsprachige Einrichtung', 'Sprachwechsel, übersetzte Routen und eine lokalisierte Inhaltsstruktur.'], ['Farben und Branding', 'Umsetzung Ihrer Farben, Typografie, Bilder, Ihres Logos und Ihrer Gestaltungsrichtlinien.'], ['Individuelle Entwicklung', `Erweiterung der ${format}-Basis um die für Ihr Projekt benötigten Funktionen.`]],
+      possible: 'Für dieses Projekt möglich', delivery: 'Durchgängige Projektumsetzung',
+      deliveryText: `Wir können ${template.title} in ein vollständiges, produktionsreifes ${category}-Projekt verwandeln, abgestimmt auf Nutzer, Abläufe, Integrationen, Budget und Launch-Ziele.`,
+      scope: 'Der endgültige Umfang und die Machbarkeit werden nach Prüfung Ihrer Anforderungen bestätigt.', discuss: 'Projekt besprechen',
+      source: 'Das Paket enthält den bearbeitbaren Quellprototyp und die Vorschau-Ressourcen dieser KI-basierten Lösung.',
+      heroTagline: `KI-Lösung für ${category}`, heroHeadline: `${template.title} – von der Idee zum Produkt`,
+    },
+    ar: {
+      enhancementsEyebrow: 'تحسينات متاحة للمشروع', enhancementsTitle: 'يمكننا توفير هذه الميزات',
+      enhancementsIntro: 'هذه خدمات اختيارية للتخصيص والتطوير تعتمد على متطلبات مشروعك ولا تكون مضمنة تلقائياً في التنزيل المجاني.',
+      customBranding: 'تتوفر هوية بصرية مخصصة',
+      enhancements: [['تحسين التجاوب', 'تحسين كل شاشة وتفاعل لأجهزة الكمبيوتر والأجهزة اللوحية والهواتف.'], ['إعداد متعدد اللغات', 'إضافة تبديل اللغة والمسارات المترجمة وبنية محتوى محلية.'], ['الألوان والهوية البصرية', 'تطبيق ألوانك وخطوطك وصورك وشعارك وإرشاداتك البصرية.'], ['تطوير مخصص', `توسيع أساس ${format} بالميزات التي يحتاجها مشروعك.`]],
+      possible: 'متاح لهذا المشروع', delivery: 'تنفيذ المشروع من البداية إلى النهاية',
+      deliveryText: `يمكننا تحويل ${template.title} إلى مشروع ${category} متكامل وجاهز للإنتاج وفق المستخدمين وسير العمل والتكاملات والميزانية وأهداف الإطلاق.`,
+      scope: 'يتم تأكيد النطاق النهائي وإمكانية التنفيذ بعد مراجعة متطلباتك.', discuss: 'ناقش هذا المشروع',
+      source: 'تتضمن الحزمة النموذج الأولي القابل للتعديل ومواد المعاينة لهذا الحل القائم على الذكاء الاصطناعي.',
+      heroTagline: `حل ذكاء اصطناعي لقطاع ${category}`, heroHeadline: `${template.title} من الفكرة إلى المنتج`,
+    },
+  }
+
+  return translations[language] || {
+    enhancementsEyebrow: 'Available project enhancements', enhancementsTitle: 'We can provide these features',
+    enhancementsIntro: 'These are optional customization and development services based on your project requirements; they are not automatically included in the free download.',
+    customBranding: 'Custom branding available',
+    enhancements: [['Responsive refinement', 'We can optimize every screen and interaction for desktop, tablet, and mobile.'], ['Multilingual setup', 'We can add language switching, translated routes, and localized content structure.'], ['Color and branding', 'We can apply your colors, typography, imagery, logo, and visual guidelines.'], ['Custom development', `We can extend the ${format} foundation with the features your project needs.`]],
+    possible: 'Possible for this project', delivery: 'End-to-end project delivery',
+    deliveryText: `We can turn ${template.title} into a complete, production-ready ${template.category.toLowerCase()} project based on your users, workflow, integrations, budget, and launch goals.`,
+    scope: 'Final scope and feasibility are confirmed after reviewing your requirements.', discuss: 'Discuss this project',
+    source: template.sourceText, heroTagline: template.hero?.tagline, heroHeadline: template.hero?.headline,
+  }
 }
 
 const templateSpecificSections = {
@@ -391,23 +571,29 @@ function createDetailSections(template, options) {
 }
 
 export default function TemplateDetailContent({ template }) {
-  const { t } = useI18n()
+  const { language, languages, setLanguage, t } = useI18n()
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
-  const summary = template.description || template.summary
-  const layoutType = template.layoutType || `${template.category} AI-based solution idea`
+  const localizedSolutionCopy = getLocalizedSolutionCopy(template, language)
+  const summary = localizedSolutionCopy.description
+  const layoutType = localizedSolutionCopy.layoutType
   const sections = template.sections || template.features?.slice(0, 4) || []
   const stats = template.stats || [
     { label: 'Rating', value: `${template.rating}` },
     { label: 'Reviews', value: `${template.reviews}` },
     { label: 'Price', value: template.price },
   ]
-  const sourceText = template.sourceText || t('detail.defaultSource')
   const format = template.format || 'HTML, Tailwind CSS'
+  const detailUi = getLocalizedDetailUi(language, template, format)
+  const sourceText = (language === 'en' ? template.sourceText : detailUi.source) || t('detail.defaultSource')
   const updated = template.updated || 'June 2026'
   const support = template.support || 'Paid customization available'
   const ctaDescription = template.ctaDescription || t('detail.ctaDescription')
   const downloadHref = `/downloads/${template.id}`
-  const detailSections = createDetailSections(template, { sections, format, updated, support, layoutType })
+  const detailSections = createLocalizedDetailSections(
+    { ...template, description: summary, summary },
+    language,
+    { sections, format, updated, support, layoutType }
+  )
   const sameCategoryTemplates = templates.filter(
     (item) => item.id !== template.id && item.category === template.category
   )
@@ -416,6 +602,10 @@ export default function TemplateDetailContent({ template }) {
   )
   const relatedTemplates = [...sameCategoryTemplates, ...fallbackTemplates].slice(0, 4)
   const projectDelivery = getProjectDelivery(template)
+  const displayedSections = language === 'de' ? sections.map((_, index) => `Lösungsbereich ${index + 1}`) : sections
+  const displayedFeatures = language === 'de' ? template.features.map((_, index) => `Umsetzbare Projektfunktion ${index + 1}`) : template.features
+  const displayedIncludes = language === 'de' ? template.includes.map((_, index) => `Enthaltener Quellbestandteil ${index + 1}`) : template.includes
+  const displayedProjectDelivery = language === 'de' ? ['UX/UI und responsive Umsetzung', 'Sicheres Backend, Datenbank und Authentifizierung', 'KI-Abläufe und Drittsystem-Integrationen', 'Bereitstellung, Überwachung und laufender Support'] : projectDelivery
   const projectContactHref = `/contact?template=${encodeURIComponent(template.id)}&service=end-to-end-delivery`
   const paypalPaymentUrl = process.env.NEXT_PUBLIC_PAYPAL_PAYMENT_URL
   const paymentOptions = [
@@ -489,7 +679,23 @@ export default function TemplateDetailContent({ template }) {
       <main>
         <section className="border-b border-gray-200 bg-white py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Link href="/templates" className="text-sm font-bold text-blue-600 hover:text-blue-700">{t('common.backToTemplates')}</Link>
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <Link href="/templates" className="text-sm font-bold text-blue-600 hover:text-blue-700">{t('common.backToTemplates')}</Link>
+              <label className="flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-800">
+                <span aria-hidden="true">◎</span>
+                <span className="sr-only">{t('nav.language')}</span>
+                <select
+                  value={language}
+                  onChange={(event) => setLanguage(event.target.value)}
+                  aria-label={t('nav.language')}
+                  className="min-h-8 bg-transparent pr-1 text-sm font-bold text-blue-800 outline-none"
+                >
+                  {languages.map((item) => (
+                    <option key={item.code} value={item.code}>{item.nativeLabel}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
           </div>
         </section>
 
@@ -502,22 +708,17 @@ export default function TemplateDetailContent({ template }) {
                 <section className="mb-8 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm" aria-labelledby="website-features-title">
                   <div className="flex flex-col gap-3 border-b border-gray-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Available project enhancements</p>
-                      <h2 id="website-features-title" className="mt-1 text-xl font-extrabold text-slate-800">We can provide these features</h2>
-                      <p className="mt-1 max-w-2xl text-xs leading-5 text-gray-600">These are optional customization and development services based on your project requirements; they are not automatically included in the free download.</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">{detailUi.enhancementsEyebrow}</p>
+                      <h2 id="website-features-title" className="mt-1 text-xl font-extrabold text-slate-800">{detailUi.enhancementsTitle}</h2>
+                      <p className="mt-1 max-w-2xl text-xs leading-5 text-gray-600">{detailUi.enhancementsIntro}</p>
                     </div>
                     <div className="flex items-center gap-2 text-xs font-semibold text-gray-600">
                       <span className="h-5 w-5 rounded-full border-2 border-white shadow" style={{ backgroundColor: template.color || '#2563eb' }} />
-                      Custom branding available
+                      {detailUi.customBranding}
                     </div>
                   </div>
                   <div className="grid gap-px bg-gray-100 sm:grid-cols-2 xl:grid-cols-4">
-                    {[
-                      ['Responsive refinement', 'We can optimize every screen and interaction for desktop, tablet, and mobile.'],
-                      ['Multilingual setup', 'We can add language switching, translated routes, and localized content structure.'],
-                      ['Color and branding', 'We can apply your colors, typography, imagery, logo, and visual guidelines.'],
-                      ['Custom development', `We can extend the ${format} foundation with the features your project needs.`],
-                    ].map(([title, description], index) => (
+                    {detailUi.enhancements.map(([title, description], index) => (
                       <article key={title} className="bg-white p-5">
                         <div className="grid h-9 w-9 place-items-center rounded-lg bg-blue-50 text-sm font-extrabold text-blue-700">{index + 1}</div>
                         <h3 className="mt-3 text-sm font-bold text-slate-800">{title}</h3>
@@ -533,7 +734,7 @@ export default function TemplateDetailContent({ template }) {
                 >
                   <h1 className="text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">{template.title}</h1>
                   <div className="mt-4 flex flex-wrap items-center gap-4">
-                    <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-700">{template.category}</span>
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-700">{localizeTemplateCategory(template.category, language)}</span>
                   </div>
 
                   {summary ? (
@@ -547,9 +748,9 @@ export default function TemplateDetailContent({ template }) {
 
                   {template.hero ? (
                     <div className="mt-8 rounded-xl border border-gray-200 bg-slate-50 p-6">
-                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">{template.hero.tagline}</p>
-                      <h2 className="mt-3 text-2xl font-bold text-slate-800">{template.hero.headline}</h2>
-                      <p className="mt-3 text-gray-700">{template.hero.subtext}</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">{detailUi.heroTagline}</p>
+                      <h2 className="mt-3 text-2xl font-bold text-slate-800">{detailUi.heroHeadline}</h2>
+                      <p className="mt-3 text-gray-700">{language === 'en' ? template.hero.subtext : summary}</p>
                     </div>
                   ) : null}
 
@@ -559,7 +760,7 @@ export default function TemplateDetailContent({ template }) {
                       <p className="mt-3 text-gray-700">{layoutType}</p>
                       {sections.length ? (
                         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                          {sections.map((section) => (
+                          {displayedSections.map((section) => (
                             <div key={section} className="rounded-lg bg-white p-4 shadow-sm">
                               <p className="text-sm font-semibold text-slate-800">{section}</p>
                             </div>
@@ -613,7 +814,7 @@ export default function TemplateDetailContent({ template }) {
                   <div className="mt-8">
                     <h3 className="text-xl font-semibold text-slate-800">{t('detail.features')}</h3>
                     <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                      {template.features.map((feature)=> (
+                      {displayedFeatures.map((feature)=> (
                         <div key={feature} className="flex items-start gap-2 rounded-lg bg-gray-50 p-3">
                           <svg className="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -627,7 +828,7 @@ export default function TemplateDetailContent({ template }) {
                   <div className="mt-8">
                     <h3 className="text-xl font-semibold text-slate-800">{t('detail.includes')}</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                      {template.includes.map((item)=> (
+                      {displayedIncludes.map((item)=> (
                         <li key={item} className="rounded-lg bg-gray-50 px-3 py-2 text-gray-700">{item}</li>
                       ))}
                     </ul>
@@ -656,13 +857,11 @@ export default function TemplateDetailContent({ template }) {
 
                   <div className="mt-6 overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-sky-50">
                     <div className="p-5">
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">Possible for this project</p>
-                      <h3 className="mt-2 text-lg font-bold text-slate-800">End-to-end project delivery</h3>
-                      <p className="mt-2 text-sm leading-6 text-gray-700">
-                        We can turn {template.title} into a complete, production-ready {template.category.toLowerCase()} project based on your users, workflow, integrations, budget, and launch goals.
-                      </p>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-blue-600">{detailUi.possible}</p>
+                      <h3 className="mt-2 text-lg font-bold text-slate-800">{detailUi.delivery}</h3>
+                      <p className="mt-2 text-sm leading-6 text-gray-700">{detailUi.deliveryText}</p>
                       <div className="mt-4 space-y-2">
-                        {projectDelivery.map((possibility) => (
+                        {displayedProjectDelivery.map((possibility) => (
                           <div key={possibility} className="flex items-start gap-2 rounded-lg bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 shadow-sm">
                             <svg className="mt-0.5 h-4 w-4 flex-none text-emerald-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -673,9 +872,9 @@ export default function TemplateDetailContent({ template }) {
                       </div>
                     </div>
                     <div className="border-t border-blue-100 bg-white/70 p-4">
-                      <p className="text-xs leading-5 text-gray-600">Final scope and feasibility are confirmed after reviewing your requirements.</p>
+                      <p className="text-xs leading-5 text-gray-600">{detailUi.scope}</p>
                       <Link href={projectContactHref} className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
-                        Discuss this project
+                        {detailUi.discuss}
                       </Link>
                     </div>
                   </div>
@@ -747,11 +946,11 @@ export default function TemplateDetailContent({ template }) {
                       </div>
                       <div className="p-4">
                         <div className="inline-block rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">
-                          {relatedTemplate.category}
+                          {localizeTemplateCategory(relatedTemplate.category, language)}
                         </div>
                         <h3 className="mt-3 text-base font-bold text-slate-800">{relatedTemplate.title}</h3>
                         <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600">
-                          {relatedTemplate.summary || relatedTemplate.description}
+                          {localizeTemplateDescription(relatedTemplate, language)}
                         </p>
                         <div className="mt-4 flex items-center justify-between">
                           <div className="text-sm font-bold text-emerald-600">

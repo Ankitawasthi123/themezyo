@@ -1,15 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-
-export const metadata = {
-  title: 'Application Development Services',
-  description:
-    'Explore Themezyo services for websites, AI-enabled applications, mobile apps, full-stack platforms, automation, integrations, e-commerce, and ongoing product support.',
-  alternates: {
-    canonical: '/services',
-  },
-}
+import { useI18n } from '../../components/I18nProvider'
+import { getServicesLocalization } from '../../lib/servicesLocalization'
 
 const services = [
   {
@@ -128,7 +123,7 @@ const technologyTracks = [
   },
 ]
 
-function ServiceGraphic({ number, title }) {
+function ServiceGraphic({ number, title, serviceLabel, illustrationLabel }) {
   const commonProps = {
     fill: 'none',
     stroke: 'currentColor',
@@ -213,10 +208,10 @@ function ServiceGraphic({ number, title }) {
       <div className="absolute -bottom-8 left-12 h-20 w-20 rounded-full bg-sky-100/70" />
       <div className="relative flex items-center justify-between gap-5">
         <div>
-          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-blue-600">Service {number}</p>
+          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-blue-600">{serviceLabel} {number}</p>
           <p className="mt-2 max-w-44 text-sm font-bold leading-5 text-slate-700">{title}</p>
         </div>
-        <svg viewBox="0 0 64 58" className="h-24 w-28 shrink-0 text-blue-600" role="img" aria-label={`${title} illustration`} {...commonProps}>
+        <svg viewBox="0 0 64 58" className="h-24 w-28 shrink-0 text-blue-600" role="img" aria-label={`${title} ${illustrationLabel}`} {...commonProps}>
           {graphics[number]}
         </svg>
       </div>
@@ -225,25 +220,27 @@ function ServiceGraphic({ number, title }) {
 }
 
 export default function ServicesPage() {
+  const { language } = useI18n()
+  const copy = getServicesLocalization(language, { services, process, technologyTracks })
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       <main>
         <section className="border-b border-gray-200 bg-white py-14 sm:py-16">
           <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Our services</p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">{copy.eyebrow}</p>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-slate-800 sm:text-5xl">
-              Everything needed to build and grow your application
+              {copy.title}
             </h1>
             <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-gray-600">
-              Themezyo combines product thinking, design, full-stack engineering, AI, integrations, deployment, and ongoing support so you can work with one team from idea to production.
+              {copy.intro}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/contact" className="rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 font-bold text-white shadow-sm transition hover:shadow-md">
-                Discuss Your Project
+                {copy.discuss}
               </Link>
               <Link href="/templates" className="rounded-lg border border-blue-200 bg-white px-6 py-3 font-bold text-blue-700 transition hover:bg-blue-50">
-                Explore Our Work
+                {copy.explore}
               </Link>
             </div>
           </div>
@@ -252,15 +249,15 @@ export default function ServicesPage() {
         <section className="py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Capabilities</p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800">Services for the complete product lifecycle</h2>
-              <p className="mt-4 leading-7 text-gray-600">Start with one focused service or bring us the full product. We shape the delivery around your goals, existing systems, team, and stage of growth.</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">{copy.capabilities}</p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800">{copy.lifecycleTitle}</h2>
+              <p className="mt-4 leading-7 text-gray-600">{copy.lifecycleIntro}</p>
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {services.map((service) => (
+              {copy.services.map((service) => (
                 <article key={service.title} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm sm:p-7">
-                  <ServiceGraphic number={service.number} title={service.title} />
+                  <ServiceGraphic number={service.number} title={service.title} serviceLabel={copy.serviceLabel} illustrationLabel={copy.illustrationLabel} />
                   <div className="flex items-start gap-4">
                     <span className="mt-6 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-sm font-extrabold text-blue-700">{service.number}</span>
                     <div>
@@ -286,16 +283,16 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Technology tracks</p>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800">The right stack for the required outcome</h2>
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">{copy.technology}</p>
+                <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800">{copy.technologyTitle}</h2>
               </div>
               <p className="leading-7 text-gray-600">
-                We do not force every project into one technology stack. The final architecture is selected according to product requirements, expected scale, security, budget, delivery speed, existing systems, and your team’s long-term ownership needs.
+                {copy.technologyIntro}
               </p>
             </div>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {technologyTracks.map((track) => (
+              {copy.technologyTracks.map((track) => (
                 <article key={track.title} className="flex h-full flex-col rounded-xl border border-gray-200 bg-gray-50 p-5 transition hover:-translate-y-0.5 hover:border-blue-200 hover:bg-white">
                   <div className="flex items-center gap-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-xs font-extrabold text-white">{track.number}</span>
@@ -315,11 +312,11 @@ export default function ServicesPage() {
 
             <div className="mt-8 rounded-xl border border-blue-100 bg-blue-50 p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
               <div>
-                <h3 className="font-extrabold text-slate-800">Already have a preferred or existing stack?</h3>
-                <p className="mt-2 text-sm leading-6 text-gray-600">We can work within your current architecture, modernize it incrementally, or recommend a migration path where the benefits justify the change.</p>
+                <h3 className="font-extrabold text-slate-800">{copy.existingTitle}</h3>
+                <p className="mt-2 text-sm leading-6 text-gray-600">{copy.existingText}</p>
               </div>
               <Link href="/contact" className="mt-4 inline-flex shrink-0 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-700 sm:mt-0">
-                Review Your Requirements
+                {copy.review}
               </Link>
             </div>
           </div>
@@ -328,11 +325,11 @@ export default function ServicesPage() {
         <section className="bg-gray-50 py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">How we deliver</p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800">One clear path from idea to production</h2>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">{copy.delivery}</p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800">{copy.deliveryTitle}</h2>
             </div>
             <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {process.map(([title, description], index) => (
+              {copy.process.map(([title, description], index) => (
                 <div key={title} className="rounded-xl border border-blue-100 bg-blue-50/60 p-6">
                   <div className="text-sm font-extrabold text-blue-600">0{index + 1}</div>
                   <h3 className="mt-3 text-lg font-extrabold text-slate-800">{title}</h3>
@@ -346,11 +343,11 @@ export default function ServicesPage() {
         <section className="py-14 sm:py-16">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-600 to-sky-500 px-6 py-10 text-center text-white shadow-sm sm:px-10">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-100">Have a project in mind?</p>
-              <h2 className="mt-3 text-3xl font-extrabold">Let’s define the right solution together</h2>
-              <p className="mx-auto mt-4 max-w-2xl leading-7 text-blue-50">Share your idea, current product, workflow, or technical challenge. We will review the requirements and recommend a practical next step.</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-100">{copy.ctaEyebrow}</p>
+              <h2 className="mt-3 text-3xl font-extrabold">{copy.ctaTitle}</h2>
+              <p className="mx-auto mt-4 max-w-2xl leading-7 text-blue-50">{copy.ctaText}</p>
               <Link href="/contact" className="mt-7 inline-flex rounded-lg bg-white px-6 py-3 font-bold text-blue-700 transition hover:bg-blue-50">
-                Contact Themezyo
+                {copy.contact}
               </Link>
             </div>
           </div>

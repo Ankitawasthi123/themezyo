@@ -4,14 +4,11 @@ import { useI18n } from './I18nProvider'
 
 export default function Features(){
   const { t } = useI18n()
-  const labels = t('features.items')
+  const translatedLabels = t('features.items')
+  const labels = Array.isArray(translatedLabels) ? translatedLabels : []
   const icons = ['/icons/responsive.svg', '/icons/customize.svg', '/icons/performance.svg', '/icons/updates.svg']
-  const details = [
-    ['Product strategy and experience design', 'We shape requirements, user journeys, architecture, and interfaces around a measurable business outcome.'],
-    ['Frontend, backend, and cloud delivery', 'We build responsive interfaces, APIs, databases, authentication, integrations, deployment, and monitoring.'],
-    ['Useful AI inside the workflow', 'Add assistants, recommendations, search, document intelligence, generation, or automation where they create real value.'],
-    ['Iteration after launch', 'Improve the product using feedback, analytics, model evaluation, performance reviews, and new feature releases.'],
-  ]
+  const translatedDetails = t('home.featureDetails')
+  const details = Array.isArray(translatedDetails) ? translatedDetails : []
   const items = labels.map(([title, desc], index) => ({
     title,
     desc,
@@ -19,21 +16,17 @@ export default function Features(){
     detailTitle: details[index]?.[0],
     detailText: details[index]?.[1],
   }))
-  const workflow = [
-    ['1', 'Discover', 'Define users, requirements, data, and success measures.'],
-    ['2', 'Design', 'Plan the architecture, workflows, and product experience.'],
-    ['3', 'Build', 'Develop the full stack and integrate the right AI models.'],
-    ['4', 'Launch', 'Deploy, monitor, support, and improve the application.'],
-  ]
+  const translatedWorkflow = t('home.workflow')
+  const workflow = (Array.isArray(translatedWorkflow) ? translatedWorkflow : []).map(([title, desc], index) => [`${index + 1}`, title, desc])
 
   return (
     <section className="bg-gray-50 py-14 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">End-to-end delivery</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">{t('home.deliveryEyebrow')}</p>
           <h3 className="text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">{t('features.title')}</h3>
           <p className="mt-3 leading-7 text-gray-600">
-            From the first product decision to production deployment, Themezyo brings design, engineering, AI, and ongoing support into one delivery process.
+            {t('home.deliveryIntro')}
           </p>
         </div>
 

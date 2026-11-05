@@ -38,22 +38,27 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-4">
-            {languages.length > 1 ? (
-              <select
-                value={language}
-                onChange={(event) => setLanguage(event.target.value)}
-                aria-label={t('nav.language')}
-                className="rounded-lg border border-gray-200 bg-white px-2 py-2 text-sm font-medium text-gray-700 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
-              >
-                {languages.map((item) => (
-                  <option key={item.code} value={item.code}>{item.nativeLabel}</option>
-                ))}
-              </select>
-            ) : null}
+          <div className="ml-auto flex items-center justify-end gap-2 sm:gap-3">
             <Link href="/help" className="hidden text-sm font-medium text-gray-600 transition hover:text-blue-600 md:inline">{t('nav.docs')}</Link>
             <Link href="/contact" className="hidden text-sm font-medium text-gray-600 transition hover:text-blue-600 md:inline">{t('nav.support')}</Link>
             <Link className="hidden items-center rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:shadow-md sm:inline-flex" href="/services">{t('nav.downloadFree')}</Link>
+            {languages.length > 1 ? (
+              <label className="relative flex shrink-0 items-center" title={t('nav.language')}>
+                <span className="pointer-events-none absolute left-3 text-sm" aria-hidden="true">◎</span>
+                <span className="sr-only">{t('nav.language')}</span>
+                <select
+                  value={language}
+                  onChange={(event) => setLanguage(event.target.value)}
+                  aria-label={t('nav.language')}
+                  className="min-h-10 max-w-[8.5rem] appearance-none rounded-full border border-blue-100 bg-blue-50 py-2 pl-8 pr-7 text-xs font-bold text-blue-800 outline-none transition hover:border-blue-200 hover:bg-blue-100 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 sm:max-w-none sm:text-sm"
+                >
+                  {languages.map((item) => (
+                    <option key={item.code} value={item.code}>{item.nativeLabel}</option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-2.5 text-[9px] text-blue-700" aria-hidden="true">▼</span>
+              </label>
+            ) : null}
             <button
               type="button"
               onClick={() => setIsMenuOpen((current) => !current)}

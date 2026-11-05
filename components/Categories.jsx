@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { getTemplateCategories } from '../data/templates'
 import { useI18n } from './I18nProvider'
+import { localizeTemplateCategory } from '../lib/templateLocalization'
 
 const categoryIcons = {
   SaaS: '/icons/saas.svg',
@@ -27,11 +28,18 @@ const categoryDescriptions = {
 }
 
 export default function Categories(){
-  const { t } = useI18n()
+  const { language, t } = useI18n()
   const items = getTemplateCategories().map((category) => ({
     ...category,
     icon: categoryIcons[category.title] || '/icons/landing.svg',
-    description: categoryDescriptions[category.title] || `Ready-to-edit templates for ${category.title.toLowerCase()} websites and product ideas.`,
+    localizedTitle: localizeTemplateCategory(category.title, language),
+    description: language === 'en'
+      ? (categoryDescriptions[category.title] || `AI solution concepts for ${category.title.toLowerCase()} products.`)
+      : language === 'fr'
+        ? `Concepts d’applications IA, écrans et parcours adaptés au secteur ${localizeTemplateCategory(category.title, language)}.`
+        : language === 'de'
+          ? `KI-Anwendungskonzepte, Ansichten und Abläufe für den Bereich ${localizeTemplateCategory(category.title, language)}.`
+          : `مفاهيم تطبيقات ذكاء اصطناعي وشاشات ومسارات مناسبة لقطاع ${localizeTemplateCategory(category.title, language)}.`,
     previewTemplates: category.templates.slice(0, 3),
   }))
   const visibleItems = items.slice(0, 8)
@@ -41,11 +49,9 @@ export default function Categories(){
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">Solutions by use case</p>
-            <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">AI Applications for Real Business Workflows</h3>
-            <p className="mt-3 leading-7 text-gray-600">
-              Explore product directions across industries. Each category demonstrates relevant screens and workflows that can be developed into a complete application with data, automation, integrations, and AI capabilities.
-            </p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-600">{t('home.categoriesEyebrow')}</p>
+            <h3 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-800 sm:text-3xl">{t('home.categoriesTitle')}</h3>
+            <p className="mt-3 leading-7 text-gray-600">{t('home.categoriesIntro')}</p>
           </div>
           <Link className="inline-flex self-start rounded-lg border border-blue-200 px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-50 sm:self-auto" href="/categories">{t('common.viewAllCategories')}</Link>
         </div>
@@ -59,7 +65,7 @@ export default function Categories(){
                 </div>
                 <span className="rounded-full bg-white px-2.5 py-1 text-xs font-bold text-blue-700 shadow-sm">{it.count} {t('common.templates')}</span>
               </div>
-              <div className="mt-5 font-bold text-slate-800">{it.title}</div>
+              <div className="mt-5 font-bold text-slate-800">{it.localizedTitle}</div>
               <p className="mt-2 flex-1 leading-6 text-gray-600">{it.description}</p>
               <div className="mt-4 space-y-2 border-t border-gray-200 pt-4">
                 {it.previewTemplates.map((template) => (
@@ -70,7 +76,7 @@ export default function Categories(){
                 ))}
               </div>
               <div className="mt-5 text-sm font-bold text-blue-600 transition group-hover:text-blue-700">
-                Explore {it.title}
+                {t('home.explore')} {it.localizedTitle}
               </div>
             </Link>
           ))}

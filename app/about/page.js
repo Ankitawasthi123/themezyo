@@ -28,16 +28,16 @@ export default function AboutPage(){
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="text-2xl font-extrabold text-blue-600">Full Stack</div>
-                <p className="mt-2 text-gray-700 font-semibold">Web and mobile-ready products</p>
+                <div className="text-2xl font-extrabold text-blue-600">{t('about.fullStackTitle')}</div>
+                <p className="mt-2 text-gray-700 font-semibold">{t('about.fullStackText')}</p>
               </div>
               <div className="rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="text-2xl font-extrabold text-blue-600">AI Native</div>
-                <p className="mt-2 text-gray-700 font-semibold">Practical intelligence and automation</p>
+                <div className="text-2xl font-extrabold text-blue-600">{t('about.aiNativeTitle')}</div>
+                <p className="mt-2 text-gray-700 font-semibold">{t('about.aiNativeText')}</p>
               </div>
               <div className="rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm">
-                <div className="text-2xl font-extrabold text-blue-600">End to End</div>
-                <p className="mt-2 text-gray-700 font-semibold">From discovery through support</p>
+                <div className="text-2xl font-extrabold text-blue-600">{t('about.endToEndTitle')}</div>
+                <p className="mt-2 text-gray-700 font-semibold">{t('about.endToEndText')}</p>
               </div>
             </div>
 

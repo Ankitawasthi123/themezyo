@@ -229,3 +229,45 @@ footer :where(.hover\:shadow-md:hover,.hover\:shadow-lg:hover){
   display: none;
 }
 
+/* Language and right-to-left layout support */
+html[dir='rtl'] body {
+  text-align: right;
+}
+
+html[dir='rtl'] input,
+html[dir='rtl'] textarea,
+html[dir='rtl'] select {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir='rtl'] [class~='text-left'] {
+  text-align: right !important;
+}
+
+html[dir='rtl'] header .ml-auto {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+html[dir='rtl'] header label > span:first-child {
+  right: .75rem;
+  left: auto;
+}
+
+html[dir='rtl'] header label > span:last-child {
+  right: auto;
+  left: .625rem;
+}
+
+html[dir='rtl'] header label select {
+  padding-right: 2rem;
+  padding-left: 1.75rem;
+}
+
+html[dir='rtl'] ul,
+html[dir='rtl'] ol {
+  padding-right: 1.25rem;
+  padding-left: 0;
+}
+

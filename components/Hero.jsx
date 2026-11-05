@@ -7,6 +7,7 @@ import AiCanvasBackground from './AiCanvasBackground'
 import { useI18n } from './I18nProvider'
 import { readJsonResponse } from '../lib/readJsonResponse'
 import { getTemplateCategories } from '../data/templates'
+import { localizeTemplateCategory } from '../lib/templateLocalization'
 
 const ideaInitialValues = {
   name: '',
@@ -17,17 +18,14 @@ const ideaInitialValues = {
 }
 
 export default function Hero(){
-  const { t } = useI18n()
+  const { language, t } = useI18n()
   const [isIdeaModalOpen, setIsIdeaModalOpen] = useState(false)
   const [isIdeaSubmitted, setIsIdeaSubmitted] = useState(false)
   const [ideaSubmitError, setIdeaSubmitError] = useState('')
   const popularCategories = getTemplateCategories().slice(0, 6)
-  const proofPoints = [
-    { value: '01', label: 'Product strategy' },
-    { value: '02', label: 'Full-stack build' },
-    { value: '03', label: 'AI integration' },
-    { value: '04', label: 'Launch & support' },
-  ]
+  const translatedProofPoints = t('home.proofPoints')
+  const proofPointLabels = Array.isArray(translatedProofPoints) ? translatedProofPoints : ['Product strategy', 'Full-stack build', 'AI integration', 'Launch & support']
+  const proofPoints = proofPointLabels.map((label, index) => ({ value: `0${index + 1}`, label }))
 
   function openIdeaModal() {
     setIsIdeaSubmitted(false)
@@ -115,7 +113,7 @@ export default function Hero(){
               ))}
             </div>
             <div className="mx-auto mt-7 max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Application experience by industry</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">{t('home.industryExperience')}</p>
               <div className="mt-3 flex flex-wrap justify-center gap-2">
                 {popularCategories.map((category) => (
                   <Link
@@ -123,7 +121,7 @@ export default function Hero(){
                     href={`/templates?category=${encodeURIComponent(category.title)}`}
                     className="rounded-full border border-gray-200 bg-white/85 px-3 py-1.5 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                   >
-                    {category.title}
+                    {localizeTemplateCategory(category.title, language)}
                   </Link>
                 ))}
               </div>

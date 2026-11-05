@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { getTemplateCategories, templates } from '../../data/templates'
 import { useI18n } from '../../components/I18nProvider'
+import { localizeTemplateCategory, localizeTemplateDescription } from '../../lib/templateLocalization'
 
 const sortOptions = {
   popular: 'popular',
@@ -15,7 +16,7 @@ const sortOptions = {
 }
 
 export default function TemplatesPage(){
-  const { t } = useI18n()
+  const { language, t } = useI18n()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedSort, setSelectedSort] = useState(sortOptions.popular)
@@ -119,13 +120,13 @@ export default function TemplatesPage(){
                     )}
                     <div className="flex flex-1 flex-col p-5">
                       <div className="flex flex-wrap items-center gap-2">
-                        <div className="inline-block rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">{template.category}</div>
+                        <div className="inline-block rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">{localizeTemplateCategory(template.category, language)}</div>
                         {template.isNew ? (
-                          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700">New</span>
+                          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700">{t('templatesPage.newLabel')}</span>
                         ) : null}
                       </div>
                       <h4 className="mt-3 text-base font-bold text-slate-800">{template.title}</h4>
-                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-500">{template.description}</p>
+                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-500">{localizeTemplateDescription(template, language)}</p>
                       <div className="mt-auto flex items-center justify-between gap-3 pt-5">
                         <div className="text-sm font-bold text-emerald-600">{template.price === 'Free' ? t('common.free') : template.price}</div>
                         <Link
@@ -142,8 +143,8 @@ export default function TemplatesPage(){
               </div>
             ) : (
               <div className="rounded-xl border border-gray-200 bg-white p-10 text-center shadow-sm">
-                <h2 className="text-xl font-bold text-slate-800">No solutions found</h2>
-                <p className="mt-2 text-gray-600">Try a different industry, workflow, or feature.</p>
+                <h2 className="text-xl font-bold text-slate-800">{t('templatesPage.noResults')}</h2>
+                <p className="mt-2 text-gray-600">{t('templatesPage.noResultsText')}</p>
               </div>
             )}
           </div>

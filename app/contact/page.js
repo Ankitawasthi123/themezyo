@@ -50,15 +50,15 @@ export default function ContactPage(){
           setFormErrors(result.errors)
         }
 
-        throw new Error(result.message || 'Unable to send message right now.')
+        throw new Error(t('contact.sendError'))
       }
 
       setFormValues(initialFormValues)
       setStatus('success')
-      setMessage('Message sent successfully.')
+      setMessage(t('contact.sendSuccess'))
     } catch (error) {
       setStatus('error')
-      setMessage(error.message || 'Unable to send message right now.')
+      setMessage(error.message || t('contact.sendError'))
     }
   }
 
@@ -69,7 +69,7 @@ export default function ContactPage(){
   }
 
   function renderError(field) {
-    return formErrors[field] ? <p className="mt-1.5 text-xs font-semibold text-rose-600">{formErrors[field]}</p> : null
+    return formErrors[field] ? <p className="mt-1.5 text-xs font-semibold text-rose-600">{t(`contact.${field}Error`)}</p> : null
   }
 
   return (
@@ -86,39 +86,31 @@ export default function ContactPage(){
         <section className="py-12">
           <div className="mx-auto grid max-w-5xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <aside className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-600">Projects and support</p>
-              <h2 className="mt-3 text-2xl font-extrabold text-slate-800">Tell us what you want to build</h2>
-              <p className="mt-3 leading-7 text-gray-600">
-                Share a new application idea, AI integration, modernization requirement, or support request. We will route it to the right next step.
-              </p>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-blue-600">{t('contact.eyebrow')}</p>
+              <h2 className="mt-3 text-2xl font-extrabold text-slate-800">{t('contact.buildTitle')}</h2>
+              <p className="mt-3 leading-7 text-gray-600">{t('contact.buildIntro')}</p>
 
               <div className="mt-6 space-y-5">
                 <div>
-                  <p className="text-sm font-semibold text-gray-500">Email</p>
+                  <p className="text-sm font-semibold text-gray-500">{t('contact.email')}</p>
                   <a className="mt-1 inline-block font-bold text-blue-600 hover:text-blue-700" href={`mailto:${supportEmail}`}>
                     {supportEmail}
                   </a>
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-500">Best for</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-700">
-                    Websites, mobile apps, full-stack platforms, AI features, automation, integrations, modernization, and existing-product support.
-                  </p>
+                  <p className="text-sm font-semibold text-gray-500">{t('contact.bestFor')}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">{t('contact.bestForText')}</p>
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-500">Download help</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-700">
-                    If you are not able to download a template, email us and we can send you a direct download link for the file.
-                  </p>
+                  <p className="text-sm font-semibold text-gray-500">{t('contact.downloadHelp')}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">{t('contact.downloadHelpText')}</p>
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-gray-500">Helpful details</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-700">
-                    Include your goals, users, required features, preferred platforms, existing systems, timeline, and any relevant links.
-                  </p>
+                  <p className="text-sm font-semibold text-gray-500">{t('contact.helpfulDetails')}</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-700">{t('contact.helpfulDetailsText')}</p>
                 </div>
               </div>
             </aside>
@@ -132,7 +124,7 @@ export default function ContactPage(){
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-800">{t('contact.email')}</label>
-                    <input type="email" name="email" value={formValues.email} onChange={handleChange} className={fieldClass('email')} placeholder="your@email.com" />
+                    <input type="email" name="email" value={formValues.email} onChange={handleChange} className={fieldClass('email')} placeholder={t('contact.emailPlaceholder')} />
                     {renderError('email')}
                   </div>
                   <div>
@@ -149,7 +141,7 @@ export default function ContactPage(){
                     <p className={`rounded-lg px-4 py-3 text-sm font-semibold ${status === 'success' ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}`}>{message}</p>
                   ) : null}
                   <button disabled={status === 'loading'} className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 font-bold text-white shadow-sm transition hover:shadow-md disabled:cursor-not-allowed disabled:opacity-70">
-                    {status === 'loading' ? 'Sending...' : t('common.sendMessage')}
+                    {status === 'loading' ? t('contact.sending') : t('common.sendMessage')}
                   </button>
                 </form>
             </div>

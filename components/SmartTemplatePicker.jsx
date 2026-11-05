@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { getTemplateCategories, templates } from '../data/templates'
+import { useI18n } from './I18nProvider'
+import { localizeTemplateCategory, localizeTemplateDescription } from '../lib/templateLocalization'
 
 const popularKeywords = ['AI', 'booking', 'dashboard', 'e-commerce', 'clinic', 'school', 'real estate', 'agency']
 
@@ -66,6 +68,9 @@ function matchesSearch(template, query) {
 }
 
 export default function SmartTemplatePicker() {
+  const { language, t } = useI18n()
+  const translatedKeywords = t('home.searchKeywords')
+  const localizedKeywords = Array.isArray(translatedKeywords) ? translatedKeywords : popularKeywords
   const categories = useMemo(() => getTemplateCategories(), [])
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [query, setQuery] = useState('')
@@ -89,57 +94,57 @@ export default function SmartTemplatePicker() {
         <div className="overflow-hidden rounded-2xl border border-blue-100 bg-gradient-to-br from-white via-blue-50/70 to-emerald-50/70">
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.35fr]">
             <div className="border-b border-blue-100 p-6 sm:p-8 lg:border-b-0 lg:border-r">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">Solution explorer</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-600">{t('home.explorerEyebrow')}</p>
               <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-slate-800 sm:text-4xl">
-                Find the Right Starting Point
+                {t('home.explorerTitle')}
               </h2>
               <p className="mt-4 leading-7 text-gray-600">
-                Tell us what you want to build. We will match you with relevant application concepts, user flows, and reference implementations from our library.
+                {t('home.explorerIntro')}
               </p>
               <div className="mt-4 rounded-xl border border-blue-100 bg-white p-4">
                 <p className="text-sm leading-6 text-gray-700">
-                  We can turn the selected direction into a complete product with UX, frontend, backend, databases, authentication, AI workflows, integrations, deployment, and support.
+                  {t('home.explorerDelivery')}
                 </p>
                 <Link href="/contact" className="mt-3 inline-flex rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700">
-                  Request Custom Project
+                  {t('home.requestProject')}
                 </Link>
               </div>
 
               <div className="mt-6">
                 <label htmlFor="template-search" className="text-sm font-bold text-slate-800">
-                  Search by idea, industry, or feature
+                  {t('home.searchLabel')}
                 </label>
                 <input
                   id="template-search"
                   type="search"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Try clinic, dashboard, booking, school..."
+                  placeholder={t('home.searchPlaceholder')}
                   className="mt-2 min-h-12 w-full rounded-lg border border-blue-100 bg-white px-4 text-sm font-medium text-slate-800 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                 />
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {popularKeywords.map((keyword) => (
+                  {popularKeywords.map((keyword, index) => (
                     <button
                       key={keyword}
                       type="button"
                       onClick={() => setQuery(keyword)}
                       className="rounded-full border border-blue-100 bg-white px-3 py-1.5 text-xs font-bold text-gray-700 transition hover:bg-blue-50 hover:text-blue-700"
                     >
-                      {keyword}
+                      {localizedKeywords[index] || keyword}
                     </button>
                   ))}
                 </div>
               </div>
 
               <div className="mt-6">
-                <p className="text-sm font-bold text-slate-800">Project type</p>
+                <p className="text-sm font-bold text-slate-800">{t('home.projectType')}</p>
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setSelectedCategory('all')}
                     className={`rounded-lg border px-3 py-2 text-left text-sm font-bold transition ${selectedCategory === 'all' ? 'border-blue-600 bg-blue-600 text-white' : 'border-blue-100 bg-white text-gray-700 hover:bg-blue-50'}`}
                   >
-                    All solutions
+                    {t('home.allSolutions')}
                   </button>
                   {categories.slice(0, 7).map((category) => (
                     <button
@@ -148,7 +153,7 @@ export default function SmartTemplatePicker() {
                       onClick={() => setSelectedCategory(category.title)}
                       className={`rounded-lg border px-3 py-2 text-left text-sm font-bold transition ${selectedCategory === category.title ? 'border-blue-600 bg-blue-600 text-white' : 'border-blue-100 bg-white text-gray-700 hover:bg-blue-50'}`}
                     >
-                      {category.title}
+                      {localizeTemplateCategory(category.title, language)}
                     </button>
                   ))}
                 </div>
@@ -159,14 +164,14 @@ export default function SmartTemplatePicker() {
             <div className="p-6 sm:p-8">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-600">Best matches</p>
-                  <h3 className="mt-2 text-2xl font-extrabold text-slate-800">Recommended Matches</h3>
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-600">{t('home.bestMatches')}</p>
+                  <h3 className="mt-2 text-2xl font-extrabold text-slate-800">{t('home.recommendedMatches')}</h3>
                   <p className="mt-2 text-sm leading-6 text-gray-600">
-                    Explore these as AI-based solution concepts, product workflows, source prototypes, and starting points for end-to-end delivery.
+                    {t('home.matchesIntro')}
                   </p>
                 </div>
                 <Link href="/templates" className="text-sm font-bold text-blue-600 transition hover:text-blue-700">
-                  View all AI solutions
+                  {t('common.viewAllTemplates')}
                 </Link>
               </div>
 
@@ -197,22 +202,22 @@ export default function SmartTemplatePicker() {
                           />
                         )}
                         <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-extrabold text-blue-700">
-                          Match {index + 1}
+                          {t('home.match')} {index + 1}
                         </span>
                       </div>
 
                       <div className="flex min-w-0 flex-col">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">{template.category}</span>
-                          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700">{pages} pages</span>
-                          <span className="rounded-full bg-gray-50 px-2.5 py-1 text-xs font-bold text-gray-700">{template.price}</span>
+                          <span className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-700">{localizeTemplateCategory(template.category, language)}</span>
+                          <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-700">{pages} {t('home.pages')}</span>
+                          <span className="rounded-full bg-gray-50 px-2.5 py-1 text-xs font-bold text-gray-700">{template.price === 'Free' ? t('common.free') : template.price}</span>
                         </div>
                         <h4 className="mt-3 text-xl font-extrabold text-slate-800">{template.title}</h4>
                         <p className="mt-2 line-clamp-2 text-sm leading-6 text-gray-600">
-                          {template.summary || template.description}
+                          {localizeTemplateDescription(template, language)}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {(template.features || []).slice(0, 3).map((feature) => (
+                          {(language === 'en' ? (template.features || []).slice(0, 3) : t('home.solutionTags')).map((feature) => (
                             <span key={feature} className="rounded-full border border-gray-200 bg-white px-2.5 py-1 text-xs font-semibold text-gray-600">
                               {feature}
                             </span>
@@ -226,14 +231,14 @@ export default function SmartTemplatePicker() {
                               rel="noreferrer"
                               className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700"
                             >
-                              Live Preview
+                              {t('home.livePreview')}
                             </a>
                           ) : null}
                           <Link
                             href={`/templates/${template.id}`}
                             className="rounded-lg border border-blue-200 bg-white px-4 py-2 text-sm font-bold text-blue-700 transition hover:bg-blue-50"
                           >
-                            Details
+                            {t('home.details')}
                           </Link>
                         </div>
                       </div>
@@ -243,9 +248,9 @@ export default function SmartTemplatePicker() {
                 </div>
               ) : (
                 <div className="mt-6 rounded-xl border border-blue-100 bg-white p-6">
-                  <h4 className="text-xl font-extrabold text-slate-800">No exact match found</h4>
+                  <h4 className="text-xl font-extrabold text-slate-800">{t('home.noMatch')}</h4>
                   <p className="mt-2 text-sm leading-6 text-gray-600">
-                    Try a broader keyword or switch Project type to All solutions.
+                    {t('home.noMatchText')}
                   </p>
                   <button
                     type="button"
@@ -255,7 +260,7 @@ export default function SmartTemplatePicker() {
                     }}
                     className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700"
                   >
-                    Reset picker
+                    {t('home.resetPicker')}
                   </button>
                 </div>
               )}

@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import { useI18n } from './I18nProvider'
+import { localizeTemplateCategory } from '../lib/templateLocalization'
 
 export default function Footer(){
-  const { t } = useI18n()
+  const { language, t } = useI18n()
   const socialLinks = [
     {
       label: 'LinkedIn',
@@ -69,7 +70,7 @@ export default function Footer(){
                   href={`/templates?category=${encodeURIComponent(category)}`}
                   className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-bold text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                 >
-                  {category}
+                  {localizeTemplateCategory(category, language)}
                 </Link>
               ))}
             </div>
@@ -98,8 +99,8 @@ export default function Footer(){
                 <li><Link href="/services" className="transition hover:text-blue-600">{t('nav.services')}</Link></li>
                 <li><Link href="/templates" className="transition hover:text-blue-600">{t('nav.templates')}</Link></li>
                 <li><Link href="/categories" className="transition hover:text-blue-600">{t('nav.categories')}</Link></li>
-                <li><Link href="/templates?category=SaaS" className="transition hover:text-blue-600">SaaS Templates</Link></li>
-                <li><Link href="/templates?category=Healthcare" className="transition hover:text-blue-600">Healthcare Templates</Link></li>
+                <li><Link href="/templates?category=SaaS" className="transition hover:text-blue-600">{t('footer.saasSolutions')}</Link></li>
+                <li><Link href="/templates?category=Healthcare" className="transition hover:text-blue-600">{t('footer.healthcareSolutions')}</Link></li>
               </ul>
             </div>
 
@@ -131,10 +132,10 @@ export default function Footer(){
             <p className="text-sm text-gray-500">&copy; 2026 Themezyo. {t('footer.rights')}</p>
             <div className="flex flex-wrap gap-3">
               <Link href="/services" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-bold text-white transition hover:bg-blue-700">
-                Explore Services
+                {t('footer.exploreServices')}
               </Link>
               <Link href="/contact" className="rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-bold text-gray-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
-                Start a Project
+                {t('nav.support')}
               </Link>
             </div>
           </div>
