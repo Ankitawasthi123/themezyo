@@ -79,13 +79,13 @@ export default function TemplatesPage(){
                 className="min-h-11 flex-1 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                 aria-label={t('templatesPage.search')}
               />
-              <select value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)} className="min-h-11 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" aria-label="Filter by category">
+              <select value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)} className="min-h-11 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" aria-label={t('accessibility.filterCategory')}>
                 <option value="all">{t('templatesPage.allCategories')}</option>
                 {categories.map((category) => (
                   <option key={category.title} value={category.title}>{category.title} ({category.count})</option>
                 ))}
               </select>
-              <select value={selectedSort} onChange={(event) => setSelectedSort(event.target.value)} className="min-h-11 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" aria-label="Sort templates">
+              <select value={selectedSort} onChange={(event) => setSelectedSort(event.target.value)} className="min-h-11 rounded-lg border border-gray-200 bg-white px-4 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" aria-label={t('accessibility.sortSolutions')}>
                 <option value={sortOptions.popular}>{t('templatesPage.sortPopular')}</option>
                 <option value={sortOptions.newest}>{t('templatesPage.newest')}</option>
                 <option value={sortOptions.priceLow}>{t('templatesPage.priceLow')}</option>
@@ -107,7 +107,7 @@ export default function TemplatesPage(){
                     {imageSrc ? (
                       <img
                         src={imageSrc}
-                        alt={`${template.title} AI-based solution preview`}
+                        alt={`${template.title} ${t('accessibility.solutionPreview')}`}
                         loading="lazy"
                         decoding="async"
                         className="h-44 w-full object-cover transition duration-300 group-hover:scale-[1.02]"

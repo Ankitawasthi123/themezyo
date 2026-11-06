@@ -63,7 +63,7 @@ export default function Header() {
               type="button"
               onClick={() => setIsMenuOpen((current) => !current)}
               className="grid h-10 w-10 place-items-center rounded-lg border border-gray-200 text-xl text-slate-700 lg:hidden"
-              aria-label="Toggle navigation"
+              aria-label={t('accessibility.toggleNavigation')}
               aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (

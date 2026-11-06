@@ -4,14 +4,16 @@ import { useMemo, useState } from 'react'
 import { useI18n } from './I18nProvider'
 
 export default function TemplateImageSlider({ template }) {
-  const { t } = useI18n()
+  const { language, t } = useI18n()
   const defaultSlides = useMemo(() => {
     const imageSources = template.images?.length > 0 ? template.images : template.thumbnail ? [template.thumbnail] : []
 
     if (imageSources.length > 0) {
       return imageSources.map((src, index) => ({
         type: 'image',
-        label: template.imageLabels?.[index] || `${t('slider.preview')} ${index + 1}`,
+        label: language === 'en' && template.imageLabels?.[index]
+          ? template.imageLabels[index]
+          : `${t('slider.preview')} ${index + 1}`,
         src,
       }))
     }
@@ -21,7 +23,7 @@ export default function TemplateImageSlider({ template }) {
       { type: 'gradient', label: t('slider.sections'), color: template.color },
       { type: 'gradient', label: t('slider.mobile'), color: template.color },
     ]
-  }, [template.color, template.imageLabels, template.images, template.thumbnail, t])
+  }, [language, template.color, template.imageLabels, template.images, template.thumbnail, t])
 
   const [activeIndex, setActiveIndex] = useState(0)
   const slides = defaultSlides

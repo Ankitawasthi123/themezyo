@@ -32,6 +32,10 @@ export default function CategoriesPage(){
     if (language === 'fr') return `Découvrez des concepts de solutions IA, des parcours utilisateur et des possibilités de réalisation pour les projets du secteur ${categoryName}.`
     if (language === 'de') return `Entdecken Sie KI-Lösungskonzepte, Nutzerabläufe und Umsetzungsmöglichkeiten für Projekte im Bereich ${categoryName}.`
     if (language === 'ar') return `استكشف مفاهيم حلول الذكاء الاصطناعي ورحلات المستخدم وإمكانيات التنفيذ لمشاريع قطاع ${categoryName}.`
+    if (language === 'es') return `Explora conceptos de soluciones de IA, recorridos de usuario y opciones de desarrollo para proyectos de ${categoryName}.`
+    if (language === 'pt') return `Explore conceitos de soluções de IA, jornadas do usuário e opções de desenvolvimento para projetos de ${categoryName}.`
+    if (language === 'hi') return `${categoryName} प्रोजेक्ट के लिए एआई समाधान अवधारणाएँ, उपयोगकर्ता यात्राएँ और विकास विकल्प देखें।`
+    if (language === 'ja') return `${categoryName}プロジェクト向けのAIソリューション構想、ユーザーフロー、開発オプションをご覧ください。`
     return categoryMeta[category.title]?.desc || `AI-based solution concepts for ${category.title} projects.`
   }
   const categories = getTemplateCategories().map((category) => ({

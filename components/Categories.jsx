@@ -29,17 +29,22 @@ const categoryDescriptions = {
 
 export default function Categories(){
   const { language, t } = useI18n()
+  const localizedDescriptions = {
+    fr: (name) => `Concepts d’applications IA, écrans et parcours adaptés au secteur ${name}.`,
+    de: (name) => `KI-Anwendungskonzepte, Ansichten und Abläufe für den Bereich ${name}.`,
+    ar: (name) => `مفاهيم تطبيقات ذكاء اصطناعي وشاشات ومسارات مناسبة لقطاع ${name}.`,
+    es: (name) => `Conceptos, pantallas y recorridos de aplicaciones de IA para el sector ${name}.`,
+    pt: (name) => `Conceitos, telas e jornadas de aplicações de IA para o setor ${name}.`,
+    hi: (name) => `${name} क्षेत्र के लिए एआई एप्लिकेशन अवधारणाएँ, स्क्रीन और वर्कफ़्लो।`,
+    ja: (name) => `${name}分野向けのAIアプリ構想、画面、ユーザーフロー。`,
+  }
   const items = getTemplateCategories().map((category) => ({
     ...category,
     icon: categoryIcons[category.title] || '/icons/landing.svg',
     localizedTitle: localizeTemplateCategory(category.title, language),
-    description: language === 'en'
-      ? (categoryDescriptions[category.title] || `AI solution concepts for ${category.title.toLowerCase()} products.`)
-      : language === 'fr'
-        ? `Concepts d’applications IA, écrans et parcours adaptés au secteur ${localizeTemplateCategory(category.title, language)}.`
-        : language === 'de'
-          ? `KI-Anwendungskonzepte, Ansichten und Abläufe für den Bereich ${localizeTemplateCategory(category.title, language)}.`
-          : `مفاهيم تطبيقات ذكاء اصطناعي وشاشات ومسارات مناسبة لقطاع ${localizeTemplateCategory(category.title, language)}.`,
+    description: localizedDescriptions[language]?.(localizeTemplateCategory(category.title, language))
+      || categoryDescriptions[category.title]
+      || `AI solution concepts for ${category.title.toLowerCase()} products.`,
     previewTemplates: category.templates.slice(0, 3),
   }))
   const visibleItems = items.slice(0, 8)

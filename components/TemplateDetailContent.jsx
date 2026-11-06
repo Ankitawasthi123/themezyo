@@ -155,7 +155,7 @@ function getLocalizedSolutionCopy(template, language) {
     }
   }
 
-  const category = localizedCategoryNames[language]?.[template.category] || template.category
+  const category = localizeTemplateCategory(template.category, language)
   const copy = {
     fr: {
       description: `${template.title} est une idée de solution ${category} basée sur l’IA. Elle présente les parcours utilisateur, les fonctionnalités possibles et un prototype source pouvant servir de base à une réalisation complète.`,
@@ -169,15 +169,22 @@ function getLocalizedSolutionCopy(template, language) {
       description: `${template.title} هي فكرة حل قائم على الذكاء الاصطناعي لقطاع ${category}. تعرض رحلة المستخدم والميزات الممكنة ونموذجاً أولياً للمصدر يمكن تطويره إلى منتج متكامل.`,
       layoutType: `فكرة حل قائمة على الذكاء الاصطناعي لقطاع ${category}`,
     },
+    es: { description: `${template.title} es una solución de IA para ${category}, con recorridos, funciones posibles y un prototipo que sirve de base para un producto completo.`, layoutType: `Solución de IA para ${category}` },
+    pt: { description: `${template.title} é uma solução de IA para ${category}, com jornadas, recursos possíveis e um protótipo que serve de base para um produto completo.`, layoutType: `Solução de IA para ${category}` },
+    hi: { description: `${template.title}, ${category} के लिए एआई समाधान है, जिसमें उपयोगकर्ता यात्राएँ, संभावित सुविधाएँ और संपूर्ण उत्पाद के लिए प्रोटोटाइप है।`, layoutType: `${category} के लिए एआई समाधान` },
+    ja: { description: `${template.title}は${category}向けのAIソリューションです。ユーザーフロー、実装可能な機能、本格開発の基礎となるプロトタイプを提供します。`, layoutType: `${category}向けAIソリューション` },
   }
 
-  return copy[language] || copy.en
+  return copy[language] || {
+    description: template.description || template.summary || `${template.title} AI-based solution`,
+    layoutType: template.layoutType || `${template.category} AI-based solution idea`,
+  }
 }
 
 function createLocalizedDetailSections(template, language, options) {
   if (language === 'en') return createDetailSections(template, options)
 
-  const category = localizedCategoryNames[language]?.[template.category] || template.category
+  const category = localizeTemplateCategory(template.category, language)
   const pageCount = template.stats?.find((stat) => stat.label === 'Pages')?.value
   const countText = pageCount || 'plusieurs'
   const copy = {
@@ -249,6 +256,15 @@ function createLocalizedDetailSections(template, language, options) {
     ],
   }
 
+  const additionalCopy = {
+    es: [['Resumen de la solución',`${template.title} convierte una necesidad de ${category} en una experiencia digital clara.`],['Experiencia de usuario',`El prototipo muestra ${pageCount || 'varias'} pantallas, pasos y llamadas a la acción adaptables.`],['Posibilidades de IA','Puede incluir asistentes, recomendaciones, búsqueda inteligente, análisis y automatización.'],['Prototipo fuente',`La descarga en ${options.format} es una referencia editable, no un sistema de producción completo.`],['Desarrollo integral','Themezyo puede desarrollar estrategia, UX, frontend, backend, datos, IA, pruebas, despliegue y soporte.']],
+    pt: [['Visão geral da solução',`${template.title} transforma uma necessidade de ${category} em uma experiência digital clara.`],['Experiência do usuário',`O protótipo mostra ${pageCount || 'várias'} telas, etapas e chamadas para ação adaptáveis.`],['Possibilidades de IA','Pode incluir assistentes, recomendações, busca inteligente, análise e automação.'],['Protótipo-fonte',`O download em ${options.format} é uma referência editável, não um sistema de produção completo.`],['Desenvolvimento completo','A Themezyo pode desenvolver estratégia, UX, frontend, backend, dados, IA, testes, implantação e suporte.']],
+    hi: [['समाधान अवलोकन',`${template.title}, ${category} की आवश्यकता को स्पष्ट डिजिटल अनुभव में बदलता है।`],['उपयोगकर्ता अनुभव',`प्रोटोटाइप में ${pageCount || 'कई'} अनुकूलित की जा सकने वाली स्क्रीन, चरण और कॉल-टू-एक्शन हैं।`],['एआई संभावनाएँ','इसमें सहायक, सुझाव, स्मार्ट खोज, विश्लेषण और ऑटोमेशन शामिल हो सकते हैं।'],['स्रोत प्रोटोटाइप',`${options.format} डाउनलोड संपादन योग्य संदर्भ है, पूर्ण उत्पादन सिस्टम नहीं।`],['संपूर्ण विकास','Themezyo रणनीति, UX, फ्रंटएंड, बैकएंड, डेटा, एआई, परीक्षण, तैनाती और सहायता दे सकता है।']],
+    ja: [['ソリューション概要',`${template.title}は${category}の課題を明確なデジタル体験へ変えます。`],['ユーザー体験',`プロトタイプには${pageCount || '複数'}の画面、主要ステップ、行動導線が含まれ、要件に合わせて調整できます。`],['AIの可能性','アシスタント、推薦、スマート検索、分析、自動化などを追加できます。'],['ソースプロトタイプ',`${options.format}のダウンロードは編集可能な参考資料であり、完成した本番システムではありません。`],['一貫した開発','Themezyoは戦略、UX、フロントエンド、バックエンド、データ、AI、テスト、導入、サポートを提供できます。']],
+  }
+
+  if (additionalCopy[language]) return additionalCopy[language].map(([heading, paragraph]) => ({ heading, paragraphs:[paragraph] }))
+
   return (copy[language] || []).map(([heading, paragraphs]) => ({ heading, paragraphs }))
 }
 
@@ -288,6 +304,17 @@ function getLocalizedDetailUi(language, template, format) {
       source: 'تتضمن الحزمة النموذج الأولي القابل للتعديل ومواد المعاينة لهذا الحل القائم على الذكاء الاصطناعي.',
       heroTagline: `حل ذكاء اصطناعي لقطاع ${category}`, heroHeadline: `${template.title} من الفكرة إلى المنتج`,
     },
+  }
+
+  const additional = {
+    es:['Mejoras disponibles','Podemos ofrecer estas funciones','Servicios opcionales según los requisitos del proyecto.','Marca personalizada disponible','Posible para este proyecto','Desarrollo integral','Convertimos este concepto en un producto listo para producción.','El alcance se confirma después de revisar los requisitos.','Hablar del proyecto','Solución de IA'],
+    pt:['Melhorias disponíveis','Podemos oferecer estes recursos','Serviços opcionais conforme os requisitos do projeto.','Identidade personalizada disponível','Possível para este projeto','Desenvolvimento completo','Transformamos este conceito em um produto pronto para produção.','O escopo é confirmado após a revisão dos requisitos.','Falar sobre o projeto','Solução de IA'],
+    hi:['उपलब्ध सुधार','हम ये सुविधाएँ दे सकते हैं','प्रोजेक्ट आवश्यकताओं के अनुसार वैकल्पिक सेवाएँ।','कस्टम ब्रांडिंग उपलब्ध','इस प्रोजेक्ट के लिए संभव','संपूर्ण विकास','हम इस अवधारणा को उत्पादन-तैयार उत्पाद में बदल सकते हैं।','आवश्यकताओं की समीक्षा के बाद दायरा तय होगा।','प्रोजेक्ट पर चर्चा करें','एआई समाधान'],
+    ja:['追加可能な機能','これらの機能を提供できます','プロジェクト要件に応じたオプションサービスです。','カスタムブランド対応','このプロジェクトで実現可能','一貫した開発','この構想を本番対応の製品へ発展させられます。','要件確認後に最終範囲を確定します。','プロジェクトを相談','AIソリューション'],
+  }
+  if (additional[language]) {
+    const a = additional[language]
+    return { enhancementsEyebrow:a[0], enhancementsTitle:a[1], enhancementsIntro:a[2], customBranding:a[3], enhancements:[[a[1],a[2]]], possible:a[4], delivery:a[5], deliveryText:`${template.title}: ${a[6]}`, scope:a[7], discuss:a[8], source:a[2], heroTagline:`${a[9]}: ${category}`, heroHeadline:template.title }
   }
 
   return translations[language] || {
@@ -602,10 +629,24 @@ export default function TemplateDetailContent({ template }) {
   )
   const relatedTemplates = [...sameCategoryTemplates, ...fallbackTemplates].slice(0, 4)
   const projectDelivery = getProjectDelivery(template)
-  const displayedSections = language === 'de' ? sections.map((_, index) => `Lösungsbereich ${index + 1}`) : sections
-  const displayedFeatures = language === 'de' ? template.features.map((_, index) => `Umsetzbare Projektfunktion ${index + 1}`) : template.features
-  const displayedIncludes = language === 'de' ? template.includes.map((_, index) => `Enthaltener Quellbestandteil ${index + 1}`) : template.includes
-  const displayedProjectDelivery = language === 'de' ? ['UX/UI und responsive Umsetzung', 'Sicheres Backend, Datenbank und Authentifizierung', 'KI-Abläufe und Drittsystem-Integrationen', 'Bereitstellung, Überwachung und laufender Support'] : projectDelivery
+  const genericLabels = {
+    de:['Lösungsbereich','Umsetzbare Projektfunktion','Enthaltener Quellbestandteil'],
+    es:['Área de solución','Función implementable','Componente fuente incluido'],
+    pt:['Área da solução','Recurso implementável','Componente-fonte incluído'],
+    hi:['समाधान क्षेत्र','लागू की जा सकने वाली सुविधा','शामिल स्रोत घटक'],
+    ja:['ソリューション領域','実装可能な機能','含まれるソース項目'],
+  }[language]
+  const displayedSections = genericLabels ? sections.map((_, index) => `${genericLabels[0]} ${index + 1}`) : sections
+  const displayedFeatures = genericLabels ? template.features.map((_, index) => `${genericLabels[1]} ${index + 1}`) : template.features
+  const displayedIncludes = genericLabels ? template.includes.map((_, index) => `${genericLabels[2]} ${index + 1}`) : template.includes
+  const localizedDelivery = {
+    de:['UX/UI und responsive Umsetzung','Sicheres Backend, Datenbank und Authentifizierung','KI-Abläufe und Drittsystem-Integrationen','Bereitstellung, Überwachung und laufender Support'],
+    es:['UX/UI y desarrollo responsive','Backend seguro, base de datos y autenticación','Flujos de IA e integraciones','Despliegue, supervisión y soporte'],
+    pt:['UX/UI e desenvolvimento responsivo','Backend seguro, banco de dados e autenticação','Fluxos de IA e integrações','Implantação, monitoramento e suporte'],
+    hi:['UX/UI और रेस्पॉन्सिव विकास','सुरक्षित बैकएंड, डेटाबेस और प्रमाणीकरण','एआई वर्कफ़्लो और इंटीग्रेशन','तैनाती, निगरानी और सहायता'],
+    ja:['UX/UI・レスポンシブ実装','安全なバックエンド、DB、認証','AIフロー・外部連携','導入、監視、継続サポート'],
+  }
+  const displayedProjectDelivery = localizedDelivery[language] || projectDelivery
   const projectContactHref = `/contact?template=${encodeURIComponent(template.id)}&service=end-to-end-delivery`
   const paypalPaymentUrl = process.env.NEXT_PUBLIC_PAYPAL_PAYMENT_URL
   const paymentOptions = [

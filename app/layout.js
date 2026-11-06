@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
         url: siteUrl,
         name: 'Themezyo',
         description: 'Full-stack application development with practical AI integration, deployment, and ongoing support.',
-        inLanguage: ['en', 'fr', 'ar', 'de'],
+        inLanguage: ['en', 'fr', 'ar', 'de', 'es', 'pt', 'hi', 'ja'],
         publisher: {
           '@id': `${siteUrl}/#organization`,
         },
@@ -114,6 +114,21 @@ export default function RootLayout({ children }) {
               t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "xpjp8h1zya");
+          `}
+        </Script>
+        <Script id="tawk-live-chat" strategy="afterInteractive">
+          {`
+            window.Tawk_API = window.Tawk_API || {};
+            window.Tawk_LoadStart = new Date();
+            (function () {
+              var s1 = document.createElement('script');
+              var s0 = document.getElementsByTagName('script')[0];
+              s1.async = true;
+              s1.src = 'https://embed.tawk.to/6aec8c639da81c3c2dd115be/1k6m08psb';
+              s1.charset = 'UTF-8';
+              s1.setAttribute('crossorigin', '*');
+              s0.parentNode.insertBefore(s1, s0);
+            })();
           `}
         </Script>
         <script

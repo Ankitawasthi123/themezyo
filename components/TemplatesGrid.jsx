@@ -30,7 +30,7 @@ export default function TemplatesGrid(){
                   {template.thumbnail ? (
                     <img
                       src={template.thumbnail}
-                      alt={`${template.title} screenshot`}
+                      alt={`${template.title} ${t('accessibility.solutionPreview')}`}
                       loading="lazy"
                       decoding="async"
                       className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
