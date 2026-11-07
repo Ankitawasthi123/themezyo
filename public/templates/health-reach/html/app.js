@@ -1,0 +1,1 @@
+document.querySelector('[data-menu]')?.addEventListener('click',()=>document.querySelector('[data-links]')?.classList.toggle('open'));document.querySelectorAll('[data-form]').forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();form.querySelector('.notice')?.classList.add('show');form.reset()}));window.lucide?.createIcons();
