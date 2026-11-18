@@ -11,6 +11,15 @@ import { templates } from '../data/templates'
 
 const analyticsTimeout = 600
 
+function formatUtcOffset(date) {
+  const totalMinutes = -date.getTimezoneOffset()
+  const sign = totalMinutes >= 0 ? '+' : '-'
+  const hours = String(Math.floor(Math.abs(totalMinutes) / 60)).padStart(2, '0')
+  const minutes = String(Math.abs(totalMinutes) % 60).padStart(2, '0')
+
+  return `${sign}${hours}:${minutes}`
+}
+
 function sendAnalyticsEvent(eventName, params = {}, callback) {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
     callback?.()
@@ -600,6 +609,7 @@ function createDetailSections(template, options) {
 export default function TemplateDetailContent({ template }) {
   const { language, languages, setLanguage, t } = useI18n()
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
+  const [locationOptOut, setLocationOptOut] = useState(false)
   const localizedSolutionCopy = getLocalizedSolutionCopy(template, language)
   const summary = localizedSolutionCopy.description
   const layoutType = localizedSolutionCopy.layoutType
@@ -676,20 +686,28 @@ export default function TemplateDetailContent({ template }) {
   }
 
   const handleDownloadClick = (event) => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) {
-      sendAnalyticsEvent('template_download', {
-        template_id: template.id,
-        template_name: template.title,
-        template_category: template.category,
-      })
-      return
-    }
-
     event.preventDefault()
+
+    if (event.button !== 0) return
+
     setIsDownloadModalOpen(true)
   }
 
-  const handleConfirmDownload = () => {
+  const handleConfirmDownload = (event) => {
+    event.preventDefault()
+    const regionalParams = new URLSearchParams()
+
+    if (locationOptOut) {
+      regionalParams.set('regional_opt_out', '1')
+    } else {
+      const now = new Date()
+      regionalParams.set('time_zone', Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unavailable')
+      regionalParams.set('utc_offset', formatUtcOffset(now))
+      regionalParams.set('browser_locale', navigator.language || 'Unavailable')
+      regionalParams.set('local_time', now.toLocaleString())
+    }
+
+    const downloadUrl = `${downloadHref}?${regionalParams.toString()}`
     closeDownloadModal()
 
     sendAnalyticsEvent(
@@ -700,7 +718,7 @@ export default function TemplateDetailContent({ template }) {
         template_category: template.category,
       },
       () => {
-        window.location.href = downloadHref
+        window.location.href = downloadUrl
       }
     )
   }
@@ -1025,9 +1043,25 @@ export default function TemplateDetailContent({ template }) {
             <h2 id="download-modal-title" className="mt-5 text-2xl font-extrabold text-slate-800">{t('detail.downloadModalTitle')}</h2>
             <p className="mt-3 text-sm leading-6 text-gray-600">{t('detail.downloadModalText')}</p>
 
-            <button type="button" onClick={handleConfirmDownload} className="mt-6 w-full rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 font-bold text-white shadow-sm transition hover:shadow-md">
-              {t('detail.downloadModalButton')}
-            </button>
+            <form onSubmit={handleConfirmDownload} className="mt-6 text-left">
+              <div className="rounded-lg border border-blue-100 bg-blue-50 p-3">
+                <p className="text-xs leading-5 text-blue-950">
+                  We include your device time zone, UTC offset, browser locale, and local download time with this download. These settings may suggest a region but do not reveal precise location. You can opt out below.
+                </p>
+                <label className="mt-3 flex cursor-pointer items-start gap-2 text-xs font-semibold leading-5 text-slate-700">
+                  <input
+                    type="checkbox"
+                    checked={locationOptOut}
+                    onChange={(event) => setLocationOptOut(event.target.checked)}
+                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  />
+                  Do not include my device regional settings
+                </label>
+              </div>
+              <button type="submit" className="mt-4 w-full rounded-lg bg-gradient-to-r from-blue-600 to-sky-500 px-6 py-3 text-center font-bold text-white shadow-sm transition hover:shadow-md">
+                {t('detail.downloadModalButton')}
+              </button>
+            </form>
 
             <div className="mt-5 rounded-lg border border-gray-200 bg-gray-50 p-4 text-left">
               <h3 className="text-sm font-bold text-slate-800">{t('detail.supportUsTitle')}</h3>

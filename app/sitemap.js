@@ -10,7 +10,7 @@ function parseTemplateUpdatedDate(updated) {
 }
 
 export default function sitemap() {
-  const staticRoutes = ['', '/services', '/templates', '/categories', '/about', '/contact', '/help', '/privacy', '/terms', '/llms.txt']
+  const staticRoutes = ['', '/services', '/templates', '/categories', '/about', '/contact', '/help', '/privacy', '/terms', '/refund', '/cookies', '/disclaimer', '/llms.txt']
 
   return [
     ...staticRoutes.map((route) => ({

@@ -122,6 +122,9 @@ export default function Footer(){
                 <li><Link href="/contact" className="transition hover:text-blue-600">{t('nav.contact')}</Link></li>
                 <li><Link href="/privacy" className="transition hover:text-blue-600">{t('footer.privacy')}</Link></li>
                 <li><Link href="/terms" className="transition hover:text-blue-600">{t('footer.terms')}</Link></li>
+                <li><Link href="/refund" className="transition hover:text-blue-600">{t('footer.refund', 'Refund Policy')}</Link></li>
+                <li><Link href="/cookies" className="transition hover:text-blue-600">{t('footer.cookies', 'Cookie Policy')}</Link></li>
+                <li><Link href="/disclaimer" className="transition hover:text-blue-600">{t('footer.disclaimer', 'Disclaimer')}</Link></li>
               </ul>
             </div>
           </div>
