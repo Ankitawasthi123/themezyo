@@ -144,6 +144,12 @@ export async function GET(request, { params }) {
     return new Response('Template not found', { status: 404 })
   }
 
+  const city = cleanValue(request.nextUrl.searchParams.get('city'))
+
+  if (!city) {
+    return new Response('City is required', { status: 400 })
+  }
+
   const fallbackFileName = `${template.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html`
   const zipPath = template.zipPath ? path.join(process.cwd(), 'public', template.zipPath.replace(/^\/+/, '')) : null
   const zipFileName = template.zipPath ? path.basename(template.zipPath) : null
@@ -160,6 +166,7 @@ export async function GET(request, { params }) {
         Category: template.category,
         Format: template.format || 'HTML',
         Price: template.price,
+        City: city,
         'Download file': fileName,
         'Time zone': regionalDetails.timeZone,
         'UTC offset': regionalDetails.utcOffset,

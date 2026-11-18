@@ -610,6 +610,7 @@ export default function TemplateDetailContent({ template }) {
   const { language, languages, setLanguage, t } = useI18n()
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const [locationOptOut, setLocationOptOut] = useState(false)
+  const [city, setCity] = useState('')
   const localizedSolutionCopy = getLocalizedSolutionCopy(template, language)
   const summary = localizedSolutionCopy.description
   const layoutType = localizedSolutionCopy.layoutType
@@ -696,6 +697,11 @@ export default function TemplateDetailContent({ template }) {
   const handleConfirmDownload = (event) => {
     event.preventDefault()
     const regionalParams = new URLSearchParams()
+    const submittedCity = city.trim()
+
+    if (!submittedCity) return
+
+    regionalParams.set('city', submittedCity)
 
     if (locationOptOut) {
       regionalParams.set('regional_opt_out', '1')
@@ -1044,7 +1050,25 @@ export default function TemplateDetailContent({ template }) {
             <p className="mt-3 text-sm leading-6 text-gray-600">{t('detail.downloadModalText')}</p>
 
             <form onSubmit={handleConfirmDownload} className="mt-6 text-left">
-              <div className="rounded-lg border border-blue-100 bg-blue-50 p-3">
+              <label htmlFor="download-city" className="block text-sm font-bold text-slate-800">
+                Enter your city to download
+              </label>
+              <input
+                id="download-city"
+                name="city"
+                type="text"
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
+                required
+                maxLength={120}
+                autoComplete="address-level2"
+                placeholder="e.g. Mumbai"
+                className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-sm text-slate-800 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+              <p className="mt-2 text-xs leading-5 text-gray-500">
+                We use this information to understand where our templates are useful.
+              </p>
+              <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50 p-3">
                 <p className="text-xs leading-5 text-blue-950">
                   We include your device time zone, UTC offset, browser locale, and local download time with this download. These settings may suggest a region but do not reveal precise location. You can opt out below.
                 </p>
