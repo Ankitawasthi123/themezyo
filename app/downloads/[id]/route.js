@@ -7,62 +7,6 @@ function cleanValue(value) {
   return value?.trim().slice(0, 120) || null
 }
 
-function getUtcOffsetForTimeZone(timeZone, date) {
-  if (!timeZone) return null
-
-  try {
-    const offsetName = new Intl.DateTimeFormat('en-US', {
-      timeZone,
-      timeZoneName: 'longOffset',
-    }).formatToParts(date).find((part) => part.type === 'timeZoneName')?.value
-
-    if (offsetName === 'GMT') return '+00:00'
-
-    const match = offsetName?.match(/^GMT([+-])(\d{2}):(\d{2})$/)
-    return match ? `${match[1]}${match[2]}:${match[3]}` : null
-  } catch {
-    return null
-  }
-}
-
-function getRegionalDetails(request, downloadedAt) {
-  if (request.nextUrl.searchParams.get('regional_opt_out') === '1') {
-    return {
-      timeZone: 'Declined by visitor',
-      utcOffset: 'Declined by visitor',
-      browserLocale: 'Declined by visitor',
-      localTime: 'Declined by visitor',
-    }
-  }
-
-  const readParam = (name) => cleanValue(request.nextUrl.searchParams.get(name))
-  const forwardedTimeZone = cleanValue(
-    request.headers.get('x-vercel-ip-timezone') || request.headers.get('cf-timezone')
-  )
-  const timeZone = readParam('time_zone') || forwardedTimeZone
-  const browserLocale = readParam('browser_locale') || cleanValue(request.headers.get('accept-language')?.split(',')[0])
-  let localTime = readParam('local_time')
-
-  if (!localTime && timeZone) {
-    try {
-      localTime = new Intl.DateTimeFormat(browserLocale || 'en-US', {
-        dateStyle: 'medium',
-        timeStyle: 'long',
-        timeZone,
-      }).format(downloadedAt)
-    } catch {
-      localTime = null
-    }
-  }
-
-  return {
-    timeZone: timeZone || 'Unavailable',
-    utcOffset: readParam('utc_offset') || getUtcOffsetForTimeZone(timeZone, downloadedAt) || 'Unavailable',
-    browserLocale: browserLocale || 'Unavailable',
-    localTime: localTime || 'Unavailable',
-  }
-}
-
 function createTemplateFile(template) {
   return `<!doctype html>
 <html lang="en">
@@ -155,7 +99,6 @@ export async function GET(request, { params }) {
   const zipFileName = template.zipPath ? path.basename(template.zipPath) : null
   const fileName = zipFileName || fallbackFileName
   const downloadedAt = new Date()
-  const regionalDetails = getRegionalDetails(request, downloadedAt)
   try {
     await sendApiNotification({
       subject: `${template.title} template downloaded`,
@@ -168,10 +111,6 @@ export async function GET(request, { params }) {
         Price: template.price,
         City: city,
         'Download file': fileName,
-        'Time zone': regionalDetails.timeZone,
-        'UTC offset': regionalDetails.utcOffset,
-        'Browser locale': regionalDetails.browserLocale,
-        'Local download time': regionalDetails.localTime,
         'Downloaded at': downloadedAt.toISOString(),
       },
     })
